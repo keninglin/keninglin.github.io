@@ -7,12 +7,6 @@ body {
     padding: 0;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
 header {
     background: #2563eb;
     color: #fff;
@@ -111,6 +105,74 @@ form button:hover {
     background: #1e40af;
 }
 
+/* ========== 索引選單與頁面專用樣式 ========== */
+.index-menu {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #0d6efd;
+}
+.index-menu a {
+    transition: all 0.2s ease;
+    padding: 2px 0;
+    display: inline-block;
+}
+.index-menu a:hover {
+    color: #0d6efd !important;
+    transform: translateX(5px);
+}
+.index-menu h5 {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 8px;
+    margin-bottom: 15px !important;
+}
+.index-menu .ps-3 {
+    border-left: 2px dotted rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+}
+.index-menu .badge.bg-outline-primary {
+    background-color: transparent !important;
+    border: 1px solid #0d6efd !important;
+}
+.index-menu .badge.bg-outline-success {
+    background-color: transparent !important;
+    border: 1px solid #198754 !important;
+}
+.index-menu .badge.bg-outline-info {
+    background-color: transparent !important;
+    border: 1px solid #0dcaf0 !important;
+}
+.index-menu .badge.bg-outline-secondary {
+    background-color: transparent !important;
+    border: 1px solid #6c757d !important;
+}
+
+/* 浮動回到頂部按鈕 */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+}
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    background: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+/* 響應式設計 - 多重斷點（補充 index-menu、back-to-top） */
 @media (max-width: 600px) {
     .container, main {
         padding: 10px;
@@ -124,4 +186,71 @@ form button:hover {
         flex-direction: column;
         gap: 8px;
     }
+    .index-menu {
+        font-size: 0.95rem;
+    }
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+@media (max-width: 480px) {
+    .index-menu {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===================== 列印模式 A4 設定 ===================== */
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    /* 避免頁面內容超出A4 */
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  body, .container, main {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 15mm 10mm 15mm 10mm;
+  }
+  header, footer, nav, .navbar {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  table, pre, blockquote {
+    page-break-inside: avoid;
+  }
+  /* 強制分頁的 class，可在 HTML 加上 class="page-break" */
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+  /* 隱藏不需要列印的元素 */
+  nav, .navbar, .no-print {
+    display: none !important;
+  }
+  /* 避免連結顯示網址 */
+  a[href]:after {
+    content: "" !important;
+  }
 }
