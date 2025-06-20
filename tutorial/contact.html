@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡表單</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">網站教學</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="week1.html">第1週</a></li>
+                    <li><a href="week2.html">第2週</a></li>
+                    <li><a href="week3.html">第3週</a></li>
+                    <li><a href="practice.html">練習區</a></li>
+                    <li><a href="resources.html">資源下載</a></li>
+                    <li><a href="contact.html">聯絡表單</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="contact">
+            <h1>聯絡表單</h1>
+            <form id="contactForm">
+                <label for="name">姓名：</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email：</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">問題描述：</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <button type="submit">送出</button>
+            </form>
+            <div id="formResult" style="display:none; color:green; margin-top:10px;">感謝您的提問！我們會盡快回覆。</div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 網站教學課程</p>
+        </div>
+    </footer>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('formResult').style.display = 'block';
+        this.reset();
+    });
+    </script>
+</body>
+</html>

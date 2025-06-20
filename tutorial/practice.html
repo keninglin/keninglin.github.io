@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動練習區</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">網站教學</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="week1.html">第1週</a></li>
+                    <li><a href="week2.html">第2週</a></li>
+                    <li><a href="week3.html">第3週</a></li>
+                    <li><a href="practice.html">練習區</a></li>
+                    <li><a href="resources.html">資源下載</a></li>
+                    <li><a href="contact.html">聯絡表單</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="practice">
+            <h1>互動練習區</h1>
+            <h2>HTML 練習</h2>
+            <p>請寫出一個包含姓名欄位與送出按鈕的表單：</p>
+            <pre><code>&lt;form&gt;
+  &lt;label&gt;姓名：&lt;input type="text" name="name"&gt;&lt;/label&gt;
+  &lt;input type="submit" value="送出"&gt;
+&lt;/form&gt;
+</code></pre>
+            <h2>CSS 練習</h2>
+            <p>請為下方區塊加上邊框與內距：</p>
+            <pre><code>div {
+  border: 1px solid #333;
+  padding: 10px;
+}
+</code></pre>
+            <h2>JavaScript 練習</h2>
+            <p>請寫一個按鈕，點擊後數字會加一：</p>
+            <pre><code>&lt;button onclick="add()"&gt;加一&lt;/button&gt;
+&lt;span id="result"&gt;0&lt;/span&gt;
+&lt;script&gt;
+let count = 0;
+function add() {
+  count++;
+  document.getElementById('result').textContent = count;
+}
+&lt;/script&gt;
+</code></pre>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 網站教學課程</p>
+        </div>
+    </footer>
+</body>
+</html>

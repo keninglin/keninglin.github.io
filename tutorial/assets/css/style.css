@@ -1,0 +1,127 @@
+/* 網站教學課程自訂樣式 */
+body {
+    font-family: 'Segoe UI', 'Microsoft JhengHei', Arial, sans-serif;
+    background: #f7f9fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: #2563eb;
+    color: #fff;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+.nav-links a:hover {
+    color: #ffe066;
+}
+
+main {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 32px 24px;
+}
+
+h1, h2, h3 {
+    color: #2563eb;
+}
+
+footer {
+    background: #e5e7eb;
+    color: #333;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 0.95em;
+    border-top: 1px solid #d1d5db;
+}
+
+table.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+table.schedule-table th, table.schedule-table td {
+    border: 1px solid #bcd0ee;
+    padding: 8px 12px;
+    text-align: left;
+}
+table.schedule-table th {
+    background: #e0e7ff;
+}
+
+pre {
+    background: #f3f4f6;
+    border-radius: 4px;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+form input, form textarea, form button {
+    font-size: 1em;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    border: 1px solid #bcd0ee;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+form button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+form button:hover {
+    background: #1e40af;
+}
+
+@media (max-width: 600px) {
+    .container, main {
+        padding: 10px;
+    }
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
