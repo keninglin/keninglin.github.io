@@ -1516,6 +1516,24 @@
                 </ul>
             </div>
 
+            <!-- 實作範例：問券表單（HTML 基礎版） -->
+            <li class="list-group-item" id="form-example-html">
+                <strong><i class="fa-solid fa-clipboard-question me-2 text-success"></i>問券表單實作（HTML 基礎）</strong><br>
+                <span>本章最後，我們將動手建立一個最基礎的問券表單，後續章節會逐步擴充功能與美化。</span>
+                <div class="alert alert-success mt-3 mb-3">
+                    <h6><i class="fas fa-code me-1 text-success"></i> 實作練習</h6>
+                    <p class="small mb-2">點擊下方按鈕可以在 CodePen 中測試這個最基礎的問券表單：</p>
+                    <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                        <input type="hidden" name="data" value='{"title":"HTML 問券表單基礎版","html":"<form action=\"/submit\" method=\"post\">\n  <label for=\"name\">姓名：</label>\n  <input type=\"text\" id=\"name\" name=\"name\" required>\n  <br><br>\n  <label for=\"email\">電子郵件：</label>\n  <input type=\"email\" id=\"email\" name=\"email\">\n  <br><br>\n  <label for=\"feedback\">意見回饋：</label>\n  <textarea id=\"feedback\" name=\"feedback\" rows=\"4\"></textarea>\n  <br><br>\n  <button type=\"submit\">送出</button>\n</form>"}'>
+                        <button type="submit" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-clipboard-list me-1"></i>CodePen 問券表單（HTML 基礎）
+                        </button>
+                    </form>
+                </div>
+                <p class="small text-muted">下一章節將會用 CSS 美化這個表單，並逐步加入更多互動功能。</p>
+            </li>
+            <!-- 實作範例結束 -->
+
             <div class="page-break"></div>
             <!-- C. CSS基礎 -->
             <div class="mb-5" id="css-basics">
@@ -5946,7 +5964,25 @@ button, input, select, textarea {
                         }
                     </script>
 
+                    <!-- 實作範例：問券表單（CSS 美化版） -->
+                    <li class="list-group-item" id="form-example-css">
+                        <strong><i class="fa-solid fa-clipboard-question me-2 text-secondary"></i>問券表單實作（CSS 美化）</strong><br>
+                        <span>延續上一章的 HTML 問券表單，這裡我們加入 CSS 樣式，讓表單更美觀易用。</span>
+                        <div class="alert alert-info mt-3 mb-3">
+                            <h6><i class="fas fa-code me-1 text-secondary"></i> 實作練習</h6>
+                            <p class="small mb-2">點擊下方按鈕可以在 CodePen 中測試美化後的問券表單：</p>
+                            <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                <input type="hidden" name="data" value='{"title":"CSS 美化問券表單","html":"<form class=\"survey-form\" action=\"/submit\" method=\"post\">\n  <label for=\"name\">姓名：</label>\n  <input type=\"text\" id=\"name\" name=\"name\" required>\n  <br><br>\n  <label for=\"email\">電子郵件：</label>\n  <input type=\"email\" id=\"email\" name=\"email\">\n  <br><br>\n  <label for=\"feedback\">意見回饋：</label>\n  <textarea id=\"feedback\" name=\"feedback\" rows=\"4\"></textarea>\n  <br><br>\n  <button type=\"submit\">送出</button>\n</form>","css":".survey-form {\n  max-width: 400px;\n  margin: 0 auto;\n  padding: 24px 32px;\n  background: #f8fafc;\n  border-radius: 12px;\n  box-shadow: 0 4px 16px rgba(0,0,0,0.08);\n  font-family: \\\"Segoe UI\\\", Arial, sans-serif;\n}\n.survey-form label {\n  display: block;\n  margin-bottom: 6px;\n  font-weight: 600;\n  color: #2563eb;\n}\n.survey-form input, .survey-form textarea {\n  width: 100%;\n  padding: 8px 10px;\n  margin-bottom: 16px;\n  border: 1px solid #b6c2d9;\n  border-radius: 6px;\n  font-size: 1rem;\n  transition: border-color 0.2s;\n}\n.survey-form input:focus, .survey-form textarea:focus {\n  border-color: #2563eb;\n  outline: none;\n  background: #e0e7ff;\n}\n.survey-form button {\n  background: #2563eb;\n  color: #fff;\n  border: none;\n  padding: 10px 24px;\n  border-radius: 6px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.survey-form button:hover {\n  background: #1e40af;\n}"}'>
+                                <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-paint-brush me-1"></i>CodePen 問券表單（CSS 美化）
+                                </button>
+                            </form>
+                        </div>
+                        <p class="small text-muted">下一週將會用 JavaScript 增加互動驗證與提示。</p>
+                    </li>
+                    <!-- 實作範例結束 -->
                 </ul>
+                
             </div>
         </section>
     </main>
