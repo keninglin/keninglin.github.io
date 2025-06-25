@@ -1538,12 +1538,14 @@
             <!-- C. CSS基礎 -->
             <div class="mb-5" id="css-basics">
                 <h2 class="h4 mb-3"><i class="fa-solid fa-palette me-2 text-secondary"></i>C. CSS基礎</h2>
+                <p>CSS（Cascading Style Sheets）層疊樣式表：用來控制 HTML 元素的樣式（長什麼樣子），把「內容」與「表現」分開（HTML 管內容、CSS 管外觀）。</p>
                 <ul class="list-group list-group-flush mb-3">
                     <!-- C1. CSS 選擇器與語法結構 -->
                     <li class="list-group-item" id="css-selectors">
                         <strong><i class="fa-solid fa-mouse-pointer me-2 text-secondary"></i>C1. CSS
                             選擇器與語法結構</strong><br>
-                        <span>CSS 選擇器用來指定要套用樣式的 HTML 元素，是 CSS 的核心概念。</span>
+                        <p>CSS 選擇器（CSS Selector）是用來「選取 HTML 元素」，讓你可以針對這些元素套用樣式（Style）的語法工具。它就像是「告訴瀏覽器我要改哪個東西的外觀」。</p>
+                        <p></p>
 
                         <h6 class="mt-3 mb-2"><i class="fa-solid fa-code me-1 text-secondary"></i> CSS 基本語法結構</h6>
                         <div class="alert alert-light border mb-3">
@@ -1556,7 +1558,7 @@
                                     <ul class="small mb-0">
                                         <li><strong>選擇器：</strong>指定要套用樣式的 HTML 元素</li>
                                         <li><strong>大括號：</strong>包含所有的樣式規則</li>
-                                        <li><strong>屬性：</strong>要改變的樣式項目</li>
+                                        <li><strong>屬性 (property)：</strong>要改變的樣式項目</li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
@@ -1571,12 +1573,117 @@
 
                         <h6 class="mt-3 mb-2"><i class="fa-solid fa-crosshairs me-1 text-primary"></i> 常用 CSS 選擇器類型</h6>
 
+                        <!-- CSS 選擇器總覽表格 -->
+                        <div class="alert alert-light border mt-3 mb-4">
+                            <h6 class="text-center mb-3"><i class="fa-solid fa-table me-1 text-info"></i> CSS 選擇器總覽表</h6>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover mb-0">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th style="width: 15%;">分類</th>
+                                            <th style="width: 20%;">選擇器</th>
+                                            <th style="width: 25%;">語法範例</th>
+                                            <th style="width: 40%;">用途說明</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- 基本選擇器 -->
+                                        <tr>
+                                            <td rowspan="4" class="table-info"><strong>基本選擇器<br>(Basic Selectors)</strong></td>
+                                            <td>標籤選擇器<br><small class="text-muted">Element Selector</small></td>
+                                            <td><code>h1 { }</code></td>
+                                            <td>選取所有相同標籤的元素</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ID 選擇器<br><small class="text-muted">ID Selector</small></td>
+                                            <td><code>#header { }</code></td>
+                                            <td>選取特定 ID 的元素（唯一）</td>
+                                        </tr>
+                                        <tr>
+                                            <td>類別選擇器<br><small class="text-muted">Class Selector</small></td>
+                                            <td><code>.highlight { }</code></td>
+                                            <td>選取相同 class 的元素（可重複）</td>
+                                        </tr>
+                                        <tr>
+                                            <td>全選選擇器<br><small class="text-muted">Universal Selector</small></td>
+                                            <td><code>* { }</code></td>
+                                            <td>選取頁面中的所有元素</td>
+                                        </tr>
+                                        
+                                        <!-- 群組選擇器 -->
+                                        <tr>
+                                            <td class="table-primary"><strong>群組選擇器<br>(Grouping Selector)</strong></td>
+                                            <td>選擇器列表<br><small class="text-muted">Selector List</small></td>
+                                            <td><code>h1, h2, h3 { }</code></td>
+                                            <td>多個選擇器套用相同樣式</td>
+                                        </tr>
+                                        
+                                        <!-- 複合選擇器 -->
+                                        <tr>
+                                            <td class="table-secondary"><strong>複合選擇器<br>(Compound Selector)</strong></td>
+                                            <td>複合條件<br><small class="text-muted">Multiple Conditions</small></td>
+                                            <td><code>div.container { }</code></td>
+                                            <td>同時滿足多個條件的元素</td>
+                                        </tr>
+                                        
+                                        <!-- 進階選擇器 -->
+                                        <tr>
+                                            <td rowspan="5" class="table-success"><strong>進階選擇器<br>(Advanced Selectors)</strong></td>
+                                            <td>後代選擇器<br><small class="text-muted">Descendant Combinator</small></td>
+                                            <td><code>div p { }</code></td>
+                                            <td>選取某元素內部的所有特定元素</td>
+                                        </tr>
+                                        <tr>
+                                            <td>子元素選擇器<br><small class="text-muted">Child Combinator</small></td>
+                                            <td><code>ul > li { }</code></td>
+                                            <td>選取某元素的直接子元素</td>
+                                        </tr>
+                                        <tr>
+                                            <td>屬性選擇器<br><small class="text-muted">Attribute Selector</small></td>
+                                            <td><code>input[type="text"] { }</code></td>
+                                            <td>根據元素的屬性來選取</td>
+                                        </tr>
+                                        <tr>
+                                            <td>相鄰選擇器<br><small class="text-muted">Adjacent Sibling</small></td>
+                                            <td><code>h2 + p { }</code></td>
+                                            <td>選取緊接在某元素後的元素</td>
+                                        </tr>
+                                        <tr>
+                                            <td>一般兄弟選擇器<br><small class="text-muted">General Sibling</small></td>
+                                            <td><code>h2 ~ p { }</code></td>
+                                            <td>選取同層級某元素之後的所有兄弟元素</td>
+                                        </tr>
+                                        
+                                        <!-- 偽類選擇器 -->
+                                        <tr>
+                                            <td rowspan="2" class="table-warning"><strong>偽類選擇器<br>(Pseudo-classes)</strong></td>
+                                            <td>互動狀態<br><small class="text-muted">Interactive States</small></td>
+                                            <td><code>a:hover { }</code></td>
+                                            <td>選取特定互動狀態的元素</td>
+                                        </tr>
+                                        <tr>
+                                            <td>結構偽類<br><small class="text-muted">Structural Pseudo-classes</small></td>
+                                            <td><code>li:first-child { }</code></td>
+                                            <td>根據元素在文檔中的位置選取</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="alert alert-info alert-sm mt-3 mb-0">
+                                <small><i class="fas fa-info-circle me-1"></i><strong>閱讀提示：</strong>此表格提供所有選擇器的快速概覽，詳細說明和範例請參考下方各節內容。</small>
+                            </div>
+                        </div>
+
                         <!-- 基本選擇器 -->
                         <div class="alert alert-info mt-3">
                             <h6><i class="fa-solid fa-1 me-1"></i> 基本選擇器</h6>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="text-primary mb-2">🏷️ 標籤選擇器</h6>
+                                    <h6 class="text-primary mb-2">🏷️ 標籤選擇器 (Element Selector)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要統一設定「所有標題」或「所有段落」的基本樣式，例如設定網站的基礎字型、行高，或是重置瀏覽器預設樣式時。</small>
+                                    </div>
                                     <pre class="bg-white rounded p-2 small mb-2"><code>h1 {
     color: blue;
 }
@@ -1584,10 +1691,12 @@
 p {
     font-size: 16px;
 }</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取所有相同標籤的元素</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6 class="text-success mb-2">🆔 ID 選擇器</h6>
+                                    <h6 class="text-success mb-2">🆔 ID 選擇器 (ID Selector)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要設定「獨一無二」的特殊區域樣式，例如網站標頭、主要內容區、側邊欄等版面布局，或是需要用 JavaScript 操作的特定元素。</small>
+                                    </div>
                                     <pre class="bg-white rounded p-2 small mb-2"><code>#header {
     background-color: gray;
 }
@@ -1595,12 +1704,14 @@ p {
 #main-content {
     width: 80%;
 }</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取特定 ID 的元素（唯一）</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="text-warning mb-2">📋 類別選擇器</h6>
+                                    <h6 class="text-warning mb-2">📋 類別選擇器 (Class Selector)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要為「多個元素」套用相同樣式，例如重要文字加亮、按鈕樣式、卡片樣式等可重複使用的設計元件。最常用的選擇器！</small>
+                                    </div>
                                     <pre class="bg-white rounded p-2 small mb-2"><code>.highlight {
     background-color: yellow;
 }
@@ -1608,101 +1719,16 @@ p {
 .big-text {
     font-size: 24px;
 }</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取相同 class 的元素（可重複）</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6 class="text-info mb-2">🌐 全選選擇器</h6>
+                                    <h6 class="text-info mb-2">🌐 全選選擇器 (Universal Selector)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要「重置所有元素」的預設樣式（CSS Reset），或是為整個網站設定共同的基礎屬性，例如統一的盒模型或字型設定。</small>
+                                    </div>
                                     <pre class="bg-white rounded p-2 small mb-2"><code>* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取頁面中的所有元素</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 進階選擇器 -->
-                        <div class="alert alert-success mt-3">
-                            <h6><i class="fa-solid fa-2 me-1"></i> 進階選擇器</h6>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="text-primary mb-2">👥 後代選擇器</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>div p {
-    color: red;
-}
-
-.container a {
-    text-decoration: none;
-}</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取某元素內部的所有特定元素</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="text-success mb-2">👶 子元素選擇器</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>ul > li {
-    list-style: none;
-}
-
-.menu > a {
-    display: block;
-}</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取某元素的直接子元素</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="text-warning mb-2">🎯 屬性選擇器</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>input[type="text"] {
-    border: 1px solid blue;
-}
-
-a[href^="https"] {
-    color: green;
-}</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>根據元素的屬性來選取</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="text-info mb-2">🔗 相鄰選擇器</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>h2 + p {
-    margin-top: 0;
-}
-
-.button + .button {
-    margin-left: 10px;
-}</code></pre>
-                                    <p class="small mb-2"><strong>用途：</strong>選取緊接在某元素後的元素</p>
-                                </div>
-                            </div>
-                        </div> <!-- 偽類選擇器 -->
-                        <div class="alert alert-warning mt-3">
-                            <h6><i class="fa-solid fa-3 me-1"></i> 偽類選擇器</h6>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="text-primary mb-2">🖱️ 互動狀態</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>a:hover {
-    color: red;
-}
-
-button:active {
-    background-color: darkblue;
-}
-
-input:focus {
-    border-color: blue;
-}</code></pre>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="text-success mb-2">🔢 結構偽類</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>li:first-child {
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: #f0f0f0;
-}
-
-p:last-child {
-    margin-bottom: 0;
 }</code></pre>
                                 </div>
                             </div>
@@ -1710,8 +1736,11 @@ p:last-child {
 
                         <!-- 群組選擇器 -->
                         <div class="alert alert-primary mt-3">
-                            <h6><i class="fa-solid fa-4 me-1"></i> 群組選擇器（逗號分隔）</h6>
+                            <h6><i class="fa-solid fa-2 me-1"></i> 群組選擇器 (Grouping Selector)</h6>
                             <p class="small mb-3">當多個選擇器需要套用相同的樣式時，可以用逗號分隔，避免重複寫 CSS 規則：</p>
+                            <div class="alert alert-light alert-sm mb-3">
+                                <small><strong>🎯 使用場景：</strong>想要讓「多個不同的選擇器」套用相同樣式時，例如所有標題的字型設定、表單元素的共同樣式、重置多個元素的預設樣式等，避免程式碼重複。</small>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h6 class="text-danger mb-2">❌ 重複寫法</h6>
@@ -1796,77 +1825,218 @@ h1, h2, h3, h4, h5, h6, .heading {
                             </div>
                         </div>
 
-                        <!-- 實際範例展示 -->
-                        <h6 class="mt-3 mb-2"><i class="fa-solid fa-eye me-1 text-success"></i> 選擇器實際應用範例</h6>
-                        <div class="alert alert-light border mb-3">
-                            <h6 class="text-center mb-3"><i class="fa-solid fa-eye me-1 text-info"></i> 實際顯示效果：</h6>
+                        <!-- 複合選擇器 -->
+                        <div class="alert alert-secondary mt-3">
+                            <h6><i class="fa-solid fa-3 me-1"></i> 複合選擇器 (Compound Selector)</h6>
+                            <p class="small mb-3">複合選擇器將多個選擇器無空格連接，用來選取同時滿足多個條件的元素：</p>
+                            <div class="alert alert-light alert-sm mb-3">
+                                <small><strong>🎯 使用場景：</strong>想要選取「同時符合多個條件」的元素，例如特定類別的按鈕、必填的文字輸入框、處於活躍狀態的導航項目等，提供更精確的選取控制。</small>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-success mb-2">🎯 基本複合選擇器</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>div.container {
+    max-width: 1200px;
+}
 
-                            <!-- 示範用的 HTML 結構 -->
-                            <div class="bg-white p-3 rounded border" style="font-family: Arial, sans-serif;">
-                                <h3 style="color: #2563eb; margin-bottom: 15px;">文章標題</h3>
-                                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 10px;">這是一個段落文字，展示<span
-                                        style="background-color: #fef3c7; padding: 2px 4px;">類別選擇器</span>的效果。</p>
-                                <div
-                                    style="background-color: #f3f4f6; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                                    <p style="margin: 0; color: #dc2626;">這個段落在 div 容器內，展示後代選擇器的效果。</p>
+input[type="text"].required {
+    border: 2px solid red;
+}
+
+p.highlight#intro {
+    font-weight: bold;
+    color: #2563eb;
+}</code></pre>
                                 </div>
-                                <ul style="list-style: none; padding: 0;">
-                                    <li style="padding: 8px 0; font-weight: bold; border-bottom: 1px solid #e5e7eb;">
-                                        第一個列表項目（first-child）</li>
-                                    <li style="padding: 8px 0; background-color: #f0f0f0;">第二個列表項目（nth-child(even)）</li>
-                                    <li style="padding: 8px 0;">第三個列表項目</li>
-                                    <li style="padding: 8px 0; background-color: #f0f0f0;">第四個列表項目（nth-child(even)）</li>
+                                <div class="col-md-6">
+                                    <h6 class="text-info mb-2">🔄 進階複合選擇器</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>a.button:hover {
+    background-color: blue;
+}
+
+input[type="email"]:focus.valid {
+    border-color: green;
+}
+
+.card.featured:nth-child(odd) {
+    background-color: #f0f9ff;
+}</code></pre>
+                                    <p class="small mb-2"><strong>用途：</strong>結合偽類與其他選擇器的複合條件</p>
+                                </div>
+                            </div>
+
+                            <h6 class="mt-3 mb-2 text-warning">⚠️ 複合選擇器重要規則</h6>
+                            <div class="alert alert-warning alert-sm">
+                                <ul class="small mb-0">
+                                    <li><strong>無空格連接：</strong>選擇器之間不能有空格，有空格就變成後代選擇器</li>
+                                    <li><strong>元素選擇器在前：</strong>如果包含元素選擇器，必須放在最前面</li>
+                                    <li><strong>順序重要：</strong><code>div.class</code> ✅ 正確，<code>.class div</code> ❌ 錯誤</li>
+                                    <li><strong>ID 和 Class：</strong>可以同時使用多個類別或一個 ID</li>
                                 </ul>
-                                <button
-                                    style="background-color: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px;"
-                                    onmouseover="this.style.backgroundColor='#1d4ed8'"
-                                    onmouseout="this.style.backgroundColor='#2563eb'">
-                                    懸停看效果
-                                </button>
+                            </div>
+
+                            <h6 class="mt-3 mb-2 text-success">🎯 實用複合範例</h6>
+                            <pre class="bg-white rounded p-2 small"><code>/* 表單驗證狀態 */
+input.form-control.is-valid {
+    border-color: #28a745;
+}
+
+input.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+/* 按鈕變化 */
+button.btn.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* 卡片狀態 */
+.card.shadow.active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* 導航項目 */
+.nav-item.active a.nav-link {
+    color: #007bff;
+    font-weight: bold;
+}</code></pre>
+
+                            <div class="alert alert-info alert-sm mt-2 mb-0">
+                                <small><i class="fas fa-lightbulb me-1"></i><strong>使用技巧：</strong>複合選擇器提供精確的元素選取，但要注意不要過度複雜化，保持程式碼的可讀性。</small>
                             </div>
                         </div>
 
-                        <h6 class="mb-2"><i class="fa-solid fa-code me-1 text-secondary"></i> 對應的 CSS 程式碼：</h6>
-                        <pre class="bg-light rounded p-3 small"><code>/* 標籤選擇器 */
-h3 {
-    color: #2563eb;
-    margin-bottom: 15px;
+                        <!-- 進階選擇器 -->
+                        <div class="alert alert-success mt-3">
+                            <h6><i class="fa-solid fa-4 me-1"></i> 進階選擇器 (Advanced Selectors)</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-primary mb-2">👥 後代選擇器 (Descendant Combinator)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要設定「容器內的所有特定元素」，例如側邊欄內的所有連結、文章區域內的所有段落，不管層級多深都會被選到。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>div p {
+    color: red;
 }
 
-p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.container a {
+    text-decoration: none;
+}</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-success mb-2">👶 子元素選擇器 (Child Combinator)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要精確控制「只有第一層子元素」的樣式，例如主選單的直接選項、卡片的直接標題，避免影響到更深層的嵌套元素。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>ul > li {
+    list-style: none;
 }
 
-/* 類別選擇器 */
-.highlight {
-    background-color: #fef3c7;
-    padding: 2px 4px;
+.menu > a {
+    display: block;
+}</code></pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-warning mb-2">🎯 屬性選擇器 (Attribute Selector)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要根據「元素的功能特性」來設定樣式，例如不同類型的輸入框、外部連結、必填欄位等，比用 class 更精確更語意化。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>input[type="text"] {
+    border: 1px solid blue;
 }
 
-/* 後代選擇器 */
-div p {
-    color: #dc2626;
+a[href^="https"] {
+    color: green;
+}</code></pre>
+                                </div>                                <div class="col-md-6">
+                                    <h6 class="text-info mb-2">🔗 相鄰選擇器 (Adjacent Sibling Combinator)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要調整「緊鄰元素之間」的關係，例如標題後的第一個段落、連續按鈕間的間距、相鄰表單欄位的邊距等。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>h2 + p {
+    margin-top: 0;
 }
 
-/* 偽類選擇器 */
-li:first-child {
+.button + .button {
+    margin-left: 10px;
+}</code></pre>
+                                </div>
+                                                    </div>
+                                                    <div class="row mt-3">                                <div class="col-md-6">
+                                    <h6 class="text-secondary mb-2">🔗 一般兄弟選擇器 (General Sibling Combinator)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要影響「某元素後面所有相同類型」的兄弟元素，例如標題後的所有段落、特定區塊後的所有內容區域等。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>h2 ~ p {
+    color: #666;
+    margin-left: 20px;
+}
+
+.header ~ .content {
+    margin-top: 30px;
+}</code></pre>
+                                </div>
+                                                        <div class="col-md-6">
+                                                            <h6 class="text-dark mb-2">📊 兄弟選擇器比較</h6>
+                                                            <div class="bg-light p-2 rounded">
+                                                                <div class="small mb-1"><strong>相鄰兄弟 (+)：</strong>只選取緊接著的下一個</div>
+                                                                <div class="small"><strong>一般兄弟 (~)：</strong>選取後面所有符合的兄弟</div>
+                                                            </div>
+                                                            <pre class="bg-white rounded p-2 small mb-2 mt-2"><code>/* 只影響緊接著的 p */
+h2 + p { color: red; }
+
+/* 影響後面所有的 p */
+h2 ~ p { color: blue; }</code></pre>
+                                                        </div>
+                                                    </div>
+                                                </div>                        <!-- 偽類選擇器 -->
+                        <div class="alert alert-warning mt-3">
+                            <h6><i class="fa-solid fa-5 me-1"></i> 偽類選擇器 (Pseudo-class Selectors)</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-primary mb-2">🖱️ 互動狀態 (Interactive States)</h6>
+                                    <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要為使用者的「互動行為」提供視覺回饋，例如滑鼠懸停效果、按鈕點擊狀態、輸入框聚焦提示等，提升使用體驗。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>a:hover {
+    color: red;
+}
+
+button:active {
+    background-color: darkblue;
+}
+
+input:focus {
+    border-color: blue;
+}</code></pre>                    
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-success mb-2">🔢 結構偽類 (Structural Pseudo-classes)</h6>
+                                        <div class="alert alert-light alert-sm mb-2">
+                                        <small><strong>🎯 使用場景：</strong>想要根據「元素在結構中的位置」來設定樣式，例如第一個項目加粗、表格斑馬條紋、最後一段去除底邊距等。</small>
+                                    </div>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>li:first-child {
     font-weight: bold;
-    border-bottom: 1px solid #e5e7eb;
 }
 
-li:nth-child(even) {
+tr:nth-child(even) {
     background-color: #f0f0f0;
 }
 
-button:hover {
-    background-color: #1d4ed8;
+p:last-child {
+    margin-bottom: 0;
 }</code></pre>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- 選擇器優先權簡介 -->
                         <div class="alert alert-secondary mt-3">
-                            <h6><i class="fa-solid fa-balance-scale me-1"></i> 選擇器優先權 </h6>
+                            <h6><i class="fa-solid fa-balance-scale me-1"></i> 選擇器優先權 (CSS Specificity)</h6>
                             <p class="small mb-2">當多個選擇器作用於同一元素時，瀏覽器會依據以下優先順序決定樣式：</p>
                             <div class="alert alert-info mb-3">
                                                     <strong>CSS 優先權（Specificity）規則：</strong>
