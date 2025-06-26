@@ -2646,16 +2646,18 @@ div.article {
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="small mb-2">
-                                            <li>掌握顏色、文字、背景等基本屬性</li>
-                                            <li>學會尺寸、間距的精確控制</li>
-                                            <li>運用邊框、陰影增強視覺效果</li>
+                                            <li>掌握顏色設定：文字顏色、背景色、透明度</li>
+                                            <li>學會文字樣式：字型、大小、粗細、對齊</li>
+                                            <li>理解字型尺寸單位：px、em、rem 的差異</li>
+                                            <li>控制元素尺寸：寬度、高度、最大最小值</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
                                         <ul class="small mb-2">
-                                            <li>理解不同單位的使用場景</li>
-                                            <li>建立一致的設計系統</li>
-                                            <li>優化使用者體驗和可讀性</li>
+                                            <li>基本間距設定：外邊距、內邊距概念</li>
+                                            <li>邊框裝飾應用：邊框樣式、圓角效果</li>
+                                            <li>顯示控制方法：隱藏、透明、顯示模式</li>
+                                            <li>建立美觀實用的基礎樣式系統</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -2664,11 +2666,151 @@ div.article {
                         
                         <p class="mt-3">了解 CSS 最常用的屬性，包括文字、顏色、尺寸等基本樣式設定。</p>
 
-                        <h6 class="mt-3 mb-2"><i class="fa-solid fa-palette me-1 text-primary"></i> 顏色相關屬性</h6>
+                        <!-- 常用屬性總覽表格 -->
+                        <div class="border border-primary rounded p-4 mb-4">
+                            <h6 class="text-primary mb-3">
+                                <i class="fa-solid fa-table me-2"></i>CSS 常用屬性速查表
+                            </h6>
+                            <p class="text-muted small mb-3">
+                                以下是本章節將詳細介紹的核心屬性，建議先瀏覽了解整體架構，再深入學習各個類別。
+                            </p>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th width="20%">屬性類別</th>
+                                            <th width="25%">主要屬性</th>
+                                            <th width="30%">功能說明</th>
+                                            <th width="25%">常用值範例</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- 顏色相關 -->
+                                        <tr class="table-primary">
+                                            <td rowspan="3" class="align-middle"><strong>🎨 顏色外觀</strong></td>
+                                            <td><code>color</code></td>
+                                            <td>設定文字顏色</td>
+                                            <td><code>red</code>, <code>#3b82f6</code>, <code>rgb(255,0,0)</code></td>
+                                        </tr>
+                                        <tr class="table-primary">
+                                            <td><code>background-color</code></td>
+                                            <td>設定背景顏色</td>
+                                            <td><code>white</code>, <code>#f8f9fa</code>, <code>transparent</code></td>
+                                        </tr>
+                                        <tr class="table-primary">
+                                            <td><code>opacity</code></td>
+                                            <td>設定透明度</td>
+                                            <td><code>1</code> (不透明), <code>0.5</code> (半透明), <code>0</code> (全透明)</td>
+                                        </tr>
+
+                                        <!-- 文字相關 -->
+                                        <tr class="table-success">
+                                            <td rowspan="6" class="align-middle"><strong>📝 文字樣式</strong></td>
+                                            <td><code>font-family</code></td>
+                                            <td>設定字體</td>
+                                            <td><code>Arial</code>, <code>"Times New Roman"</code>, <code>serif</code></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><code>font-size</code></td>
+                                            <td>設定文字大小</td>
+                                            <td><code>16px</code>, <code>14px</code>, <code>24px</code></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><code>font-weight</code></td>
+                                            <td>設定文字粗細</td>
+                                            <td><code>normal</code>, <code>bold</code>, <code>300</code>, <code>700</code></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><code>line-height</code></td>
+                                            <td>設定行高</td>
+                                            <td><code>1.5</code>, <code>1.25</code>, <code>2</code></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><code>text-align</code></td>
+                                            <td>設定文字對齊</td>
+                                            <td><code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><code>text-decoration</code></td>
+                                            <td>設定文字裝飾</td>
+                                            <td><code>none</code>, <code>underline</code>, <code>line-through</code></td>
+                                        </tr>
+
+                                        <!-- 尺寸相關 -->
+                                        <tr class="table-warning">
+                                            <td rowspan="4" class="align-middle"><strong>📏 尺寸控制</strong></td>
+                                            <td><code>width</code></td>
+                                            <td>設定寬度</td>
+                                            <td><code>100px</code>, <code>50%</code>, <code>100vh</code></td>
+                                        </tr>
+                                        <tr class="table-warning">
+                                            <td><code>height</code></td>
+                                            <td>設定高度</td>
+                                            <td><code>100px</code>, <code>100vh</code></td>
+                                        </tr>
+                                        <tr class="table-warning">
+                                            <td><code>max-width</code></td>
+                                            <td>設定最大寬度</td>
+                                            <td><code>384px</code>, <code>768px</code></td>
+                                        </tr>
+                                        <tr class="table-warning">
+                                            <td><code>min-height</code></td>
+                                            <td>設定最小高度</td>
+                                            <td><code>100vh</code></td>
+                                        </tr>
+
+                                        <!-- 間距相關（基本） -->
+                                        <tr class="table-info">
+                                            <td rowspan="2" class="align-middle"><strong>📐 間距佈局<br><small>(基本介紹)</small></strong></td>
+                                            <td><code>margin</code></td>
+                                            <td>設定外邊距</td>
+                                            <td><code>16px</code>, <code>auto</code>, <code>12px</code></td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <td><code>padding</code></td>
+                                            <td>設定內邊距</td>
+                                            <td><code>8px</code>, <code>16px</code>, <code>8px 16px</code></td>
+                                        </tr>
+
+                                        <!-- 邊框相關（基本） -->
+                                        <tr class="table-secondary">
+                                            <td rowspan="2" class="align-middle"><strong>🔲 邊框裝飾<br><small>(基本介紹)</small></strong></td>
+                                            <td><code>border</code></td>
+                                            <td>設定邊框</td>
+                                            <td><code>1px solid #d1d5db</code>, <code>2px solid red</code></td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td><code>border-radius</code></td>
+                                            <td>設定圓角</td>
+                                            <td><code>4px</code>, <code>8px</code>, <code>50%</code></td>
+                                        </tr>
+
+                                        <!-- 顯示與可見性 -->
+                                        <tr class="table-light">
+                                            <td rowspan="3" class="align-middle"><strong>�️ 顯示控制</strong></td>
+                                            <td><code>display</code></td>
+                                            <td>設定顯示模式</td>
+                                            <td><code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code></td>
+                                        </tr>
+                                        <tr class="table-light">
+                                            <td><code>visibility</code></td>
+                                            <td>設定可見性</td>
+                                            <td><code>visible</code>, <code>hidden</code></td>
+                                        </tr>
+                                        <tr class="table-light">
+                                            <td><code>opacity</code></td>
+                                            <td>設定透明度（重複）</td>
+                                            <td><small class="text-muted">已在顏色類別中列出</small></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         
                         <!-- 顏色設定 -->
                         <div class="alert alert-info mt-3">
-                            <h6><i class="fa-solid fa-paint-brush me-1"></i> 文字與背景顏色</h6>
+                            <h6><i class="fa-solid fa-paint-brush me-1"></i> 🎨 顏色外觀</h6>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h6 class="text-primary mb-2">📝 文字顏色 (color)</h6>
@@ -2713,24 +2855,18 @@ div.article {
 
                         <!-- 文字相關屬性 -->
                         <div class="alert alert-primary mt-3">
-                            <h6><i class="fa-solid fa-font me-1"></i> 文字相關屬性</h6>
+                            <h6><i class="fa-solid fa-font me-1"></i>文字樣式</h6>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="text-info mb-2">🔤 字型設定</h6>
+                                    <h6 class="text-info mb-2">🔤 字型與大小設定</h6>
                                     <pre class="bg-white rounded p-2 small mb-2"><code>/* 字型家族 */
-.font-sans {
-    font-family: Arial, sans-serif;
-}
+.font-sans { font-family: Arial, sans-serif; }
+.font-serif { font-family: "Times New Roman", serif; }
 
-.font-serif {
-    font-family: "Times New Roman", serif;
-}
-
-/* 字型大小 */
-.text-sm { font-size: 14px; }
-.text-base { font-size: 16px; }
-.text-lg { font-size: 18px; }
-.text-xl { font-size: 24px; }
+/* 字型大小 - 不同單位 */
+.text-px { font-size: 16px; }      /* 固定像素 */
+.text-em { font-size: 1.2em; }     /* 相對父元素 */
+.text-rem { font-size: 1.5rem; }   /* 相對根元素 */
 
 /* 字型粗細 */
 .font-light { font-weight: 300; }
@@ -2738,66 +2874,283 @@ div.article {
 .font-bold { font-weight: 700; }</code></pre>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6 class="text-warning mb-2">📐 文字對齊與行高</h6>
+                                    <h6 class="text-warning mb-2">📐 對齊與行高控制</h6>
                                     <pre class="bg-white rounded p-2 small mb-2"><code>/* 文字對齊 */
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
-.text-justify { text-align: justify; }
 
-/* 行高 */
-.leading-tight { line-height: 1.25; }
-.leading-normal { line-height: 1.5; }
-.leading-loose { line-height: 2; }
+/* 行高設定 */
+.line-tight { line-height: 1.25; }
+.line-normal { line-height: 1.5; }
+.line-loose { line-height: 2; }
 
 /* 文字裝飾 */
 .underline { text-decoration: underline; }
-.line-through { text-decoration: line-through; }
-.no-underline { text-decoration: none; }</code></pre>
+.no-decoration { text-decoration: none; }</code></pre>
                                 </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h6 class="text-success mb-2">📏 字型尺寸單位比較</h6>
+                                    <div class="bg-light p-3 rounded">
+                                        <div class="row text-center">
+                                            <div class="col-md-4">
+                                                <h6 class="small">px (像素)</h6>
+                                                <div style="font-size: 16px; padding: 8px; background: white; border-radius: 4px; border: 1px solid #ddd;">
+                                                    16px 固定大小
+                                                </div>
+                                                <small class="text-muted">絕對單位，不會縮放</small>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="small">em (相對父元素)</h6>
+                                                <div style="font-size: 16px;">
+                                                    <div style="font-size: 1.2em; padding: 8px; background: white; border-radius: 4px; border: 1px solid #ddd;">
+                                                        1.2em 相對大小
+                                                    </div>
+                                                </div>
+                                                <small class="text-muted">相對於父元素字體</small>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="small">rem (相對根元素)</h6>
+                                                <div style="font-size: 1.1rem; padding: 8px; background: white; border-radius: 4px; border: 1px solid #ddd;">
+                                                    1.1rem 根元素相對
+                                                </div>
+                                                <small class="text-muted">相對於 html 根字體</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h6 class="text-info mb-2">🎨 文字樣式效果展示</h6>
+                                    <div class="bg-white p-3 rounded border">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p style="font-family: Arial, sans-serif; font-size: 16px; font-weight: 300; text-align: left; margin: 5px 0;">
+                                                    細體文字 (font-weight: 300)
+                                                </p>
+                                                <p style="font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; text-align: center; margin: 5px 0;">
+                                                    粗體置中 (font-weight: 700)
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-family: 'Times New Roman', serif; font-size: 16px; text-decoration: underline; text-align: right; margin: 5px 0;">
+                                                    襯線字體加底線
+                                                </p>
+                                                <p style="font-family: Arial, sans-serif; font-size: 14px; line-height: 2; margin: 5px 0;">
+                                                    較大行高讓文字更易讀
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-light mt-3">
+                                <h6 class="text-primary mb-2">💡 字型尺寸選擇建議</h6>
+                                <ul class="small mb-0">
+                                    <li><strong>px</strong> - 需要精確控制時使用，如邊框、間距</li>
+                                    <li><strong>em</strong> - 需要相對於父元素縮放時使用</li>
+                                    <li><strong>rem</strong> - 建議用於字體大小，便於統一管理</li>
+                                    <li><strong>行高建議</strong> - 一般文字使用 1.4-1.6 之間較易讀</li>
+                                </ul>
                             </div>
                         </div>
 
                         <!-- 尺寸相關屬性 -->
                         <div class="alert alert-warning mt-3">
-                            <h6><i class="fa-solid fa-rulers me-1"></i> 尺寸相關屬性</h6>
+                            <h6>📏 尺寸控制</h6>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="text-success mb-2">📏 寬度與高度</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 固定尺寸 */
-.w-100 { width: 100px; }
-.h-100 { height: 100px; }
+                                    <h6 class="text-primary mb-2">� 基本尺寸設定</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 寬度設定 */
+.box-small { width: 100px; }
+.box-half { width: 50%; }
+.box-full { width: 100%; }
+.box-viewport { width: 100vw; }
 
-/* 百分比尺寸 */
-.w-half { width: 50%; }
-.w-full { width: 100%; }
-.h-screen { height: 100vh; }
-
-/* 最大/最小尺寸 */
-.max-w-sm { max-width: 384px; }
-.max-w-md { max-width: 768px; }
-.min-h-screen { min-height: 100vh; }</code></pre>
+/* 高度設定 */
+.height-fixed { height: 100px; }
+.height-screen { height: 100vh; }</code></pre>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6 class="text-danger mb-2">📦 邊距與內距（基本介紹）</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 內距 (padding) */
-.p-2 { padding: 8px; }
-.px-4 { padding-left: 16px; padding-right: 16px; }
-.py-2 { padding-top: 8px; padding-bottom: 8px; }
+                                    <h6 class="text-success mb-2">📏 最大/最小尺寸限制</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 最大寬度限制 */
+.max-width-sm { max-width: 384px; }
+.max-width-md { max-width: 768px; }
+.max-width-lg { max-width: 1024px; }
 
-/* 外距 (margin) */
-.m-4 { margin: 16px; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.mt-3 { margin-top: 12px; }
-
-/* 注意：詳細的盒模型將在 C5 章節說明 */</code></pre>
+/* 最小高度設定 */
+.min-height-100 { min-height: 100px; }
+.min-height-screen { min-height: 100vh; }</code></pre>
                                 </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h6 class="text-info mb-2">� 尺寸單位比較與視覺展示</h6>
+                                    <div class="bg-light p-3 rounded">
+                                        <div class="row text-center">
+                                            <div class="col-md-3">
+                                                <h6 class="small">固定尺寸 (px)</h6>
+                                                <div style="width: 100px; height: 60px; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; border-radius: 4px; font-size: 12px;">
+                                                    100px
+                                                </div>
+                                                <small class="text-muted">固定大小</small>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="small">百分比 (%)</h6>
+                                                <div style="width: 80%; height: 60px; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; border-radius: 4px; font-size: 12px;">
+                                                    80%
+                                                </div>
+                                                <small class="text-muted">相對於父元素</small>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="small">視窗單位 (vh)</h6>
+                                                <div style="width: 100px; height: 40px; background: #f59e0b; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; border-radius: 4px; font-size: 12px;">
+                                                    4vh
+                                                </div>
+                                                <small class="text-muted">相對於視窗</small>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="small">最大寬度限制</h6>
+                                                <div style="max-width: 80px; width: 100%; height: 60px; background: #ef4444; color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto; border-radius: 4px; font-size: 12px;">
+                                                    max-width
+                                                </div>
+                                                <small class="text-muted">受限制的寬度</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-light mt-3">
+                                <h6 class="text-warning mb-2">💡 尺寸設定技巧</h6>
+                                <ul class="small mb-0">
+                                    <li><strong>width/height</strong> - 設定元素的基本寬度和高度</li>
+                                    <li><strong>max-width</strong> - 防止元素過寬，常用於響應式設計</li>
+                                    <li><strong>min-height</strong> - 確保元素最小高度，常用於版面佈局</li>
+                                    <li><strong>單位選擇</strong> - px(固定)、%(相對)、vh/vw(視窗相對)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 間距佈局（基本介紹） -->
+                        <div class="alert alert-info mt-3">
+                            <h6><i class="fa-solid fa-expand-arrows-alt me-1"></i>間距佈局（基本介紹）</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-primary mb-2">📐 外邊距 (margin)</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 外邊距基本設定 */
+.margin-all { margin: 20px; }        /* 四邊相同 */
+.margin-vh { margin: 10px 20px; }    /* 上下10px 左右20px */
+.margin-auto { margin: 0 auto; }     /* 水平置中 */
+
+/* 個別方向設定 */
+.margin-top { margin-top: 15px; }
+.margin-right { margin-right: 10px; }
+.margin-bottom { margin-bottom: 15px; }
+.margin-left { margin-left: 10px; }</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-success mb-2">📦 內邊距 (padding)</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 內邊距基本設定 */
+.padding-all { padding: 15px; }      /* 四邊相同 */
+.padding-vh { padding: 10px 20px; }  /* 上下10px 左右20px */
+
+/* 個別方向設定 */
+.padding-top { padding-top: 12px; }
+.padding-right { padding-right: 8px; }
+.padding-bottom { padding-bottom: 12px; }
+.padding-left { padding-left: 8px; }</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-warning mt-3">
+                                <h6 class="text-warning mb-2">⚠️ 重要提醒</h6>
+                                <p class="small mb-2">
+                                    這裡只介紹 margin 和 padding 的基本使用方法。完整的盒模型概念、計算規則、以及 margin 合併等進階主題，
+                                    將在 <strong>C5 盒模型</strong> 章節中詳細說明。建議先掌握基本用法，再深入學習盒模型理論。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 邊框與圓角（基本介紹） -->
+                        <div class="alert alert-success mt-3">
+                            <h6><i class="fa-solid fa-square me-1"></i>邊框裝飾（基本介紹）</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-primary mb-2">⬜ 基本邊框</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 邊框基本設定 */
+.border { border: 1px solid #d1d5db; }
+.border-2 { border: 2px solid #374151; }
+.border-red { border: 1px solid #ef4444; }
+
+/* 不同邊框樣式 */
+.border-solid { border: 2px solid #007bff; }
+.border-dashed { border: 2px dashed #28a745; }
+.border-dotted { border: 2px dotted #ffc107; }
+
+/* 單邊邊框 */
+.border-top { border-top: 1px solid #007bff; }
+.border-bottom { border-bottom: 2px solid #dc3545; }</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-success mb-2">🔘 圓角設定</h6>
+                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 圓角基本設定 */
+.rounded { border-radius: 4px; }
+.rounded-lg { border-radius: 8px; }
+.rounded-xl { border-radius: 12px; }
+.rounded-full { border-radius: 50%; }
+
+/* 個別角設定 */
+.rounded-top { 
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px; 
+}
+
+/* 不同圓角大小 */
+.rounded-sm { border-radius: 2px; }
+.rounded-2xl { border-radius: 16px; }</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h6 class="text-info mb-2">🎨 邊框與圓角效果展示</h6>
+                                    <div class="d-flex flex-wrap gap-3 justify-content-center">
+                                        <div style="width: 100px; height: 60px; border: 2px solid #007bff; display: flex; align-items: center; justify-content: center; font-size: 12px;">
+                                            實線邊框
+                                        </div>
+                                        <div style="width: 100px; height: 60px; border: 2px dashed #28a745; display: flex; align-items: center; justify-content: center; font-size: 12px;">
+                                            虛線邊框
+                                        </div>
+                                        <div style="width: 100px; height: 60px; border: 2px solid #ffc107; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px;">
+                                            圓角邊框
+                                        </div>
+                                        <div style="width: 60px; height: 60px; border: 2px solid #dc3545; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">
+                                            圓形
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-light mt-3">
+                                <h6 class="text-success mb-2">🔗 更多邊框效果</h6>
+                                <p class="small mb-0">
+                                    <strong>📌 提示：</strong>更詳細的邊框效果、陰影、輪廓線等進階樣式，我們會在 <strong>C5 盒模型</strong> 章節中深入介紹。
+                                    這裡只介紹最基本的使用，幫助你快速上手基本的邊框與圓角設定。
+                                </p>
                             </div>
                         </div>
 
                         <!-- 顯示與可見性 -->
                         <div class="alert alert-secondary mt-3">
-                            <h6><i class="fa-solid fa-eye me-1"></i> 顯示與可見性屬性</h6>
+                            <h6><i class="fa-solid fa-eye me-1"></i> 👁️ 顯示控制</h6>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h6 class="text-info mb-2">👁️ 顯示控制</h6>
@@ -2822,55 +3175,63 @@ div.article {
    將在 C6 章節詳細說明 */</code></pre>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- 邊框與圓角（基本） -->
-                        <div class="alert alert-success mt-3">
-                            <h6><i class="fa-solid fa-square me-1"></i> 邊框與圓角（基本介紹）</h6>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="text-primary mb-2">⬜ 基本邊框</h6>
-                                    <pre class="bg-white rounded p-2 small mb-2"><code>/* 邊框基本設定 */
-.border { border: 1px solid #d1d5db; }
-.border-2 { border: 2px solid #374151; }
-.border-red { border: 1px solid #ef4444; }
-
-/* 圓角 */
-.rounded { border-radius: 4px; }
-.rounded-lg { border-radius: 8px; }
-.rounded-full { border-radius: 50%; }</code></pre>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="text-success mb-2">🔗 更多邊框效果</h6>
-                                    <div class="alert alert-light alert-sm">
-                                        <small><strong>📌 提示：</strong>更詳細的邊框效果、陰影、輪廓線等進階樣式，我們會在後續章節中深入介紹。這裡只介紹最基本的使用。</small>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h6 class="text-secondary mb-2">🔍 顯示控制效果對比</h6>
+                                    <div class="bg-light p-3 rounded">
+                                        <div class="row text-center">
+                                            <div class="col-md-3">
+                                                <h6 class="small">display: block</h6>
+                                                <div style="background: #007bff; color: white; padding: 8px; margin: 5px 0; border-radius: 4px;">
+                                                    區塊元素
+                                                </div>
+                                                <div style="background: #28a745; color: white; padding: 8px; margin: 5px 0; border-radius: 4px;">
+                                                    獨佔一行
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="small">display: inline</h6>
+                                                <div>
+                                                    <span style="background: #ffc107; padding: 4px 8px; margin: 2px; border-radius: 4px;">行內</span>
+                                                    <span style="background: #17a2b8; color: white; padding: 4px 8px; margin: 2px; border-radius: 4px;">元素</span>
+                                                    <span style="background: #dc3545; color: white; padding: 4px 8px; margin: 2px; border-radius: 4px;">並排</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="small">visibility: hidden</h6>
+                                                <div style="background: #6c757d; color: white; padding: 8px; margin: 5px 0; border-radius: 4px;">
+                                                    可見元素
+                                                </div>
+                                                <div style="background: #6c757d; color: white; padding: 8px; margin: 5px 0; border-radius: 4px; visibility: hidden;">
+                                                    隱藏但佔空間
+                                                </div>
+                                                <div style="background: #6c757d; color: white; padding: 8px; margin: 5px 0; border-radius: 4px;">
+                                                    可見元素
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="small">opacity: 0.5</h6>
+                                                <div style="background: #e83e8c; color: white; padding: 8px; margin: 5px 0; border-radius: 4px;">
+                                                    不透明
+                                                </div>
+                                                <div style="background: #e83e8c; color: white; padding: 8px; margin: 5px 0; border-radius: 4px; opacity: 0.5;">
+                                                    半透明
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- 實際示範 -->
-                        <div class="alert alert-light border mt-3 mb-3">
-                            <h6 class="text-center mb-3"><i class="fa-solid fa-eye me-1 text-info"></i> 常用屬性實際效果展示</h6>
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <div style="background-color: #dbeafe; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid #3b82f6;">
-                                        <h6 style="color: #1e40af; margin: 0; font-size: 18px; font-weight: bold;">藍色主題卡片</h6>
-                                        <p style="color: #1e3a8a; margin: 10px 0 0 0; font-size: 14px;">藍色背景、邊框、文字</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div style="background-color: #dcfce7; padding: 15px; border-radius: 12px; text-align: center; border: 2px solid #22c55e;">
-                                        <h6 style="color: #166534; margin: 0; font-size: 16px; font-weight: 300;">綠色輕量卡片</h6>
-                                        <p style="color: #15803d; margin: 10px 0 0 0; font-size: 14px; text-decoration: underline;">綠色系配色方案</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div style="background: linear-gradient(45deg, #fef3c7, #fed7aa); padding: 15px; border-radius: 50px; text-align: center; border: 3px dashed #f59e0b;">
-                                        <h6 style="color: #92400e; margin: 0; font-size: 20px; font-weight: 700;">漸層特效卡片</h6>
-                                        <p style="color: #b45309; margin: 10px 0 0 0; font-size: 12px; line-height: 1.8;">漸層背景 + 圓角邊框</p>
-                                    </div>
-                                </div>
+                            
+                            <div class="alert alert-info mt-3">
+                                <h6 class="text-info mb-2">💡 使用時機建議</h6>
+                                <ul class="small mb-0">
+                                    <li><strong>display: none</strong> - 完全隱藏元素，常用於條件顯示</li>
+                                    <li><strong>visibility: hidden</strong> - 隱藏但保留空間，適合切換顯示</li>
+                                    <li><strong>opacity</strong> - 透明度控制，常用於淡入淡出效果</li>
+                                    <li><strong>display: block/inline</strong> - 改變元素的顯示行為</li>
+                                </ul>
                             </div>
                         </div>
 
