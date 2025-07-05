@@ -8278,145 +8278,145 @@ button {
                             </div>
 
 
-                        <div class="border border-warning rounded p-4 mb-4">
-                                <h6 class="text-warning mb-3">
-                                    <i class="fa-solid fa-broom me-2"></i>清除浮動技術
-                                </h6>
-                                <p class="text-muted small mb-4">清除浮動是解決父容器高度塌陷問題的重要技術。當子元素浮動時，父容器可能無法正確包含它們，導致佈局問題。</p>
-                                
-                                <!-- 清除浮動應用示範 -->
-                                <div class="property-detail-section border rounded mb-4">
-                                    <!-- 注意事項與 CodePen -->
-                                    <div class="border-top p-3 bg-light">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="alert alert-info mb-0">
-                                                    <h6 class="text-info mb-2">🔍 清除浮動特性</h6>
-                                                    <ul class="small mb-0">
-                                                        <li><strong>高度塌陷問題：</strong>父容器無法包含浮動子元素</li>
-                                                        <li><strong>三種解決方法：</strong>clearfix、overflow、clear 元素</li>
-                                                        <li><strong>現代替代方案：</strong>建議使用 Flexbox 或 Grid</li>
-                                                    </ul>
+                            <div class="border border-warning rounded p-4 mb-4">
+                                    <h6 class="text-warning mb-3">
+                                        <i class="fa-solid fa-broom me-2"></i>清除浮動技術
+                                    </h6>
+                                    <p class="text-muted small mb-4">清除浮動是解決父容器高度塌陷問題的重要技術。當子元素浮動時，父容器可能無法正確包含它們，導致佈局問題。</p>
+                                    
+                                    <!-- 清除浮動應用示範 -->
+                                    <div class="property-detail-section border rounded mb-4">
+                                        <!-- 注意事項與 CodePen -->
+                                        <div class="border-top p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-info mb-0">
+                                                        <h6 class="text-info mb-2">🔍 清除浮動特性</h6>
+                                                        <ul class="small mb-0">
+                                                            <li><strong>高度塌陷問題：</strong>父容器無法包含浮動子元素</li>
+                                                            <li><strong>三種解決方法：</strong>clearfix、overflow、clear 元素</li>
+                                                            <li><strong>現代替代方案：</strong>建議使用 Flexbox 或 Grid</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 text-end">
+                                                    <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                        <input type="hidden" name="data" value="{&quot;title&quot;:&quot;清除浮動技術範例&quot;,&quot;html&quot;:&quot;&lt;!-- 問題：未清除浮動 --&gt;\n&lt;div class=\&quot;container-problem\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- 解決：使用 clearfix --&gt;\n&lt;div class=\&quot;container-fixed clearfix\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- 或者使用 clear 元素 --&gt;\n&lt;div class=\&quot;container-fixed\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n  &lt;div class=\&quot;clear\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;&quot;,&quot;css&quot;:&quot;/* 浮動元素 */\n.float-item {\n  float: left;\n  width: 100px;\n  height: 60px;\n  background: #3b82f6;\n  margin-right: 10px;\n  border-radius: 4px;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n}\n\n/* 問題容器（高度塌陷）*/\n.container-problem {\n  border: 2px solid #ef4444;\n  background: #fef2f2;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n\n.container-problem::before {\n  content: \&quot;❌ 未清除浮動（高度塌陷）\&quot;;\n  display: block;\n  font-size: 12px;\n  color: #dc2626;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n\n/* 方法1：現代 clearfix 技術 */\n.clearfix::after {\n  content: \&quot;\&quot;;\n  display: block;\n  clear: both;\n}\n\n/* 方法2：overflow 方法 */\n.container-fixed {\n  overflow: hidden;\n  border: 2px solid #10b981;\n  background: #f0fdf4;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n\n.container-fixed::before {\n  content: \&quot;✅ 已清除浮動（正確包含）\&quot;;\n  display: block;\n  font-size: 12px;\n  color: #166534;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n\n/* 方法3：clear 元素 */\n.clear {\n  clear: both;\n}&quot;}">
+                                                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                            <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                            在 CodePen 中練習
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 text-end">
-                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
-                                                    <input type="hidden" name="data" value="{&quot;title&quot;:&quot;清除浮動技術範例&quot;,&quot;html&quot;:&quot;&lt;!-- 問題：未清除浮動 --&gt;\n&lt;div class=\&quot;container-problem\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- 解決：使用 clearfix --&gt;\n&lt;div class=\&quot;container-fixed clearfix\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- 或者使用 clear 元素 --&gt;\n&lt;div class=\&quot;container-fixed\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n  &lt;div class=\&quot;clear\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;&quot;,&quot;css&quot;:&quot;/* 浮動元素 */\n.float-item {\n  float: left;\n  width: 100px;\n  height: 60px;\n  background: #3b82f6;\n  margin-right: 10px;\n  border-radius: 4px;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n}\n\n/* 問題容器（高度塌陷）*/\n.container-problem {\n  border: 2px solid #ef4444;\n  background: #fef2f2;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n\n.container-problem::before {\n  content: \&quot;❌ 未清除浮動（高度塌陷）\&quot;;\n  display: block;\n  font-size: 12px;\n  color: #dc2626;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n\n/* 方法1：現代 clearfix 技術 */\n.clearfix::after {\n  content: \&quot;\&quot;;\n  display: block;\n  clear: both;\n}\n\n/* 方法2：overflow 方法 */\n.container-fixed {\n  overflow: hidden;\n  border: 2px solid #10b981;\n  background: #f0fdf4;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n\n.container-fixed::before {\n  content: \&quot;✅ 已清除浮動（正確包含）\&quot;;\n  display: block;\n  font-size: 12px;\n  color: #166534;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n\n/* 方法3：clear 元素 */\n.clear {\n  clear: both;\n}&quot;}">
-                                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
-                                                        <i class="fa-solid fa-external-link-alt me-1"></i>
-                                                        在 CodePen 中練習
-                                                    </button>
-                                                </form>
+                                        </div>
+                                        
+                                        <div class="row g-0">
+                                            <!-- 效果展示欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 bg-white h-100">
+                                                    <h6 class="text-primary mb-3 text-center">
+                                                        <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                    </h6>
+                                                    <div class="effect-demo text-center mb-3">
+                                                        <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                            <!-- 沒有清除浮動的容器 -->
+                                                            <div style="border: 2px solid #ef4444; border-radius: 4px; margin-bottom: 15px; background: #fef2f2; padding: 10px;">
+                                                                <div style="font-size: 10px; color: #dc2626; font-weight: bold; margin-bottom: 8px;">❌ 未清除浮動（高度塌陷）</div>
+                                                                <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
+                                                                <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
+                                                            </div>
+                                                            <!-- 正確清除浮動的容器 -->
+                                                            <div style="border: 2px solid #10b981; border-radius: 4px; background: #f0fdf4; padding: 10px; overflow: hidden;">
+                                                                <div style="font-size: 10px; color: #166534; font-weight: bold; margin-bottom: 8px;">✅ 已清除浮動（正確包含）</div>
+                                                                <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
+                                                                <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
+                                                            </div>
+                                                        </div>
+                                                        <small class="text-muted">比較清除浮動前後的差異</small>
+                                                    </div>
+                                                    <!-- 應用場景已移至區塊底部 -->
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- HTML 程式碼欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-warning mb-3 text-center">
+                                                        <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <div class="code-container"><button class="copy-button" title="複製程式碼"><i class="fa-solid fa-copy"></i>複製</button><pre class="small bg-light text-dark p-3 rounded"><code>&lt;!-- 問題：未清除浮動 --&gt;
+    &lt;div class="container-problem"&gt;
+    &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
+    &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 解決：使用 clearfix --&gt;
+    &lt;div class="container-fixed clearfix"&gt;
+    &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
+    &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 或者使用 clear 元素 --&gt;
+    &lt;div class="container-fixed"&gt;
+    &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
+    &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
+    &lt;div class="clear"&gt;&lt;/div&gt;
+    &lt;/div&gt;</code></pre></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="col-md-4">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-info mb-3 text-center">
+                                                    <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                </h6>
+                                                <div class="code-example">
+                                                    <div class="code-container"><button class="copy-button" title="複製程式碼"><i class="fa-solid fa-copy"></i>複製</button><pre class="small bg-light text-dark p-3 rounded"><code>/* 浮動元素 */
+    .float-item {
+    float: left;
+    width: 100px;
+    height: 60px;
+    background: #3b82f6;
+    margin-right: 10px;
+    border-radius: 4px;
+    }
+
+    /* 問題容器（高度塌陷）*/
+    .container-problem {
+    border: 2px solid #ef4444;
+    background: #fef2f2;
+    padding: 10px;
+    }
+
+    /* 方法1：現代 clearfix 技術 */
+    .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    }
+
+    /* 方法2：overflow 方法 */
+    .container-fixed {
+    overflow: hidden;
+    border: 2px solid #10b981;
+    background: #f0fdf4;
+    padding: 10px;
+    }
+
+    /* 方法3：clear 元素 */
+    .clear {
+    clear: both;
+    }</code></pre></div>
+                                                </div>
+                                                <!-- 最佳實踐已移至區塊底部 -->
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="row g-0">
-                                        <!-- 效果展示欄 -->
-                                        <div class="col-md-4 border-end">
-                                            <div class="p-3 bg-white h-100">
-                                                <h6 class="text-primary mb-3 text-center">
-                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
-                                                </h6>
-                                                <div class="effect-demo text-center mb-3">
-                                                    <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                        <!-- 沒有清除浮動的容器 -->
-                                                        <div style="border: 2px solid #ef4444; border-radius: 4px; margin-bottom: 15px; background: #fef2f2; padding: 10px;">
-                                                            <div style="font-size: 10px; color: #dc2626; font-weight: bold; margin-bottom: 8px;">❌ 未清除浮動（高度塌陷）</div>
-                                                            <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
-                                                            <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
-                                                        </div>
-                                                        <!-- 正確清除浮動的容器 -->
-                                                        <div style="border: 2px solid #10b981; border-radius: 4px; background: #f0fdf4; padding: 10px; overflow: hidden;">
-                                                            <div style="font-size: 10px; color: #166534; font-weight: bold; margin-bottom: 8px;">✅ 已清除浮動（正確包含）</div>
-                                                            <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
-                                                            <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
-                                                        </div>
-                                                    </div>
-                                                    <small class="text-muted">比較清除浮動前後的差異</small>
-                                                </div>
-                                                <!-- 應用場景已移至區塊底部 -->
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- HTML 程式碼欄 -->
-                                        <div class="col-md-4 border-end">
-                                            <div class="p-3 h-100">
-                                                <h6 class="text-warning mb-3 text-center">
-                                                    <i class="fa-brands fa-html5 me-2"></i>HTML 結構
-                                                </h6>
-                                                <div class="code-example">
-                                                    <div class="code-container"><button class="copy-button" title="複製程式碼"><i class="fa-solid fa-copy"></i>複製</button><pre class="small bg-light text-dark p-3 rounded"><code>&lt;!-- 問題：未清除浮動 --&gt;
-&lt;div class="container-problem"&gt;
-  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
-  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 解決：使用 clearfix --&gt;
-&lt;div class="container-fixed clearfix"&gt;
-  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
-  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 或者使用 clear 元素 --&gt;
-&lt;div class="container-fixed"&gt;
-  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
-  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
-  &lt;div class="clear"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <div class="col-md-4">
-                                        <div class="p-3 h-100">
-                                            <h6 class="text-info mb-3 text-center">
-                                                <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
-                                            </h6>
-                                            <div class="code-example">
-                                                <div class="code-container"><button class="copy-button" title="複製程式碼"><i class="fa-solid fa-copy"></i>複製</button><pre class="small bg-light text-dark p-3 rounded"><code>/* 浮動元素 */
-.float-item {
-  float: left;
-  width: 100px;
-  height: 60px;
-  background: #3b82f6;
-  margin-right: 10px;
-  border-radius: 4px;
-}
-
-/* 問題容器（高度塌陷）*/
-.container-problem {
-  border: 2px solid #ef4444;
-  background: #fef2f2;
-  padding: 10px;
-}
-
-/* 方法1：現代 clearfix 技術 */
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* 方法2：overflow 方法 */
-.container-fixed {
-  overflow: hidden;
-  border: 2px solid #10b981;
-  background: #f0fdf4;
-  padding: 10px;
-}
-
-/* 方法3：clear 元素 */
-.clear {
-  clear: both;
-}</code></pre></div>
-                                            </div>
-                                            <!-- 最佳實踐已移至區塊底部 -->
-                                        </div>
-                                    </div>
                                 </div>
-                                
                             </div>
-                        </div>
     
                         <!-- 6.5 現代佈局方法預覽 -->
                         <h6 class="mt-4 mb-2 fw-bold">6.5 現代佈局方法預覽</h6>
@@ -8437,9 +8437,9 @@ button {
                             </div>
                         </div>
 
-                        <!-- 6.6.1 Flexbox 彈性盒模型簡介 -->
+                        <!-- 6.5.1 Flexbox 彈性盒模型簡介 -->
                         <div class="subsection border-start border-3 border-success ps-3 mb-4">
-                            <h6 class="fw-bold text-success mb-3">6.6.1 Flexbox 彈性盒模型簡介</h6>
+                            <h6 class="fw-bold text-success mb-3">6.5.1 Flexbox 彈性盒模型簡介</h6>
                             
                             <!-- 核心概念 -->
                             <div class="concept-box bg-success-subtle p-3 rounded mb-3">
@@ -9268,9 +9268,9 @@ button {
 
                         </div>
 
-                        <!-- 6.6.2 CSS Grid 網格佈局簡介 -->
+                        <!-- 6.5.2 CSS Grid 網格佈局簡介 -->
                         <div class="subsection border-start border-3 border-info ps-3 mb-4">
-                            <h6 class="fw-bold text-info mb-3">6.6.2 CSS Grid 網格佈局簡介</h6>
+                            <h6 class="fw-bold text-info mb-3">6.5.2 CSS Grid 網格佈局簡介</h6>
                             
                             <!-- 核心概念 -->
                             <div class="concept-box bg-info-subtle p-3 rounded mb-3">
@@ -10092,9 +10092,9 @@ button {
                             </div>
                         </div>
 
-                        <!-- 6.6.3 選擇合適佈局方法的建議 -->
+                        <!-- 6.5.3 選擇合適佈局方法的建議 -->
                         <div class="subsection border-start border-3 border-danger ps-3 mb-4">
-                            <h6 class="fw-bold text-danger mb-3">6.6.3 選擇合適佈局方法的建議</h6>
+                            <h6 class="fw-bold text-danger mb-3">6.5.3 選擇合適佈局方法的建議</h6>
                             
                             <!-- 決策流程圖 -->
                             <div class="decision-flow bg-danger-subtle p-3 rounded mb-3">
