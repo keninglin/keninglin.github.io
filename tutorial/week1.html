@@ -8515,49 +8515,94 @@ button {
                                 <p class="text-muted small mb-4">flex-direction 決定主軸方向，影響子元素的排列順序和對齊軸線。了解各方向的特性是掌握 Flexbox 的關鍵。</p>
                                 
                                 <!-- 1. 水平排列 (row) -->
-                                <div class="mb-5">
-                                    <h6 class="text-secondary mb-3">
-                                        <i class="fa-solid fa-circle-1 me-2" style="color: #0ea5e9;"></i>水平排列 (flex-direction: row)
+                                <div class="border border-success rounded p-4 mb-4">
+                                    <h6 class="text-success mb-3">
+                                        <i class="fa-solid fa-arrows-left-right me-2"></i>水平排列 (flex-direction: row)
                                     </h6>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="result-display">
-                                                <div class="result-header">實際效果</div>
-                                                <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                    <!-- 主軸標示 -->
-                                                    <div style="position: relative; margin-bottom: 10px;">
-                                                        <div style="display: flex; gap: 10px; padding: 15px; background: white; border: 2px solid #059669; border-radius: 6px; align-items: center;">
-                                                            <div style="background: #3b82f6; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
-                                                            <div style="background: #10b981; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
-                                                            <div style="background: #f59e0b; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
-                                                            <div style="background: #ef4444; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
-                                                        </div>
-                                                        <!-- 主軸箭頭 -->
-                                                        <div style="position: absolute; top: -8px; left: 15px; right: 15px; height: 2px; background: #dc3545;"></div>
-                                                        <div style="position: absolute; top: -15px; right: 10px; color: #dc3545; font-size: 10px; font-weight: bold;">主軸 →</div>
-                                                        <!-- 交叉軸箭頭 -->
-                                                        <div style="position: absolute; left: -8px; top: 15px; bottom: 15px; width: 2px; background: #0d6efd;"></div>
-                                                        <div style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: #0d6efd; font-size: 10px; font-weight: bold;">交叉軸</div>
+                                    <p class="text-muted small mb-4">Row 是 Flexbox 的預設排列方向，元素從左到右水平排列。主軸為水平方向，交叉軸為垂直方向，常用於導航選單、按鈕群組等水平佈局。</p>
+                                    
+                                    <!-- 水平排列應用示範 -->
+                                    <div class="property-detail-section border rounded mb-4">
+                                        <!-- 注意事項與 CodePen -->
+                                        <div class="border-top p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-info mb-0">
+                                                        <h6 class="text-info mb-2">🔍 Row 方向特性</h6>
+                                                        <ul class="small mb-0">
+                                                            <li><strong>主軸方向：</strong>水平（左 → 右）</li>
+                                                            <li><strong>交叉軸方向：</strong>垂直（上 ↓ 下）</li>
+                                                            <li><strong>對齊控制：</strong>justify-content 控制水平，align-items 控制垂直</li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                                <small class="text-muted">預設排列：從左到右</small>
+                                                <div class="col-md-4 text-end">
+                                                    <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                        <input type="hidden" name="data" value='{"title":"Flexbox 水平排列範例","html":"<div class=\"flex-row-container\">\n  <div class=\"flex-item item-1\">A</div>\n  <div class=\"flex-item item-2\">B</div>\n  <div class=\"flex-item item-3\">C</div>\n  <div class=\"flex-item item-4\">D</div>\n</div>\n\n<div class=\"info-section\">\n  <h3>水平排列特性</h3>\n  <ul>\n    <li>主軸：水平方向（左→右）</li>\n    <li>交叉軸：垂直方向（上↓下）</li>\n    <li>預設不換行，元素在一行內排列</li>\n    <li>適合導航選單、按鈕群組等</li>\n  </ul>\n</div>","css":"/* Flexbox 水平排列容器 */\n.flex-row-container {\n  display: flex;\n  flex-direction: row;      /* 預設值，可省略 */\n  gap: 10px;\n  padding: 20px;\n  border: 2px solid #059669;\n  border-radius: 8px;\n  background: white;\n  margin-bottom: 30px;\n}\n\n/* 子元素基本樣式 */\n.flex-item {\n  padding: 15px 20px;\n  color: white;\n  border-radius: 6px;\n  font-weight: bold;\n  font-size: 14px;\n  text-align: center;\n  min-width: 60px;\n}\n\n/* 個別元素顏色 */\n.item-1 {\n  background: #3b82f6;\n}\n\n.item-2 {\n  background: #10b981;\n}\n\n.item-3 {\n  background: #f59e0b;\n}\n\n.item-4 {\n  background: #ef4444;\n}\n\n/* 懸停效果 */\n.flex-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  transition: all 0.3s ease;\n}\n\n/* 資訊區塊 */\n.info-section {\n  background: #f8fafc;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 25px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.info-section h3 {\n  color: #374151;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 10px;\n}\n\n.info-section ul {\n  color: #6b7280;\n  line-height: 1.6;\n}\n\n.info-section li {\n  margin-bottom: 8px;\n}\n\n/* 頁面基本樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f9fafb;\n}"}'>
+                                                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                            <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                            在 CodePen 中練習
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">HTML 結構</div>
-                                                <pre><code>&lt;div class="flex-row-container"&gt;
+                                        
+                                        <div class="row g-0">
+                                            <!-- 效果展示欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 bg-white h-100">
+                                                    <h6 class="text-primary mb-3 text-center">
+                                                        <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                    </h6>
+                                                    <div class="effect-demo text-center mb-3">
+                                                        <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                            <div style="position: relative; margin-bottom: 10px;">
+                                                                <div style="display: flex; gap: 10px; padding: 15px; background: white; border: 2px solid #059669; border-radius: 6px; align-items: center;">
+                                                                    <div style="background: #3b82f6; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
+                                                                    <div style="background: #10b981; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
+                                                                    <div style="background: #f59e0b; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
+                                                                    <div style="background: #ef4444; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
+                                                                </div>
+                                                                <!-- 主軸箭頭 -->
+                                                                <div style="position: absolute; top: -8px; left: 15px; right: 15px; height: 2px; background: #dc3545;"></div>
+                                                                <div style="position: absolute; top: -15px; right: 10px; color: #dc3545; font-size: 10px; font-weight: bold;">主軸 →</div>
+                                                                <!-- 交叉軸箭頭 -->
+                                                                <div style="position: absolute; left: -8px; top: 15px; bottom: 15px; width: 2px; background: #0d6efd;"></div>
+                                                                <div style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: #0d6efd; font-size: 10px; font-weight: bold;">交叉軸</div>
+                                                            </div>
+                                                        </div>
+                                                        <small class="text-muted">預設排列：從左到右</small>
+                                                    </div>
+                                                    <!-- 應用場景已移至區塊底部 -->
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- HTML 程式碼欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-warning mb-3 text-center">
+                                                        <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>&lt;div class="flex-row-container"&gt;
   &lt;div class="flex-item"&gt;A&lt;/div&gt;
   &lt;div class="flex-item"&gt;B&lt;/div&gt;
   &lt;div class="flex-item"&gt;C&lt;/div&gt;
   &lt;div class="flex-item"&gt;D&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">CSS 樣式</div>
-                                                <pre><code>/* 容器設定 */
+                                            
+                                            <!-- CSS 程式碼欄 -->
+                                            <div class="col-md-4">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-info mb-3 text-center">
+                                                        <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>/* 容器設定 */
 .flex-row-container {
   display: flex;
   flex-direction: row;        /* 預設值 */
@@ -8582,71 +8627,170 @@ button {
 .flex-item:nth-child(2) { background: #10b981; }
 .flex-item:nth-child(3) { background: #f59e0b; }
 .flex-item:nth-child(4) { background: #ef4444; }</code></pre>
+                                                    </div>
+                                                    <!-- 最佳實踐已移至區塊底部 -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="alert alert-light mt-3">
-                                        <h6 class="text-info mb-2">🔍 row 方向特性</h6>
+                                    <!-- 水平排列應用場景與最佳實踐 -->
+                                    <div class="alert alert-light border border-2 border-success">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>主軸方向：</strong>水平（左 → 右）</li>
-                                                    <li><strong>交叉軸：</strong>垂直（上 ↓ 下）</li>
-                                                    <li><strong>justify-content：</strong>控制水平對齊</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-clipboard-list me-2"></i>📋 應用場景
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>導航選單：</strong>水平排列的導航項目</li>
+                                                    <li><strong>按鈕群組：</strong>並排的操作按鈕</li>
+                                                    <li><strong>工具列：</strong>工具圖示的水平排列</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>align-items：</strong>控制垂直對齊</li>
-                                                    <li><strong>換行行為：</strong>預設不換行，可用 flex-wrap</li>
-                                                    <li><strong>適用場景：</strong>導航選單、按鈕群組</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-check-circle me-2"></i>✅ 最佳實踐
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>間距控制：</strong>使用 gap 屬性統一間距</li>
+                                                    <li><strong>對齊方式：</strong>適當使用 justify-content 和 align-items</li>
+                                                    <li><strong>響應式設計：</strong>在小螢幕時考慮換行或垂直排列</li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 水平排列應用場景實際樣式展示 -->
+                                        <div class="mt-4 p-3 bg-white rounded border">
+                                            <h6 class="text-secondary mb-3">
+                                                <i class="fa-solid fa-eye me-2"></i>實際樣式展示
+                                            </h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">導航選單</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; gap: 8px;">
+                                                                <div style="padding: 8px 12px; background: #007bff; color: white; border-radius: 3px; font-size: 10px;">首頁</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px;">關於</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px;">聯絡</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">按鈕群組</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; gap: 8px;">
+                                                                <div style="padding: 8px 12px; background: #28a745; color: white; border-radius: 3px; font-size: 10px;">儲存</div>
+                                                                <div style="padding: 8px 12px; background: #ffc107; color: black; border-radius: 3px; font-size: 10px;">編輯</div>
+                                                                <div style="padding: 8px 12px; background: #dc3545; color: white; border-radius: 3px; font-size: 10px;">刪除</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">工具列</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; gap: 8px; align-items: center;">
+                                                                <div style="width: 20px; height: 20px; background: #6c757d; border-radius: 2px;"></div>
+                                                                <div style="width: 20px; height: 20px; background: #6c757d; border-radius: 2px;"></div>
+                                                                <div style="width: 20px; height: 20px; background: #6c757d; border-radius: 2px;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- 2. 水平排列反向 (row-reverse) -->
-                                <div class="mb-5">
+                                <div class="border border-secondary rounded p-4 mb-4">
                                     <h6 class="text-secondary mb-3">
                                         <i class="fa-solid fa-circle-2 me-2" style="color: #0ea5e9;"></i>水平排列反向 (flex-direction: row-reverse)
                                     </h6>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="result-display">
-                                                <div class="result-header">實際效果</div>
-                                                <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                    <div style="position: relative; margin-bottom: 10px;">
-                                                        <div style="display: flex; flex-direction: row-reverse; gap: 10px; padding: 15px; background: white; border: 2px solid #8b5cf6; border-radius: 6px; align-items: center;">
-                                                            <div style="background: #3b82f6; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
-                                                            <div style="background: #10b981; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
-                                                            <div style="background: #f59e0b; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
-                                                            <div style="background: #ef4444; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
-                                                        </div>
-                                                        <!-- 主軸箭頭（反向） -->
-                                                        <div style="position: absolute; top: -8px; left: 15px; right: 15px; height: 2px; background: #dc3545;"></div>
-                                                        <div style="position: absolute; top: -15px; left: 10px; color: #dc3545; font-size: 10px; font-weight: bold;">← 主軸</div>
+                                    <p class="text-muted small mb-4">Row-reverse 將 Flexbox 的主軸方向反轉，元素從右到左排列。HTML 中的順序保持不變，但視覺上會反向顯示，常用於需要反向排列的介面設計。</p>
+                                    
+                                    <!-- 水平反向排列應用示範 -->
+                                    <div class="property-detail-section border rounded mb-4">
+                                        <!-- 注意事項與 CodePen -->
+                                        <div class="border-top p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-info mb-0">
+                                                        <h6 class="text-info mb-2">🔍 Row-reverse 方向特性</h6>
+                                                        <ul class="small mb-0">
+                                                            <li><strong>主軸方向：</strong>水平（右 ← 左）</li>
+                                                            <li><strong>交叉軸方向：</strong>垂直（上 ↓ 下）</li>
+                                                            <li><strong>視覺效果：</strong>HTML 順序 A-B-C-D，顯示為 D-C-B-A</li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                                <small class="text-muted">反向排列：從右到左 (D-C-B-A)</small>
+                                                <div class="col-md-4 text-end">
+                                                    <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                        <input type="hidden" name="data" value='{"title":"Flexbox 水平反向排列範例","html":"<div class=\"flex-row-reverse-container\">\n  <div class=\"flex-item item-1\">A</div>\n  <div class=\"flex-item item-2\">B</div>\n  <div class=\"flex-item item-3\">C</div>\n  <div class=\"flex-item item-4\">D</div>\n</div>\n\n<div class=\"info-section\">\n  <h3>水平反向排列特性</h3>\n  <ul>\n    <li>主軸：水平方向（右←左）</li>\n    <li>交叉軸：垂直方向（上↓下）</li>\n    <li>HTML 順序不變，視覺上反向顯示</li>\n    <li>適合需要反向排列的介面元素</li>\n  </ul>\n</div>","css":"/* Flexbox 水平反向排列容器 */\n.flex-row-reverse-container {\n  display: flex;\n  flex-direction: row-reverse; /* 反向排列 */\n  gap: 10px;\n  padding: 20px;\n  border: 2px solid #8b5cf6;\n  border-radius: 8px;\n  background: white;\n  margin-bottom: 30px;\n}\n\n/* 子元素基本樣式 */\n.flex-item {\n  padding: 15px 20px;\n  color: white;\n  border-radius: 6px;\n  font-weight: bold;\n  font-size: 14px;\n  text-align: center;\n  min-width: 60px;\n}\n\n/* 個別元素顏色 */\n.item-1 {\n  background: #3b82f6;\n}\n\n.item-2 {\n  background: #10b981;\n}\n\n.item-3 {\n  background: #f59e0b;\n}\n\n.item-4 {\n  background: #ef4444;\n}\n\n/* 懸停效果 */\n.flex-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  transition: all 0.3s ease;\n}\n\n/* 資訊區塊 */\n.info-section {\n  background: #f8fafc;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 25px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.info-section h3 {\n  color: #374151;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 10px;\n}\n\n.info-section ul {\n  color: #6b7280;\n  line-height: 1.6;\n}\n\n.info-section li {\n  margin-bottom: 8px;\n}\n\n/* 頁面基本樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f9fafb;\n}"}'>
+                                                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                            <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                            在 CodePen 中練習
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">HTML 結構</div>
-                                                <pre><code>&lt;div class="flex-row-reverse-container"&gt;
+                                        
+                                        <div class="row g-0">
+                                            <!-- 效果展示欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 bg-white h-100">
+                                                    <h6 class="text-primary mb-3 text-center">
+                                                        <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                    </h6>
+                                                    <div class="effect-demo text-center mb-3">
+                                                        <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                            <div style="position: relative; margin-bottom: 10px;">
+                                                                <div style="display: flex; flex-direction: row-reverse; gap: 10px; padding: 15px; background: white; border: 2px solid #8b5cf6; border-radius: 6px; align-items: center;">
+                                                                    <div style="background: #3b82f6; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
+                                                                    <div style="background: #10b981; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
+                                                                    <div style="background: #f59e0b; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
+                                                                    <div style="background: #ef4444; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
+                                                                </div>
+                                                                <!-- 主軸箭頭（反向） -->
+                                                                <div style="position: absolute; top: -8px; left: 15px; right: 15px; height: 2px; background: #dc3545;"></div>
+                                                                <div style="position: absolute; top: -15px; left: 10px; color: #dc3545; font-size: 10px; font-weight: bold;">← 主軸</div>
+                                                            </div>
+                                                        </div>
+                                                        <small class="text-muted">反向排列：從右到左 (D-C-B-A)</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- HTML 程式碼欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-warning mb-3 text-center">
+                                                        <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>&lt;div class="flex-row-reverse-container"&gt;
   &lt;div class="flex-item"&gt;A&lt;/div&gt;
   &lt;div class="flex-item"&gt;B&lt;/div&gt;
   &lt;div class="flex-item"&gt;C&lt;/div&gt;
   &lt;div class="flex-item"&gt;D&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">CSS 樣式</div>
-                                                <pre><code>/* 容器設定 */
+                                            
+                                            <!-- CSS 程式碼欄 -->
+                                            <div class="col-md-4">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-info mb-3 text-center">
+                                                        <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>/* 容器設定 */
 .flex-row-reverse-container {
   display: flex;
   flex-direction: row-reverse; /* 反向排列 */
@@ -8657,7 +8801,7 @@ button {
   background: white;
 }
 
-/* 子元素樣式（同上） */
+/* 子元素樣式 */
 .flex-item {
   padding: 8px 12px;
   color: white;
@@ -8668,74 +8812,172 @@ button {
 
 /* 結果：HTML 順序 A-B-C-D */
 /* 顯示順序變成 D-C-B-A */</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="alert alert-warning mt-3">
-                                        <h6 class="text-warning mb-2">⚠️ row-reverse 注意事項</h6>
+                                    <!-- 水平反向排列應用場景與最佳實踐 -->
+                                    <div class="alert alert-light border border-2 border-success">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>視覺順序：</strong>與 HTML 順序相反</li>
-                                                    <li><strong>鍵盤導航：</strong>仍按 HTML 順序進行</li>
-                                                    <li><strong>螢幕閱讀器：</strong>讀取 HTML 順序</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-clipboard-list me-2"></i>📋 應用場景
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>反向導航：</strong>將重要項目放在右側</li>
+                                                    <li><strong>時間軸：</strong>倒序顯示最新的項目</li>
+                                                    <li><strong>優先順序：</strong>重要項目在視覺上優先顯示</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>使用場景：</strong>視覺調整，非邏輯調整</li>
-                                                    <li><strong>替代方案：</strong>考慮使用 order 屬性</li>
-                                                    <li><strong>無障礙：</strong>注意對無障礙的影響</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-check-circle me-2"></i>✅ 最佳實踐
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>語意保持：</strong>HTML 結構依然符合邏輯順序</li>
+                                                    <li><strong>無障礙考量：</strong>螢幕閱讀器仍按 HTML 順序讀取</li>
+                                                    <li><strong>適度使用：</strong>避免過度使用造成使用者困惑</li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 水平反向排列應用場景實際樣式展示 -->
+                                        <div class="mt-4 p-3 bg-white rounded border">
+                                            <h6 class="text-secondary mb-3">
+                                                <i class="fa-solid fa-eye me-2"></i>實際樣式展示
+                                            </h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">反向導航</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; flex-direction: row-reverse; gap: 8px;">
+                                                                <div style="padding: 8px 12px; background: #007bff; color: white; border-radius: 3px; font-size: 10px;">登入</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px;">註冊</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px;">說明</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">時間軸（最新優先）</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; flex-direction: row-reverse; gap: 8px;">
+                                                                <div style="padding: 8px 12px; background: #28a745; color: white; border-radius: 3px; font-size: 10px;">今天</div>
+                                                                <div style="padding: 8px 12px; background: #ffc107; color: black; border-radius: 3px; font-size: 10px;">昨天</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px;">更早</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">優先順序</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; flex-direction: row-reverse; gap: 8px;">
+                                                                <div style="padding: 8px 12px; background: #dc3545; color: white; border-radius: 3px; font-size: 10px;">高</div>
+                                                                <div style="padding: 8px 12px; background: #ffc107; color: black; border-radius: 3px; font-size: 10px;">中</div>
+                                                                <div style="padding: 8px 12px; background: #28a745; color: white; border-radius: 3px; font-size: 10px;">低</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- 3. 垂直排列 (column) -->
-                                <div class="mb-5">
+                                <div class="border border-secondary rounded p-4 mb-4">
                                     <h6 class="text-secondary mb-3">
                                         <i class="fa-solid fa-circle-3 me-2" style="color: #0ea5e9;"></i>垂直排列 (flex-direction: column)
                                     </h6>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="result-display">
-                                                <div class="result-header">實際效果</div>
-                                                <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                    <div style="position: relative; margin-bottom: 10px;">
-                                                        <div style="display: flex; flex-direction: column; gap: 8px; padding: 15px; background: white; border: 2px solid #0ea5e9; border-radius: 6px; align-items: center; width: fit-content; margin: 0 auto;">
-                                                            <div style="background: #3b82f6; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
-                                                            <div style="background: #10b981; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
-                                                            <div style="background: #f59e0b; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
-                                                            <div style="background: #ef4444; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
-                                                        </div>
-                                                        <!-- 主軸箭頭（垂直） -->
-                                                        <div style="position: absolute; left: -8px; top: 15px; bottom: 15px; width: 2px; background: #dc3545;"></div>
-                                                        <div style="position: absolute; left: -35px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: #dc3545; font-size: 10px; font-weight: bold;">主軸 ↓</div>
-                                                        <!-- 交叉軸箭頭（水平） -->
-                                                        <div style="position: absolute; top: -8px; left: 15px; right: 15px; height: 2px; background: #0d6efd;"></div>
-                                                        <div style="position: absolute; top: -15px; right: 10px; color: #0d6efd; font-size: 10px; font-weight: bold;">交叉軸 →</div>
+                                    <p class="text-muted small mb-4">Column 將 Flexbox 的主軸改為垂直方向，元素從上到下排列。主軸和交叉軸相對於 row 互換，常用於側邊欄、卡片佈局等垂直排列的設計。</p>
+                                    
+                                    <!-- 垂直排列應用示範 -->
+                                    <div class="property-detail-section border rounded mb-4">
+                                        <!-- 注意事項與 CodePen -->
+                                        <div class="border-top p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-info mb-0">
+                                                        <h6 class="text-info mb-2">🔍 Column 方向特性</h6>
+                                                        <ul class="small mb-0">
+                                                            <li><strong>主軸方向：</strong>垂直（上 ↓ 下）</li>
+                                                            <li><strong>交叉軸方向：</strong>水平（左 → 右）</li>
+                                                            <li><strong>對齊控制：</strong>justify-content 控制垂直，align-items 控制水平</li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                                <small class="text-muted">垂直排列：從上到下</small>
+                                                <div class="col-md-4 text-end">
+                                                    <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                        <input type="hidden" name="data" value='{"title":"Flexbox 垂直排列範例","html":"<div class=\"flex-column-container\">\n  <div class=\"flex-item item-1\">A</div>\n  <div class=\"flex-item item-2\">B</div>\n  <div class=\"flex-item item-3\">C</div>\n  <div class=\"flex-item item-4\">D</div>\n</div>\n\n<div class=\"info-section\">\n  <h3>垂直排列特性</h3>\n  <ul>\n    <li>主軸：垂直方向（上↓下）</li>\n    <li>交叉軸：水平方向（左→右）</li>\n    <li>容器高度會自動調整</li>\n    <li>適合側邊欄、卡片佈局等垂直排列</li>\n  </ul>\n</div>","css":"/* Flexbox 垂直排列容器 */\n.flex-column-container {\n  display: flex;\n  flex-direction: column;  /* 垂直排列 */\n  gap: 8px;\n  padding: 20px;\n  border: 2px solid #0ea5e9;\n  border-radius: 8px;\n  background: white;\n  align-items: center;     /* 水平置中 */\n  width: fit-content;\n  margin: 0 auto 30px auto;\n}\n\n/* 子元素基本樣式 */\n.flex-item {\n  padding: 12px 25px;\n  color: white;\n  border-radius: 6px;\n  font-weight: bold;\n  font-size: 14px;\n  text-align: center;\n  min-width: 80px;\n}\n\n/* 個別元素顏色 */\n.item-1 {\n  background: #3b82f6;\n}\n\n.item-2 {\n  background: #10b981;\n}\n\n.item-3 {\n  background: #f59e0b;\n}\n\n.item-4 {\n  background: #ef4444;\n}\n\n/* 懸停效果 */\n.flex-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  transition: all 0.3s ease;\n}\n\n/* 資訊區塊 */\n.info-section {\n  background: #f8fafc;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 25px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.info-section h3 {\n  color: #374151;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 10px;\n}\n\n.info-section ul {\n  color: #6b7280;\n  line-height: 1.6;\n}\n\n.info-section li {\n  margin-bottom: 8px;\n}\n\n/* 頁面基本樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f9fafb;\n}"}'>
+                                                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                            <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                            在 CodePen 中練習
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">HTML 結構</div>
-                                                <pre><code>&lt;div class="flex-column-container"&gt;
+                                        
+                                        <div class="row g-0">
+                                            <!-- 效果展示欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 bg-white h-100">
+                                                    <h6 class="text-primary mb-3 text-center">
+                                                        <i class="fa-solid fa-arrows-up-down me-2"></i>實際效果展示
+                                                    </h6>
+                                                    <div class="effect-demo text-center mb-3">
+                                                        <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                            <div style="position: relative; margin-bottom: 10px;">
+                                                                <div style="display: flex; flex-direction: column; gap: 8px; padding: 15px; background: white; border: 2px solid #0ea5e9; border-radius: 6px; align-items: center; width: fit-content; margin: 0 auto;">
+                                                                    <div style="background: #3b82f6; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
+                                                                    <div style="background: #10b981; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
+                                                                    <div style="background: #f59e0b; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
+                                                                    <div style="background: #ef4444; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
+                                                                </div>
+                                                                <!-- 主軸箭頭（垂直） -->
+                                                                <div style="position: absolute; left: -8px; top: 15px; bottom: 15px; width: 2px; background: #dc3545;"></div>
+                                                                <div style="position: absolute; left: -35px; top: 50%; transform: translateY(-50%) rotate(-90deg); color: #dc3545; font-size: 10px; font-weight: bold;">主軸 ↓</div>
+                                                                <!-- 交叉軸箭頭（水平） -->
+                                                                <div style="position: absolute; top: -8px; left: 15px; right: 15px; height: 2px; background: #0d6efd;"></div>
+                                                                <div style="position: absolute; top: -15px; right: 10px; color: #0d6efd; font-size: 10px; font-weight: bold;">交叉軸 →</div>
+                                                            </div>
+                                                        </div>
+                                                        <small class="text-muted">垂直排列：從上到下</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- HTML 程式碼欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-warning mb-3 text-center">
+                                                        <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>&lt;div class="flex-column-container"&gt;
   &lt;div class="flex-item"&gt;A&lt;/div&gt;
   &lt;div class="flex-item"&gt;B&lt;/div&gt;
   &lt;div class="flex-item"&gt;C&lt;/div&gt;
   &lt;div class="flex-item"&gt;D&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">CSS 樣式</div>
-                                                <pre><code>/* 容器設定 */
+                                            
+                                            <!-- CSS 程式碼欄 -->
+                                            <div class="col-md-4">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-info mb-3 text-center">
+                                                        <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>/* 容器設定 */
 .flex-column-container {
   display: flex;
   flex-direction: column;     /* 垂直排列 */
@@ -8757,71 +8999,170 @@ button {
   font-weight: bold;
   font-size: 12px;
 }</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="alert alert-light mt-3">
-                                        <h6 class="text-info mb-2">🔍 column 方向特性</h6>
+                                    <!-- 垂直排列應用場景與最佳實踐 -->
+                                    <div class="alert alert-light border border-2 border-success">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>主軸方向：</strong>垂直（上 ↓ 下）</li>
-                                                    <li><strong>交叉軸：</strong>水平（左 → 右）</li>
-                                                    <li><strong>justify-content：</strong>控制垂直對齊</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-clipboard-list me-2"></i>📋 應用場景
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>側邊欄：</strong>垂直排列的導航選單</li>
+                                                    <li><strong>卡片佈局：</strong>內容由上到下排列</li>
+                                                    <li><strong>表單欄位：</strong>垂直排列的輸入欄位</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>align-items：</strong>控制水平對齊</li>
-                                                    <li><strong>高度行為：</strong>容器高度會自動調整</li>
-                                                    <li><strong>適用場景：</strong>側邊欄、卡片佈局</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-check-circle me-2"></i>✅ 最佳實踐
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>高度控制：</strong>注意容器高度的自動調整</li>
+                                                    <li><strong>水平對齊：</strong>適當使用 align-items</li>
+                                                    <li><strong>間距統一：</strong>使用 gap 屬性控制間距</li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 垂直排列應用場景實際樣式展示 -->
+                                        <div class="mt-4 p-3 bg-white rounded border">
+                                            <h6 class="text-secondary mb-3">
+                                                <i class="fa-solid fa-eye me-2"></i>實際樣式展示
+                                            </h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">側邊欄選單</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; flex-direction: column; gap: 8px; width: 120px;">
+                                                                <div style="padding: 8px 12px; background: #007bff; color: white; border-radius: 3px; font-size: 10px; text-align: center;">首頁</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px; text-align: center;">產品</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px; text-align: center;">關於</div>
+                                                                <div style="padding: 8px 12px; background: #6c757d; color: white; border-radius: 3px; font-size: 10px; text-align: center;">聯絡</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">卡片內容</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; flex-direction: column; gap: 8px; width: 120px; background: white; padding: 10px; border-radius: 4px;">
+                                                                <div style="padding: 4px; background: #e9ecef; border-radius: 2px; font-size: 10px; text-align: center;">標題</div>
+                                                                <div style="padding: 4px; background: #f8f9fa; border-radius: 2px; font-size: 9px; text-align: center;">描述文字</div>
+                                                                <div style="padding: 4px 8px; background: #28a745; color: white; border-radius: 2px; font-size: 9px; text-align: center;">按鈕</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">表單欄位</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                            <div style="display: flex; flex-direction: column; gap: 8px; width: 120px;">
+                                                                <div style="padding: 6px; background: white; border: 1px solid #dee2e6; border-radius: 3px; font-size: 9px;">姓名</div>
+                                                                <div style="padding: 6px; background: white; border: 1px solid #dee2e6; border-radius: 3px; font-size: 9px;">Email</div>
+                                                                <div style="padding: 6px; background: white; border: 1px solid #dee2e6; border-radius: 3px; font-size: 9px;">密碼</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- 4. 垂直排列反向 (column-reverse) -->
-                                <div class="mb-4">
+                                <div class="border border-secondary rounded p-4 mb-4">
                                     <h6 class="text-secondary mb-3">
                                         <i class="fa-solid fa-circle-4 me-2" style="color: #0ea5e9;"></i>垂直排列反向 (flex-direction: column-reverse)
                                     </h6>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="result-display">
-                                                <div class="result-header">實際效果</div>
-                                                <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                    <div style="position: relative; margin-bottom: 10px;">
-                                                        <div style="display: flex; flex-direction: column-reverse; gap: 8px; padding: 15px; background: white; border: 2px solid #f59e0b; border-radius: 6px; align-items: center; width: fit-content; margin: 0 auto;">
-                                                            <div style="background: #3b82f6; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
-                                                            <div style="background: #10b981; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
-                                                            <div style="background: #f59e0b; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
-                                                            <div style="background: #ef4444; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
-                                                        </div>
-                                                        <!-- 主軸箭頭（反向垂直） -->
-                                                        <div style="position: absolute; left: -8px; top: 15px; bottom: 15px; width: 2px; background: #dc3545;"></div>
-                                                        <div style="position: absolute; left: -35px; bottom: 10px; transform: rotate(-90deg); color: #dc3545; font-size: 10px; font-weight: bold;">↑ 主軸</div>
+                                    <p class="text-muted small mb-4">Column-reverse 將垂直排列的方向反轉，元素從下到上排列。HTML 順序保持不變，但視覺上會從底部開始顯示，常用於聊天訊息、時間軸等需要反向顯示的場景。</p>
+                                    
+                                    <!-- 垂直反向排列應用示範 -->
+                                    <div class="property-detail-section border rounded mb-4">
+                                        <!-- 注意事項與 CodePen -->
+                                        <div class="border-top p-3 bg-light">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="alert alert-info mb-0">
+                                                        <h6 class="text-info mb-2">🔍 Column-reverse 方向特性</h6>
+                                                        <ul class="small mb-0">
+                                                            <li><strong>主軸方向：</strong>垂直（下 ↑ 上）</li>
+                                                            <li><strong>交叉軸方向：</strong>水平（左 → 右）</li>
+                                                            <li><strong>視覺效果：</strong>HTML 順序 A-B-C-D，顯示為 D-C-B-A（從下到上）</li>
+                                                        </ul>
                                                     </div>
                                                 </div>
-                                                <small class="text-muted">反向排列：從下到上 (D-C-B-A)</small>
+                                                <div class="col-md-4 text-end">
+                                                    <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                        <input type="hidden" name="data" value='{"title":"Flexbox 垂直反向排列範例","html":"<div class=\"flex-column-reverse-container\">\n  <div class=\"flex-item item-1\">A</div>\n  <div class=\"flex-item item-2\">B</div>\n  <div class=\"flex-item item-3\">C</div>\n  <div class=\"flex-item item-4\">D</div>\n</div>\n\n<div class=\"info-section\">\n  <h3>垂直反向排列特性</h3>\n  <ul>\n    <li>主軸：垂直方向（下↑上）</li>\n    <li>交叉軸：水平方向（左→右）</li>\n    <li>HTML 順序不變，視覺上反向顯示</li>\n    <li>適合聊天訊息、時間軸等反向排列需求</li>\n  </ul>\n</div>","css":"/* Flexbox 垂直反向排列容器 */\n.flex-column-reverse-container {\n  display: flex;\n  flex-direction: column-reverse; /* 反向垂直排列 */\n  gap: 8px;\n  padding: 20px;\n  border: 2px solid #f59e0b;\n  border-radius: 8px;\n  background: white;\n  align-items: center;\n  width: fit-content;\n  margin: 0 auto 30px auto;\n  height: 200px; /* 設定固定高度方便觀察效果 */\n}\n\n/* 子元素基本樣式 */\n.flex-item {\n  padding: 12px 25px;\n  color: white;\n  border-radius: 6px;\n  font-weight: bold;\n  font-size: 14px;\n  text-align: center;\n  min-width: 80px;\n}\n\n/* 個別元素顏色 */\n.item-1 {\n  background: #3b82f6;\n}\n\n.item-2 {\n  background: #10b981;\n}\n\n.item-3 {\n  background: #f59e0b;\n}\n\n.item-4 {\n  background: #ef4444;\n}\n\n/* 懸停效果 */\n.flex-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  transition: all 0.3s ease;\n}\n\n/* 資訊區塊 */\n.info-section {\n  background: #f8fafc;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 25px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.info-section h3 {\n  color: #374151;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 10px;\n}\n\n.info-section ul {\n  color: #6b7280;\n  line-height: 1.6;\n}\n\n.info-section li {\n  margin-bottom: 8px;\n}\n\n/* 頁面基本樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f9fafb;\n}"}'>
+                                                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                            <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                            在 CodePen 中練習
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">HTML 結構</div>
-                                                <pre><code>&lt;div class="flex-column-reverse-container"&gt;
+                                        
+                                        <div class="row g-0">
+                                            <!-- 效果展示欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 bg-white h-100">
+                                                    <h6 class="text-primary mb-3 text-center">
+                                                        <i class="fa-solid fa-arrows-up-down me-2"></i>實際效果展示
+                                                    </h6>
+                                                    <div class="effect-demo text-center mb-3">
+                                                        <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                            <div style="position: relative; margin-bottom: 10px;">
+                                                                <div style="display: flex; flex-direction: column-reverse; gap: 8px; padding: 15px; background: white; border: 2px solid #f59e0b; border-radius: 6px; align-items: center; width: fit-content; margin: 0 auto;">
+                                                                    <div style="background: #3b82f6; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">A</div>
+                                                                    <div style="background: #10b981; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">B</div>
+                                                                    <div style="background: #f59e0b; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">C</div>
+                                                                    <div style="background: #ef4444; color: white; padding: 8px 20px; border-radius: 4px; font-weight: bold; font-size: 12px;">D</div>
+                                                                </div>
+                                                                <!-- 主軸箭頭（反向垂直） -->
+                                                                <div style="position: absolute; left: -8px; top: 15px; bottom: 15px; width: 2px; background: #dc3545;"></div>
+                                                                <div style="position: absolute; left: -35px; bottom: 10px; transform: rotate(-90deg); color: #dc3545; font-size: 10px; font-weight: bold;">↑ 主軸</div>
+                                                            </div>
+                                                        </div>
+                                                        <small class="text-muted">反向排列：從下到上 (D-C-B-A)</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- HTML 程式碼欄 -->
+                                            <div class="col-md-4 border-end">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-warning mb-3 text-center">
+                                                        <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>&lt;div class="flex-column-reverse-container"&gt;
   &lt;div class="flex-item"&gt;A&lt;/div&gt;
   &lt;div class="flex-item"&gt;B&lt;/div&gt;
   &lt;div class="flex-item"&gt;C&lt;/div&gt;
   &lt;div class="flex-item"&gt;D&lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="code-example">
-                                                <div class="code-header">CSS 樣式</div>
-                                                <pre><code>/* 容器設定 */
+                                            
+                                            <!-- CSS 程式碼欄 -->
+                                            <div class="col-md-4">
+                                                <div class="p-3 h-100">
+                                                    <h6 class="text-info mb-3 text-center">
+                                                        <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                    </h6>
+                                                    <div class="code-example">
+                                                        <pre class="small bg-light text-dark p-3 rounded"><code>/* 容器設定 */
 .flex-column-reverse-container {
   display: flex;
   flex-direction: column-reverse; /* 反向垂直 */
@@ -8835,26 +9176,90 @@ button {
   margin: 0 auto;
 }
 
+/* 子元素樣式 */
+.flex-item {
+  padding: 8px 20px;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
 /* 結果：HTML 順序 A-B-C-D */
 /* 顯示順序變成 D-C-B-A（從下到上）*/</code></pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="alert alert-success mt-3">
-                                        <h6 class="text-success mb-2">💡 實際應用場景</h6>
+                                    <!-- 垂直反向排列應用場景與最佳實踐 -->
+                                    <div class="alert alert-light border border-2 border-success">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>row：</strong>導航選單、按鈕群組、標籤頁</li>
-                                                    <li><strong>row-reverse：</strong>麵包屑導航、工具列</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-clipboard-list me-2"></i>📋 應用場景
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>聊天訊息：</strong>最新訊息在底部顯示</li>
+                                                    <li><strong>時間軸：</strong>倒序顯示事件（最新在下）</li>
+                                                    <li><strong>評論系統：</strong>最新評論排在最後</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-6">
-                                                <ul class="small mb-2">
-                                                    <li><strong>column：</strong>表單佈局、卡片清單、側邊欄</li>
-                                                    <li><strong>column-reverse：</strong>聊天訊息、時間軸</li>
+                                                <h6 class="text-success mb-3">
+                                                    <i class="fa-solid fa-check-circle me-2"></i>✅ 最佳實踐
+                                                </h6>
+                                                <ul class="mb-0">
+                                                    <li><strong>使用者體驗：</strong>確保反向排列符合使用習慣</li>
+                                                    <li><strong>高度管理：</strong>適當設定容器高度避免內容溢出</li>
+                                                    <li><strong>捲軸位置：</strong>考慮預設捲軸位置的設定</li>
                                                 </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 垂直反向排列應用場景實際樣式展示 -->
+                                        <div class="mt-4 p-3 bg-white rounded border">
+                                            <h6 class="text-secondary mb-3">
+                                                <i class="fa-solid fa-eye me-2"></i>實際樣式展示
+                                            </h6>
+                                            <div class="row g-3">
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">聊天訊息</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6; height: 120px;">
+                                                            <div style="display: flex; flex-direction: column-reverse; gap: 6px; height: 100%; overflow: hidden;">
+                                                                <div style="padding: 6px 10px; background: #007bff; color: white; border-radius: 12px; font-size: 9px; align-self: flex-end;">你好！</div>
+                                                                <div style="padding: 6px 10px; background: #e9ecef; color: black; border-radius: 12px; font-size: 9px; align-self: flex-start;">嗨</div>
+                                                                <div style="padding: 6px 10px; background: #007bff; color: white; border-radius: 12px; font-size: 9px; align-self: flex-end;">最近好嗎</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">時間軸（最新在下）</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6; height: 120px;">
+                                                            <div style="display: flex; flex-direction: column-reverse; gap: 6px; height: 100%;">
+                                                                <div style="padding: 6px 8px; background: #28a745; color: white; border-radius: 3px; font-size: 9px;">剛剛</div>
+                                                                <div style="padding: 6px 8px; background: #ffc107; color: black; border-radius: 3px; font-size: 9px;">10分鐘前</div>
+                                                                <div style="padding: 6px 8px; background: #6c757d; color: white; border-radius: 3px; font-size: 9px;">1小時前</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="scenario-demo">
+                                                        <h6 class="small text-muted mb-2">評論系統</h6>
+                                                        <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6; height: 120px;">
+                                                            <div style="display: flex; flex-direction: column-reverse; gap: 6px; height: 100%; overflow: hidden;">
+                                                                <div style="padding: 6px 8px; background: white; border: 1px solid #dee2e6; border-radius: 3px; font-size: 8px;">最新評論...</div>
+                                                                <div style="padding: 6px 8px; background: white; border: 1px solid #dee2e6; border-radius: 3px; font-size: 8px;">較早評論...</div>
+                                                                <div style="padding: 6px 8px; background: white; border: 1px solid #dee2e6; border-radius: 3px; font-size: 8px;">更早評論...</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -10991,8 +11396,95 @@ button {
                                     margin-bottom: 10px;
                                 }
                                 
-                                .clearfix-demo .clear {
+                                .clearfix-demo                                .clear {
                                     clear: both;
+                                }
+                                
+                                /* Flexbox 水平排列容器樣式 */
+                                .flex-row-container {
+                                    display: flex;
+                                    flex-direction: row;
+                                    gap: 10px;
+                                    padding: 15px;
+                                    border: 2px solid #059669;
+                                    border-radius: 6px;
+                                    background: white;
+                                    margin-bottom: 15px;
+                                }
+                                
+                                /* 子元素基本樣式 */
+                                .flex-item {
+                                    padding: 8px 12px;
+                                    color: white;
+                                    border-radius: 4px;
+                                    font-weight: bold;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    min-width: 40px;
+                                }
+                                
+                                /* 個別元素顏色 */
+                                .flex-item:nth-child(1) {
+                                    background: #3b82f6;
+                                }
+                                
+                                .flex-item:nth-child(2) {
+                                    background: #10b981;
+                                }
+                                
+                                .flex-item:nth-child(3) {
+                                    background: #f59e0b;
+                                }
+                                
+                                .flex-item:nth-child(4) {
+                                    background: #ef4444;
+                                }
+                                
+                                /* 懸停效果 */
+                                .flex-item:hover {
+                                    transform: translateY(-2px);
+                                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                                    transition: all 0.3s ease;
+                                }
+                                
+                                /* Flexbox 水平反向排列容器樣式 */
+                                .flex-row-reverse-container {
+                                    display: flex;
+                                    flex-direction: row-reverse;
+                                    gap: 10px;
+                                    padding: 15px;
+                                    border: 2px solid #8b5cf6;
+                                    border-radius: 6px;
+                                    background: white;
+                                    margin-bottom: 15px;
+                                }
+                                
+                                /* Flexbox 垂直排列容器樣式 */
+                                .flex-column-container {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 8px;
+                                    padding: 15px;
+                                    border: 2px solid #0ea5e9;
+                                    border-radius: 6px;
+                                    background: white;
+                                    align-items: center;
+                                    width: fit-content;
+                                    margin: 0 auto 15px auto;
+                                }
+                                
+                                /* Flexbox 垂直反向排列容器樣式 */
+                                .flex-column-reverse-container {
+                                    display: flex;
+                                    flex-direction: column-reverse;
+                                    gap: 8px;
+                                    padding: 15px;
+                                    border: 2px solid #f59e0b;
+                                    border-radius: 6px;
+                                    background: white;
+                                    align-items: center;
+                                    width: fit-content;
+                                    margin: 0 auto 15px auto;
                                 }
                             </style>
                             
