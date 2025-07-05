@@ -7443,45 +7443,78 @@ button {
 
                         <!-- Z-index 實際應用示範 -->
                         <div class="border border-info rounded p-4 mb-4">
-                            <h6 class="text-info mb-3">
-                                <i class="fa-solid fa-layer-group me-2"></i>Z-index 實際應用示範
-                            </h6>
-                            <p class="text-muted small mb-4">Z-index 控制元素的層疊順序，數值越大越在上方，只對定位元素（position 非 static）有效。</p>
-                            
-                            <!-- 1. 基本層級設定 -->
-                            <div class="mb-5">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-1 me-2" style="color: #0ea5e9;"></i>基本層級設定
+                            <h6 class="text-secondary mb-3">
+                                    <i class="fa-solid fa-layer-group me-2"></i>基本層級設定
                                 </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="position: relative; height: 200px; background: #f8fafc; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-                                                <!-- 背景層 z-index: -1 -->
-                                                <div style="position: absolute; top: 20px; left: 20px; width: 120px; height: 80px; background: #f3f4f6; z-index: -1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #6b7280;">
-                                                    背景層<br>z-index: -1
-                                                </div>
-                                                <!-- 內容層 z-index: 1 -->
-                                                <div style="position: absolute; top: 40px; left: 60px; width: 120px; height: 80px; background: #dbeafe; z-index: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #1e40af; font-weight: bold;">
-                                                    內容層<br>z-index: 1
-                                                </div>
-                                                <!-- 導航層 z-index: 100 -->
-                                                <div style="position: absolute; top: 60px; left: 100px; width: 120px; height: 80px; background: #dcfce7; z-index: 100; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #166534; font-weight: bold;">
-                                                    導航層<br>z-index: 100
-                                                </div>
-                                                <!-- 模態層 z-index: 1000 -->
-                                                <div style="position: absolute; top: 80px; left: 140px; width: 120px; height: 80px; background: #fef3c7; z-index: 1000; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #92400e; font-weight: bold;">
-                                                    模態層<br>z-index: 1000
+                                <p class="text-muted small mb-4">Z-index 數值越大越在上方，只對定位元素（position 非 static）有效。</p>
+                                
+                                <!-- 基本層級設定應用示範 -->
+                                <div class="property-detail-section border rounded mb-4">
+                                    <!-- 注意事項與 CodePen -->
+                                    <div class="border-top p-3 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-info mb-0">
+                                                    <h6 class="text-info mb-2">🔍 Z-index 基本層級特性</h6>
+                                                    <ul class="small mb-0">
+                                                        <li><strong>只對定位元素有效：</strong>position 必須是 relative、absolute、fixed 或 sticky</li>
+                                                        <li><strong>數值越大越在上方：</strong>z-index: 1000 會蓋住 z-index: 100</li>
+                                                        <li><strong>負值置於背景：</strong>z-index: -1 會在正常元素後方</li>
+                                                        <li><strong>建立層疊上下文：</strong>非 auto 值會建立新的層疊上下文</li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <small class="text-muted">層級越高的元素越在上方</small>
+                                            <div class="col-md-4 text-end">
+                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                    <input type="hidden" name="data" value='{"title":"Z-index 基本層級設定","html":"<div class=\"z-container\">\n  <div class=\"layer background-layer\">\n    背景層<br>z-index: -1\n  </div>\n  \n  <div class=\"layer content-layer\">\n    內容層<br>z-index: 1\n  </div>\n  \n  <div class=\"layer navigation-layer\">\n    導航層<br>z-index: 100\n  </div>\n  \n  <div class=\"layer modal-layer\">\n    模態層<br>z-index: 1000\n  </div>\n</div>\n\n<div class=\"info-box\">\n  <h3>Z-index 層級設定說明</h3>\n  <ul>\n    <li>背景層（-1）：用於裝飾圖形，位於內容後方</li>\n    <li>內容層（1-99）：主要頁面內容區域</li>\n    <li>導航層（100-499）：選單、工具列等導航元素</li>\n    <li>模態層（1000+）：對話框、彈出視窗等覆蓋元素</li>\n  </ul>\n</div>","css":"/* Z-index 基本層級設定 */\n.z-container {\n  position: relative;\n  height: 300px;\n  background: #f8fafc;\n  border: 2px solid #e5e7eb;\n  border-radius: 12px;\n  overflow: hidden;\n  margin-bottom: 30px;\n  padding: 20px;\n}\n\n/* 通用層級樣式 */\n.layer {\n  position: absolute;\n  width: 120px;\n  height: 80px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  font-weight: bold;\n  text-align: center;\n  line-height: 1.3;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transition: transform 0.3s ease;\n}\n\n.layer:hover {\n  transform: scale(1.05);\n}\n\n/* 各層級設定 */\n.background-layer {\n  top: 40px;\n  left: 40px;\n  background: #f3f4f6;\n  color: #6b7280;\n  z-index: -1;    /* 背景層 */\n  border: 2px solid #d1d5db;\n}\n\n.content-layer {\n  top: 80px;\n  left: 100px;\n  background: #dbeafe;\n  color: #1e40af;\n  z-index: 1;     /* 內容層 */\n  border: 2px solid #93c5fd;\n}\n\n.navigation-layer {\n  top: 120px;\n  left: 160px;\n  background: #dcfce7;\n  color: #166534;\n  z-index: 100;   /* 導航層 */\n  border: 2px solid #86efac;\n}\n\n.modal-layer {\n  top: 160px;\n  left: 220px;\n  background: #fef3c7;\n  color: #92400e;\n  z-index: 1000;  /* 模態層 */\n  border: 2px solid #fbbf24;\n}\n\n/* 資訊框樣式 */\n.info-box {\n  background: #ffffff;\n  border: 2px solid #e5e7eb;\n  border-radius: 12px;\n  padding: 25px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.info-box h3 {\n  color: #374151;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 10px;\n}\n\n.info-box ul {\n  color: #6b7280;\n  line-height: 1.6;\n}\n\n.info-box li {\n  margin-bottom: 8px;\n}\n\n/* 基本頁面樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f9fafb;\n}"}'>
+                                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                        <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                        在 CodePen 中練習
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;div class="container"&gt;
+                                    
+                                    <div class="row g-0">
+                                        <!-- 效果展示欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-white h-100">
+                                                <h6 class="text-primary mb-3 text-center">
+                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                </h6>
+                                                <div class="effect-demo text-center mb-3">
+                                                    <div style="position: relative; height: 200px; background: #f8fafc; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+                                                        <!-- 背景層 z-index: -1 -->
+                                                        <div style="position: absolute; top: 20px; left: 20px; width: 100px; height: 60px; background: #f3f4f6; z-index: -1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #6b7280; text-align: center; line-height: 1.2;">
+                                                            背景層<br>z-index: -1
+                                                        </div>
+                                                        <!-- 內容層 z-index: 1 -->
+                                                        <div style="position: absolute; top: 40px; left: 60px; width: 100px; height: 60px; background: #dbeafe; z-index: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #1e40af; font-weight: bold; text-align: center; line-height: 1.2;">
+                                                            內容層<br>z-index: 1
+                                                        </div>
+                                                        <!-- 導航層 z-index: 100 -->
+                                                        <div style="position: absolute; top: 60px; left: 100px; width: 100px; height: 60px; background: #dcfce7; z-index: 100; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #166534; font-weight: bold; text-align: center; line-height: 1.2;">
+                                                            導航層<br>z-index: 100
+                                                        </div>
+                                                        <!-- 模態層 z-index: 1000 -->
+                                                        <div style="position: absolute; top: 80px; left: 140px; width: 100px; height: 60px; background: #fef3c7; z-index: 1000; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #92400e; font-weight: bold; text-align: center; line-height: 1.2;">
+                                                            模態層<br>z-index: 1000
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted">層級越高的元素越在上方</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- HTML 結構欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-light h-100">
+                                                <h6 class="text-success mb-3 text-center">
+                                                    <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>&lt;div class="z-container"&gt;
   &lt;div class="layer background-layer"&gt;
     背景層
   &lt;/div&gt;
@@ -7498,28 +7531,40 @@ button {
     模態層
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 容器設定 */
-.container {
+                                        
+                                        <!-- CSS 程式碼欄 -->
+                                        <div class="col-md-4">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-info mb-3 text-center">
+                                                    <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>/* 容器設定 */
+.z-container {
   position: relative;
-  height: 300px;
+  height: 250px;
   background: #f8fafc;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* 通用層級樣式 */
 .layer {
   position: absolute;
-  width: 150px;
-  height: 100px;
-  border-radius: 8px;
+  width: 100px;
+  height: 60px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 10px;
   font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* 各層級設定 */
@@ -7527,89 +7572,180 @@ button {
   top: 20px;
   left: 20px;
   background: #f3f4f6;
+  color: #6b7280;
   z-index: -1;    /* 背景層 */
 }
 
 .content-layer {
-  top: 50px;
-  left: 70px;
+  top: 40px;
+  left: 60px;
   background: #dbeafe;
+  color: #1e40af;
   z-index: 1;     /* 內容層 */
 }
 
 .navigation-layer {
-  top: 80px;
-  left: 120px;
+  top: 60px;
+  left: 100px;
   background: #dcfce7;
+  color: #166534;
   z-index: 100;   /* 導航層 */
 }
 
 .modal-layer {
-  top: 110px;
-  left: 170px;
+  top: 80px;
+  left: 140px;
   background: #fef3c7;
+  color: #92400e;
   z-index: 1000;  /* 模態層 */
 }</code></pre>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            
+                            <!-- 基本層級設定應用場景與最佳實踐 -->
+                            <div class="alert alert-light border border-2 border-secondary">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h6 class="text-secondary mb-2">🎯 基本層級設定應用場景</h6>
+                                        <ul class="small mb-2">
+                                            <li><strong>背景裝飾元素：</strong>使用負數 z-index (-1) 將裝飾圖形置於內容後方</li>
+                                            <li><strong>主要內容區域：</strong>使用正數 z-index (1-99) 確保內容在背景上方</li>
+                                            <li><strong>導航選單：</strong>使用較高 z-index (100-499) 確保選單不被遮擋</li>
+                                            <li><strong>模態框對話框：</strong>使用最高 z-index (1000+) 覆蓋所有內容</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="text-info mb-2">💡 最佳實踐</h6>
+                                        <ul class="small mb-2">
+                                            <li><strong>間隔規劃：</strong>使用 10、100、1000 等間隔</li>
+                                            <li><strong>定位限制：</strong>只對定位元素有效</li>
+                                            <li><strong>同級排序：</strong>相同值時按 HTML 順序</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 基本層級實際樣式展示 -->
+                            <div class="bg-light rounded p-4 mt-4">
+                                <h6 class="text-secondary mb-3 text-center">
+                                    <i class="fa-solid fa-layer-group me-2"></i>基本層級設定實際應用展示
+                                </h6>
                                 
-                                <div class="alert alert-light mt-3">
-                                    <h6 class="text-info mb-2">🔍 基本層級概念</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>數值比較：</strong>z-index 數值越大越在上方</li>
-                                                <li><strong>定位限制：</strong>只對定位元素（非 static）有效</li>
-                                                <li><strong>負數允許：</strong>可使用負數將元素置於背景</li>
-                                            </ul>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="small text-primary">📌 層級規劃建議</h6>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-secondary text-white px-2 py-1 rounded small me-2" style="font-size: 10px;">-1</div>
+                                                <span class="small">背景裝飾、底圖</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-primary text-white px-2 py-1 rounded small me-2" style="font-size: 10px;">1-99</div>
+                                                <span class="small">頁面主要內容</span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-success text-white px-2 py-1 rounded small me-2" style="font-size: 10px;">100-499</div>
+                                                <span class="small">導航、選單</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bg-warning text-dark px-2 py-1 rounded small me-2" style="font-size: 10px;">1000+</div>
+                                                <span class="small">模態框、提示框</span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>auto 值：</strong>預設值，不建立新的層疊上下文</li>
-                                                <li><strong>層級規劃：</strong>建議使用 10、100、1000 等間隔</li>
-                                                <li><strong>同級比較：</strong>相同 z-index 時按 HTML 順序</li>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <h6 class="small text-success">🔍 觀察重點</h6>
+                                            <ul class="small mb-0">
+                                                <li>數值越大的元素會蓋在數值小的元素上方</li>
+                                                <li>背景層（-1）被所有正數層級蓋住</li>
+                                                <li>模態層（1000）蓋在所有其他元素上方</li>
+                                                <li>只有定位元素（position: relative/absolute/fixed）的 z-index 才有效</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- 2. 層疊上下文示範 -->
-                            <div class="mb-5">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-2 me-2" style="color: #0ea5e9;"></i>層疊上下文示範
+                            <!-- 層疊上下文 -->
+                            <div class="border border-primary rounded p-4 mb-4">
+                                <h6 class="text-primary mb-3">
+                                    <i class="fa-solid fa-sitemap me-2"></i>層疊上下文
                                 </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="position: relative; height: 200px; background: #f8fafc; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-                                                <!-- 父容器 A（建立層疊上下文）-->
-                                                <div style="position: absolute; top: 20px; left: 20px; width: 140px; height: 120px; background: rgba(59, 130, 246, 0.3); z-index: 1; border: 2px solid #3b82f6; border-radius: 6px;">
-                                                    <div style="padding: 5px; font-size: 10px; font-weight: bold; color: #1e40af;">容器 A (z-index: 1)</div>
-                                                    <!-- 子元素 A1 -->
-                                                    <div style="position: absolute; top: 25px; left: 10px; width: 80px; height: 60px; background: #3b82f6; z-index: 9999; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: white; font-weight: bold;">
-                                                        子元素 A1<br>z-index: 9999
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- 父容器 B（建立層疊上下文）-->
-                                                <div style="position: absolute; top: 60px; left: 80px; width: 140px; height: 120px; background: rgba(16, 185, 129, 0.3); z-index: 2; border: 2px solid #10b981; border-radius: 6px;">
-                                                    <div style="padding: 5px; font-size: 10px; font-weight: bold; color: #047857;">容器 B (z-index: 2)</div>
-                                                    <!-- 子元素 B1 -->
-                                                    <div style="position: absolute; top: 25px; left: 30px; width: 80px; height: 60px; background: #10b981; z-index: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: white; font-weight: bold;">
-                                                        子元素 B1<br>z-index: 1
-                                                    </div>
+                                <p class="text-muted small mb-4">層疊上下文是 Z-index 的關鍵概念，子元素只能在其父層疊上下文內部比較層級。</p>
+                                
+                                <!-- 層疊上下文應用示範 -->
+                                <div class="property-detail-section border rounded mb-4">
+                                    <!-- 注意事項與 CodePen -->
+                                    <div class="border-top p-3 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-info mb-0">
+                                                    <h6 class="text-info mb-2">🔍 層疊上下文特性</h6>
+                                                    <ul class="small mb-0">
+                                                        <li><strong>建立條件：</strong>position 定位 + z-index 非 auto 值</li>
+                                                        <li><strong>獨立比較：</strong>子元素只在自己的父上下文內比較層級</li>
+                                                        <li><strong>父級決定：</strong>父容器的 z-index 決定整體顯示順序</li>
+                                                        <li><strong>無法突破：</strong>子元素無法超越父容器的層級限制</li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <small class="text-muted">容器 B 在上方，即使子元素 A1 的 z-index 更高</small>
+                                            <div class="col-md-4 text-end">
+                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                    <input type="hidden" name="data" value='{"title":"Z-index 層疊上下文","html":"<div class=\"stacking-demo\">\n  <!-- 容器 A（建立層疊上下文）-->\n  <div class=\"context-a\">\n    <div class=\"context-label\">容器 A (z-index: 1)</div>\n    <div class=\"child-a1\">\n      子元素 A1<br>z-index: 9999\n    </div>\n  </div>\n  \n  <!-- 容器 B（建立層疊上下文）-->\n  <div class=\"context-b\">\n    <div class=\"context-label\">容器 B (z-index: 2)</div>\n    <div class=\"child-b1\">\n      子元素 B1<br>z-index: 1\n    </div>\n  </div>\n</div>\n\n<div class=\"info-box\">\n  <h3>層疊上下文說明</h3>\n  <p>雖然子元素 A1 的 z-index 為 9999，但因為它的父容器 A 的 z-index (1) 小於容器 B 的 z-index (2)，所以容器 B 及其子元素會顯示在上方。</p>\n  <ul>\n    <li>父容器決定整體層級順序</li>\n    <li>子元素只能在父上下文內部比較</li>\n    <li>無法跨越父容器的層級限制</li>\n  </ul>\n</div>","css":"/* 層疊上下文示範 */\n.stacking-demo {\n  position: relative;\n  height: 300px;\n  background: #f8fafc;\n  border: 2px solid #e5e7eb;\n  border-radius: 12px;\n  overflow: hidden;\n  margin-bottom: 30px;\n  padding: 20px;\n}\n\n/* 層疊上下文 A */\n.context-a {\n  position: absolute;\n  top: 40px;\n  left: 40px;\n  width: 200px;\n  height: 150px;\n  background: rgba(59, 130, 246, 0.3);\n  border: 3px solid #3b82f6;\n  border-radius: 8px;\n  z-index: 1;        /* 建立層疊上下文 */\n}\n\n/* 子元素 A1 */\n.child-a1 {\n  position: absolute;\n  top: 40px;\n  left: 20px;\n  width: 120px;\n  height: 80px;\n  background: #3b82f6;\n  border-radius: 6px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  z-index: 9999;     /* 在父上下文內的高層級 */\n  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);\n}\n\n/* 層疊上下文 B */\n.context-b {\n  position: absolute;\n  top: 100px;\n  left: 140px;\n  width: 200px;\n  height: 150px;\n  background: rgba(16, 185, 129, 0.3);\n  border: 3px solid #10b981;\n  border-radius: 8px;\n  z-index: 2;        /* 比容器 A 更高 */\n}\n\n/* 子元素 B1 */\n.child-b1 {\n  position: absolute;\n  top: 40px;\n  left: 60px;\n  width: 120px;\n  height: 80px;\n  background: #10b981;\n  border-radius: 6px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  z-index: 1;        /* 在父上下文內的低層級 */\n  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);\n}\n\n/* 容器標籤 */\n.context-label {\n  position: absolute;\n  top: 8px;\n  left: 10px;\n  font-size: 11px;\n  font-weight: bold;\n  color: #374151;\n  background: rgba(255, 255, 255, 0.9);\n  padding: 2px 6px;\n  border-radius: 4px;\n}\n\n/* 資訊框樣式 */\n.info-box {\n  background: #ffffff;\n  border: 2px solid #e5e7eb;\n  border-radius: 12px;\n  padding: 25px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.info-box h3 {\n  color: #374151;\n  margin-bottom: 15px;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 10px;\n}\n\n.info-box p {\n  color: #6b7280;\n  line-height: 1.6;\n  margin-bottom: 15px;\n}\n\n.info-box ul {\n  color: #6b7280;\n  line-height: 1.6;\n}\n\n.info-box li {\n  margin-bottom: 8px;\n}\n\n/* 基本頁面樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f9fafb;\n}"}'>
+                                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                        <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                        在 CodePen 中練習
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;div class="demo-container"&gt;
+                                    
+                                    <div class="row g-0">
+                                        <!-- 效果展示欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-white h-100">
+                                                <h6 class="text-primary mb-3 text-center">
+                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                </h6>
+                                                <div class="effect-demo text-center mb-3">
+                                                    <div style="position: relative; height: 200px; background: #f8fafc; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+                                                        <!-- 父容器 A（建立層疊上下文）-->
+                                                        <div style="position: absolute; top: 20px; left: 20px; width: 120px; height: 100px; background: rgba(59, 130, 246, 0.3); z-index: 1; border: 2px solid #3b82f6; border-radius: 6px;">
+                                                            <div style="padding: 5px; font-size: 9px; font-weight: bold; color: #1e40af;">容器 A (z-index: 1)</div>
+                                                            <!-- 子元素 A1 -->
+                                                            <div style="position: absolute; top: 20px; left: 10px; width: 70px; height: 50px; background: #3b82f6; z-index: 9999; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: white; font-weight: bold; text-align: center; line-height: 1.1;">
+                                                                子元素 A1<br>z-index: 9999
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- 父容器 B（建立層疊上下文）-->
+                                                        <div style="position: absolute; top: 60px; left: 80px; width: 120px; height: 100px; background: rgba(16, 185, 129, 0.3); z-index: 2; border: 2px solid #10b981; border-radius: 6px;">
+                                                            <div style="padding: 5px; font-size: 9px; font-weight: bold; color: #047857;">容器 B (z-index: 2)</div>
+                                                            <!-- 子元素 B1 -->
+                                                            <div style="position: absolute; top: 20px; left: 30px; width: 70px; height: 50px; background: #10b981; z-index: 1; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: white; font-weight: bold; text-align: center; line-height: 1.1;">
+                                                                子元素 B1<br>z-index: 1
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted">容器 B 在上方，即使子元素 A1 的 z-index 更高</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- HTML 結構欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-light h-100">
+                                                <h6 class="text-success mb-3 text-center">
+                                                    <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>&lt;div class="stacking-demo"&gt;
   &lt;!-- 容器 A --&gt;
   &lt;div class="context-a"&gt;
     &lt;div class="child-a1"&gt;
@@ -7624,16 +7760,25 @@ button {
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 示範容器 */
-.demo-container {
+                                        
+                                        <!-- CSS 程式碼欄 -->
+                                        <div class="col-md-4">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-info mb-3 text-center">
+                                                    <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>/* 示範容器 */
+.stacking-demo {
   position: relative;
-  height: 300px;
+  height: 250px;
   background: #f8fafc;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* 層疊上下文 A */
@@ -7641,257 +7786,71 @@ button {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 200px;
-  height: 150px;
+  width: 120px;
+  height: 100px;
   background: rgba(59, 130, 246, 0.3);
   border: 2px solid #3b82f6;
+  border-radius: 6px;
   z-index: 1;        /* 建立層疊上下文 */
 }
 
 /* 子元素 A1 */
 .child-a1 {
   position: absolute;
-  top: 30px;
-  left: 15px;
-  width: 100px;
-  height: 80px;
+  top: 20px;
+  left: 10px;
+  width: 70px;
+  height: 50px;
   background: #3b82f6;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
   z-index: 9999;     /* 在父上下文內 */
 }
 
 /* 層疊上下文 B */
 .context-b {
   position: absolute;
-  top: 80px;
-  left: 120px;
-  width: 200px;
-  height: 150px;
+  top: 60px;
+  left: 80px;
+  width: 120px;
+  height: 100px;
   background: rgba(16, 185, 129, 0.3);
   border: 2px solid #10b981;
+  border-radius: 6px;
   z-index: 2;        /* 比容器 A 更高 */
 }
 
 /* 子元素 B1 */
 .child-b1 {
   position: absolute;
-  top: 30px;
-  left: 40px;
-  width: 100px;
-  height: 80px;
+  top: 20px;
+  left: 30px;
+  width: 70px;
+  height: 50px;
   background: #10b981;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
   z-index: 1;        /* 在父上下文內 */
 }</code></pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-warning mt-3">
-                                    <h6 class="text-warning mb-2">⚠️ 層疊上下文重要概念</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>獨立比較：</strong>子元素只在自己的父上下文內比較</li>
-                                                <li><strong>無法突破：</strong>子元素無法超越父容器的層級</li>
-                                                <li><strong>觸發條件：</strong>position + z-index、opacity < 1 等</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>解決方法：</strong>調整父容器 z-index 或重構 HTML</li>
-                                                <li><strong>Portal 技術：</strong>將元素移至 body 下避免嵌套</li>
-                                                <li><strong>檢查工具：</strong>使用開發者工具檢視層疊關係</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 3. 實際應用案例 -->
-                            <div class="mb-4">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-3 me-2" style="color: #0ea5e9;"></i>實際應用案例：模態框與下拉選單
-                                </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="position: relative; height: 200px; background: #f8fafc; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-                                                <!-- 頁面內容 -->
-                                                <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 80px; background: white; border: 1px solid #e5e7eb; border-radius: 4px; padding: 10px; z-index: 1;">
-                                                    <div style="font-size: 12px; color: #374151; margin-bottom: 8px; font-weight: bold;">頁面內容</div>
-                                                    <div style="font-size: 10px; color: #6b7280; line-height: 1.4;">一般網頁內容區域...</div>
-                                                </div>
-                                                
-                                                <!-- 導航列 -->
-                                                <div style="position: absolute; top: 0; left: 0; right: 0; height: 40px; background: #1f2937; z-index: 100; display: flex; align-items: center; padding: 0 15px;">
-                                                    <div style="color: white; font-size: 11px; font-weight: bold;">導航列 (z-index: 100)</div>
-                                                    <!-- 下拉選單 -->
-                                                    <div style="position: absolute; top: 40px; left: 80px; width: 120px; background: white; border: 1px solid #e5e7eb; border-radius: 4px; z-index: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-                                                        <div style="padding: 8px; font-size: 10px; color: #374151;">下拉選單</div>
-                                                        <div style="padding: 4px 8px; font-size: 9px; color: #6b7280;">z-index: 500</div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- 模態框背景 -->
-                                                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;">
-                                                    <!-- 模態框內容 -->
-                                                    <div style="width: 140px; height: 80px; background: white; border-radius: 6px; padding: 10px; text-align: center;">
-                                                        <div style="font-size: 11px; font-weight: bold; margin-bottom: 8px;">模態框</div>
-                                                        <div style="font-size: 9px; color: #6b7280;">z-index: 1000</div>
-                                                    </div>
                                                 </div>
                                             </div>
-                                            <small class="text-muted">模態框覆蓋所有內容，包括下拉選單</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;div class="page"&gt;
-  &lt;!-- 導航列 --&gt;
-  &lt;nav class="navbar"&gt;
-    網站導航
-    &lt;div class="dropdown"&gt;
-      下拉選單
-    &lt;/div&gt;
-  &lt;/nav&gt;
-  
-  &lt;!-- 頁面內容 --&gt;
-  &lt;main class="content"&gt;
-    頁面主要內容...
-  &lt;/main&gt;
-  
-  &lt;!-- 模態框 --&gt;
-  &lt;div class="modal-overlay"&gt;
-    &lt;div class="modal-content"&gt;
-      模態框內容
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 頁面內容 */
-.content {
-  position: relative;
-  background: white;
-  padding: 20px;
-  z-index: 1;
-}
-
-/* 導航列 */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #1f2937;
-  height: 60px;
-  z-index: 100;
-}
-
-/* 下拉選單 */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 500;
-}
-
-/* 模態框背景 */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-}
-
-/* 模態框內容 */
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}</code></pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-info mt-3">
-                                    <h6 class="text-info mb-2">💡 層級規劃建議</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>背景裝飾：</strong>-1 ~ 0</li>
-                                                <li><strong>頁面內容：</strong>1 ~ 99</li>
-                                                <li><strong>固定導航：</strong>100 ~ 499</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>下拉選單：</strong>500 ~ 999</li>
-                                                <li><strong>模態框：</strong>1000 ~ 9998</li>
-                                                <li><strong>提示框：</strong>9999</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Z-index CodePen 實作練習 -->
-                        <div class="mt-4 p-3 border border-info rounded bg-light">
-                            <h6 class="text-info mb-3">
-                                <i class="fa-solid fa-code me-2"></i>實作練習：Z-index 層級控制
-                            </h6>
-                            <p class="small text-muted mb-3">練習使用 z-index 控制元素層疊順序，實作模態框與下拉選單</p>
                             
-                            <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
-                                <input type="hidden" name="data" value='{"title":"Z-index 層級控制練習","html":"<!-- HTML 結構 -->\n<div class=\"app\">\n  <!-- 頁面標題 -->\n  <h1>Z-index 層級控制示範</h1>\n  \n  <!-- 任務1: 基本層級展示 -->\n  <section class=\"basic-layers-demo\">\n    <h2>基本層級展示</h2>\n    <div class=\"layer-container\">\n      <div class=\"layer layer-1\">層級 1</div>\n      <div class=\"layer layer-2\">層級 2</div>\n      <div class=\"layer layer-3\">層級 3</div>\n      <div class=\"layer layer-background\">背景層</div>\n    </div>\n  </section>\n  \n  <!-- 任務2: 導航與下拉選單 -->\n  <section class=\"navigation-demo\">\n    <h2>導航與下拉選單</h2>\n    <nav class=\"navbar\">\n      <div class=\"nav-brand\">網站 Logo</div>\n      <div class=\"nav-item dropdown-container\">\n        <button class=\"dropdown-trigger\">選單 ▼</button>\n        <div class=\"dropdown-menu\">\n          <a href=\"#\">首頁</a>\n          <a href=\"#\">關於我們</a>\n          <a href=\"#\">服務項目</a>\n          <a href=\"#\">聯絡我們</a>\n        </div>\n      </div>\n    </nav>\n    \n    <div class=\"page-content\">\n      <p>這是頁面內容區域。下拉選單應該要能正確顯示在內容上方。</p>\n      <div class=\"content-card\">內容卡片</div>\n    </div>\n  </section>\n  \n  <!-- 任務3: 模態框系統 -->\n  <section class=\"modal-demo\">\n    <h2>模態框系統</h2>\n    <button class=\"open-modal-btn\">開啟模態框</button>\n    \n    <!-- 模態框結構 -->\n    <div class=\"modal-overlay\" id=\"modal\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3>示範模態框</h3>\n          <button class=\"close-btn\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n          <p>這是模態框的內容區域。模態框應該要覆蓋頁面上的所有內容，包括導航列和下拉選單。</p>\n          <div class=\"nested-element\">嵌套元素（測試層疊上下文）</div>\n        </div>\n        <div class=\"modal-footer\">\n          <button class=\"btn secondary\">取消</button>\n          <button class=\"btn primary\">確認</button>\n        </div>\n      </div>\n    </div>\n  </section>\n  \n  <!-- 任務4: 層疊上下文挑戰 -->\n  <section class=\"stacking-context-demo\">\n    <h2>層疊上下文挑戰</h2>\n    <div class=\"context-parent-a\">\n      <span class=\"context-label\">容器 A (z-index: 1)</span>\n      <div class=\"context-child-a\">子元素 A<br>(z-index: 999)</div>\n    </div>\n    \n    <div class=\"context-parent-b\">\n      <span class=\"context-label\">容器 B (z-index: 2)</span>\n      <div class=\"context-child-b\">子元素 B<br>(z-index: 1)</div>\n    </div>\n    \n    <p class=\"explanation\">觀察：即使子元素 A 的 z-index 值更高，但因為父容器 B 的 z-index 更高，所以子元素 B 仍然在上方。</p>\n  </section>\n</div>","css":"/* 基礎樣式重置 */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  background: #f8fafc;\n  padding: 20px;\n}\n\n.app {\n  max-width: 1000px;\n  margin: 0 auto;\n}\n\nsection {\n  background: white;\n  margin-bottom: 30px;\n  padding: 25px;\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\nh1, h2 {\n  color: #1f2937;\n  margin-bottom: 20px;\n}\n\n/* 任務1: 基本層級展示 */\n.layer-container {\n  position: relative;\n  height: 250px;\n  background: #f3f4f6;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  overflow: hidden;\n}\n\n.layer {\n  position: absolute;\n  width: 150px;\n  height: 100px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  color: white;\n  border: 2px solid rgba(255, 255, 255, 0.3);\n}\n\n/* 設定各層級的 z-index 和位置 */\n.layer-background {\n  top: 20px;\n  left: 20px;\n  background: #6b7280;\n  /* 設定 z-index: -1 */\n}\n\n.layer-1 {\n  top: 60px;\n  left: 80px;\n  background: #3b82f6;\n  /* 設定 z-index: 1 */\n}\n\n.layer-2 {\n  top: 100px;\n  left: 140px;\n  background: #10b981;\n  /* 設定 z-index: 2 */\n}\n\n.layer-3 {\n  top: 140px;\n  left: 200px;\n  background: #f59e0b;\n  /* 設定 z-index: 3 */\n}\n\n/* 任務2: 導航與下拉選單 */\n.navbar {\n  position: relative;\n  background: #1f2937;\n  padding: 15px 20px;\n  border-radius: 8px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n  /* 設定適當的 z-index */\n}\n\n.nav-brand {\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n\n.dropdown-container {\n  position: relative;\n}\n\n.dropdown-trigger {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 10px 15px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-weight: bold;\n}\n\n.dropdown-trigger:hover {\n  background: #2563eb;\n}\n\n.dropdown-menu {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);\n  min-width: 180px;\n  opacity: 0;\n  visibility: hidden;\n  transform: translateY(-10px);\n  transition: all 0.3s ease;\n  /* 設定 z-index 確保在內容上方 */\n}\n\n.dropdown-container:hover .dropdown-menu {\n  opacity: 1;\n  visibility: visible;\n  transform: translateY(0);\n}\n\n.dropdown-menu a {\n  display: block;\n  padding: 12px 15px;\n  color: #374151;\n  text-decoration: none;\n  border-bottom: 1px solid #f3f4f6;\n}\n\n.dropdown-menu a:hover {\n  background: #f8fafc;\n  color: #3b82f6;\n}\n\n.dropdown-menu a:last-child {\n  border-bottom: none;\n}\n\n.page-content {\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  /* 設定基本 z-index */\n}\n\n.content-card {\n  background: white;\n  padding: 20px;\n  border-radius: 8px;\n  margin-top: 15px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n\n/* 任務3: 模態框系統 */\n.open-modal-btn {\n  background: #10b981;\n  color: white;\n  border: none;\n  padding: 12px 24px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: bold;\n  margin-bottom: 20px;\n}\n\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: none;\n  align-items: center;\n  justify-content: center;\n  /* 設定最高的 z-index 覆蓋所有內容 */\n}\n\n.modal-overlay.active {\n  display: flex;\n}\n\n.modal-content {\n  background: white;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 500px;\n  max-height: 80vh;\n  overflow: hidden;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);\n}\n\n.modal-header {\n  background: #f8fafc;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.modal-header h3 {\n  color: #1f2937;\n  margin: 0;\n}\n\n.close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #6b7280;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.close-btn:hover {\n  color: #ef4444;\n}\n\n.modal-body {\n  padding: 20px;\n}\n\n.nested-element {\n  background: #e0e7ff;\n  padding: 15px;\n  border-radius: 6px;\n  margin-top: 15px;\n  position: relative;\n  /* 測試：設定一個高 z-index 看是否能突破模態框 */\n  z-index: 99999;\n}\n\n.modal-footer {\n  background: #f8fafc;\n  padding: 20px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n\n.btn {\n  padding: 10px 20px;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  font-weight: bold;\n}\n\n.btn.secondary {\n  background: #6b7280;\n  color: white;\n}\n\n.btn.primary {\n  background: #3b82f6;\n  color: white;\n}\n\n/* 任務4: 層疊上下文挑戰 */\n.context-parent-a, .context-parent-b {\n  position: relative;\n  width: 300px;\n  height: 200px;\n  border: 3px solid;\n  border-radius: 10px;\n  margin: 20px;\n  padding: 15px;\n  display: inline-block;\n}\n\n.context-parent-a {\n  background: rgba(59, 130, 246, 0.1);\n  border-color: #3b82f6;\n  /* 設定 z-index: 1 並建立層疊上下文 */\n}\n\n.context-parent-b {\n  background: rgba(16, 185, 129, 0.1);\n  border-color: #10b981;\n  /* 設定 z-index: 2 並建立層疊上下文 */\n}\n\n.context-label {\n  font-weight: bold;\n  color: #1f2937;\n}\n\n.context-child-a, .context-child-b {\n  position: absolute;\n  width: 120px;\n  height: 80px;\n  border-radius: 6px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  color: white;\n  text-align: center;\n  font-size: 14px;\n}\n\n.context-child-a {\n  top: 50px;\n  right: -30px;\n  background: #3b82f6;\n  /* 設定 z-index: 999 */\n}\n\n.context-child-b {\n  top: 50px;\n  left: -30px;\n  background: #10b981;\n  /* 設定 z-index: 1 */\n}\n\n.explanation {\n  margin-top: 20px;\n  padding: 15px;\n  background: #fef3c7;\n  border-left: 4px solid #f59e0b;\n  border-radius: 4px;\n  font-style: italic;\n}\n\n/* 提示：完成目標 */\n/* 1. 設定 .layer-background z-index: -1 */\n/* 2. 設定 .layer-1, .layer-2, .layer-3 對應的 z-index */\n/* 3. 設定 .navbar z-index: 100 */\n/* 4. 設定 .dropdown-menu z-index: 500 */\n/* 5. 設定 .modal-overlay z-index: 1000 */\n/* 6. 設定層疊上下文父容器的 z-index */","js":"// 模態框控制\nconst openModalBtn = document.querySelector(\".open-modal-btn\");\nconst modal = document.getElementById(\"modal\");\nconst closeBtn = document.querySelector(\".close-btn\");\nconst secondaryBtn = document.querySelector(\".btn.secondary\");\n\n// 開啟模態框\nopenModalBtn.addEventListener(\"click\", () => {\n  modal.classList.add(\"active\");\n  document.body.style.overflow = \"hidden\"; // 防止背景滾動\n});\n\n// 關閉模態框函式\nfunction closeModal() {\n  modal.classList.remove(\"active\");\n  document.body.style.overflow = \"auto\"; // 恢復滾動\n}\n\n// 點擊關閉按鈕\ncloseBtn.addEventListener(\"click\", closeModal);\n\n// 點擊取消按鈕\nsecondaryBtn.addEventListener(\"click\", closeModal);\n\n// 點擊背景關閉\nmodal.addEventListener(\"click\", (e) => {\n  if (e.target === modal) {\n    closeModal();\n  }\n});\n\n// ESC 鍵關閉\ndocument.addEventListener(\"keydown\", (e) => {\n  if (e.key === \"Escape\" && modal.classList.contains(\"active\")) {\n    closeModal();\n  }\n});\n\n// 層級數值顯示（輔助理解）\nconst layers = document.querySelectorAll(\".layer\");\nlayers.forEach(layer => {\n  const zIndex = window.getComputedStyle(layer).zIndex;\n  if (zIndex !== \"auto\") {\n    layer.innerHTML += `<br><small>(z-index: ${zIndex})</small>`;\n  }\n});"}'>
-                                <button type="submit" class="btn btn-outline-info btn-sm">
-                                    <i class="fa-solid fa-external-link-alt me-1"></i>
-                                    在 CodePen 中練習
-                                </button>
-                            </form>
-                            
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="small text-muted">
-                                        <strong>練習重點：</strong>
-                                        <ul class="mt-1 mb-0">
-                                            <li>基本層級設定與排序</li>
-                                            <li>導航與下拉選單層級</li>
-                                            <li>模態框覆蓋效果</li>
-                                            <li>層疊上下文的影響</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="small text-muted">
-                                        <strong>學習目標：</strong>
-                                        <ul class="mt-1 mb-0">
-                                            <li>理解 z-index 數值比較</li>
-                                            <li>掌握層級規劃原則</li>
-                                            <li>解決層疊上下文問題</li>
-                                            <li>實作常見 UI 組件</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
                         <!-- 6.4 Float 浮動系統 -->
