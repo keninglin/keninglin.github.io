@@ -7877,196 +7877,109 @@ button {
                             </div>
                         </div>
 
-                        <!-- Float 實際應用示範 -->
-                        <div class="border border-info rounded p-4 mb-4">
-                            <h6 class="text-info mb-3">
-                                <i class="fa-solid fa-water me-2"></i>Float 實際應用示範
-                            </h6>
-                            <p class="text-muted small mb-4">Float 讓元素脫離正常文件流，向左或右浮動，其他內容環繞其周圍。雖已被現代佈局方法取代，但在文字環繞等特殊效果上仍有應用價值。</p>
-                            
-                            <!-- 1. 基本浮動效果 -->
-                            <div class="mb-5">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-1 me-2" style="color: #0ea5e9;"></i>基本浮動效果
+                        <!-- 1. 圖片文字環繞 -->
+                            <div class="border border-info rounded p-4 mb-4">
+                                <h6 class="text-info mb-3">
+                                    <i class="fa-solid fa-image me-2"></i>圖片文字環繞
                                 </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden; min-height: 150px;">
-                                                <!-- 左浮動元素 -->
-                                                <div style="float: left; width: 80px; height: 60px; background: #3b82f6; color: white; margin: 0 10px 10px 0; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">
-                                                    float: left
-                                                </div>
-                                                
-                                                <!-- 右浮動元素 -->
-                                                <div style="float: right; width: 80px; height: 60px; background: #10b981; color: white; margin: 0 0 10px 10px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">
-                                                    float: right
-                                                </div>
-                                                
-                                                <!-- 環繞文字 -->
-                                                <div style="line-height: 1.4; font-size: 12px; text-align: justify; color: #374151;">
-                                                    這是環繞浮動元素的文字內容。左側藍色區塊向左浮動，右側綠色區塊向右浮動，文字會自動環繞在浮動元素周圍流動。這種佈局方式在雜誌和報紙排版中很常見。
-                                                </div>
-                                            </div>
-                                            <small class="text-muted">文字自動環繞浮動元素</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;div class="container"&gt;
-  &lt;div class="float-left"&gt;
-    左浮動元素
-  &lt;/div&gt;
-  
-  &lt;div class="float-right"&gt;
-    右浮動元素
-  &lt;/div&gt;
-  
-  &lt;p class="content"&gt;
-    這是環繞浮動元素的文字內容。
-    文字會自動環繞在浮動元素周圍，
-    形成雜誌式的排版效果。
-  &lt;/p&gt;
-&lt;/div&gt;</code></pre>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 容器設定 */
-.container {
-  background: #f8fafc;
-  padding: 20px;
-  border-radius: 8px;
-  overflow: hidden; /* 包含浮動元素 */
-}
-
-/* 左浮動 */
-.float-left {
-  float: left;
-  width: 120px;
-  height: 80px;
-  background: #3b82f6;
-  color: white;
-  margin: 0 15px 15px 0;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-/* 右浮動 */
-.float-right {
-  float: right;
-  width: 120px;
-  height: 80px;
-  background: #10b981;
-  color: white;
-  margin: 0 0 15px 15px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-/* 環繞內容 */
-.content {
-  line-height: 1.6;
-  text-align: justify;
-  color: #374151;
-}</code></pre>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="text-muted small mb-4">Float 最經典的應用就是圖片文字環繞效果。圖片使用左浮動，文字內容會自動環繞圖片，創造出雜誌式的版面設計。</p>
                                 
-                                <div class="alert alert-light mt-3">
-                                    <h6 class="text-info mb-2">🔍 Float 基本概念</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>脫離文件流：</strong>浮動元素不再佔據原始位置</li>
-                                                <li><strong>內容環繞：</strong>其他內容會環繞浮動元素</li>
-                                                <li><strong>三種取值：</strong>left, right, none（預設）</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>影響後續：</strong>影響後續元素的排列</li>
-                                                <li><strong>容器影響：</strong>可能造成父容器高度塌陷</li>
-                                                <li><strong>需要清除：</strong>適時使用 clear 清除浮動</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 2. 圖片文字環繞 -->
-                            <div class="mb-5">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-2 me-2" style="color: #0ea5e9;"></i>圖片文字環繞
-                                </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-                                                <!-- 浮動圖片 -->
-                                                <div style="float: left; width: 100px; height: 75px; margin: 0 15px 15px 0; background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px;">
-                                                    圖片區域
-                                                </div>
-                                                <div style="line-height: 1.5; text-align: justify; font-size: 12px; color: #374151;">
-                                                    這是一個經典的圖片文字環繞範例。圖片使用左浮動，文字內容會自動從圖片右側開始環繞。這種排版方式在部落格文章、新聞報導和雜誌設計中非常常見，能讓版面更加生動有趣。適當的 margin 設定可以控制圖片與文字之間的間距，讓整體視覺效果更加美觀。
+                                <!-- 圖片環繞應用示範 -->
+                                <div class="property-detail-section border rounded mb-4">
+                                    <!-- 注意事項與 CodePen -->
+                                    <div class="border-top p-3 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-info mb-0">
+                                                    <h6 class="text-info mb-2">🔍 圖片環繞特性</h6>
+                                                    <ul class="small mb-0">
+                                                        <li><strong>浮動脫離：</strong>圖片脫離正常文件流向左或右浮動</li>
+                                                        <li><strong>自動環繞：</strong>文字內容自動環繞浮動圖片</li>
+                                                        <li><strong>間距控制：</strong>使用 margin 控制圖片與文字距離</li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <small class="text-muted">經典的雜誌式圖文排版</small>
+                                            <div class="col-md-4 text-end">
+                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                    <input type="hidden" name="data" value='{"title":"圖片文字環繞範例","html":"<article class=\"blog-post\">\n  <img src=\"https://picsum.photos/200/150\" alt=\"文章配圖\" class=\"article-image\">\n  <div class=\"article-text\">\n    這是一個經典的圖片文字環繞範例。圖片使用左浮動，文字內容會自動從圖片右側開始環繞。這種排版方式在部落格文章、新聞報導和雜誌設計中非常常見，能讓版面更加生動有趣。適當的 margin 設定可以控制圖片與文字之間的間距，讓整體視覺效果更加美觀。\n  </div>\n</article>","css":"/* 文章容器 */\n.blog-post {\n  background: #f8fafc;\n  padding: 20px;\n  border-radius: 8px;\n  overflow: hidden;\n  line-height: 1.6;\n  max-width: 600px;\n  margin: 0 auto;\n}\n\n/* 浮動圖片 */\n.article-image {\n  float: left;\n  width: 120px;\n  height: 90px;\n  margin: 0 15px 15px 0;\n  border-radius: 8px;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n}\n\n/* 文章內容 */\n.article-text {\n  text-align: justify;\n  color: #374151;\n  font-size: 14px;\n  line-height: 1.5;\n}\n\n/* 響應式處理 */\n@media (max-width: 768px) {\n  .article-image {\n    float: none;\n    display: block;\n    margin: 0 auto 20px auto;\n    max-width: 100%;\n  }\n}"}'>
+                                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                        <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                        在 CodePen 中練習
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;article class="blog-post"&gt;
+                                    
+                                    <div class="row g-0">
+                                        <!-- 效果展示欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-white h-100">
+                                                <h6 class="text-primary mb-3 text-center">
+                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                </h6>
+                                                <div class="effect-demo text-center mb-3">
+                                                    <div class="float-image-demo">
+                                                        <div class="article-image"></div>
+                                                        <div class="article-text">
+                                                            這是一個經典的圖片文字環繞範例。圖片使用左浮動，文字內容會自動從圖片右側開始環繞。這種排版方式在部落格文章、新聞報導和雜誌設計中非常常見，能讓版面更加生動有趣。適當的 margin 設定可以控制圖片與文字之間的間距，讓整體視覺效果更加美觀。
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted">經典的雜誌式圖文排版</small>
+                                                </div>
+                                                <!-- 應用場景已移至區塊底部 -->
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- HTML 程式碼欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-warning mb-3 text-center">
+                                                    <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>&lt;article class="blog-post"&gt;
   &lt;img src="image.jpg" 
        alt="文章配圖" 
        class="article-image"&gt;
   
-  &lt;p class="article-text"&gt;
+  &lt;div class="article-text"&gt;
     這是一個經典的圖片文字環繞範例。
     圖片使用左浮動，文字內容會自動
     從圖片右側開始環繞。這種排版方式
     在部落格文章、新聞報導和雜誌設計中
     非常常見，能讓版面更加生動有趣。
-  &lt;/p&gt;
-  
-  &lt;p class="article-text"&gt;
     適當的 margin 設定可以控制圖片
     與文字之間的間距，讓整體視覺效果
     更加美觀。
-  &lt;/p&gt;
+  &lt;/div&gt;
 &lt;/article&gt;</code></pre>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 文章容器 */
+                                        
+                                        <!-- CSS 程式碼欄 -->
+                                        <div class="col-md-4">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-info mb-3 text-center">
+                                                    <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>/* 文章容器 */
 .blog-post {
   background: #f8fafc;
   padding: 20px;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: hidden;        /* 包含浮動 */
   line-height: 1.6;
 }
 
 /* 浮動圖片 */
 .article-image {
-  float: left;
-  width: 200px;
-  height: auto;
-  margin: 0 20px 20px 0;
+  float: left;             /* 左浮動 */
+  width: 120px;
+  height: 90px;
+  margin: 0 15px 15px 0;   /* 右下間距 */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -8075,7 +7988,8 @@ button {
 .article-text {
   text-align: justify;
   color: #374151;
-  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* 響應式處理 */
@@ -8087,167 +8001,142 @@ button {
     max-width: 100%;
   }
 }</code></pre>
+                                                </div>
+                                                <!-- 最佳實踐已移至區塊底部 -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="alert alert-success mt-3">
-                                    <h6 class="text-success mb-2">✅ 圖片環繞最佳實踐</h6>
+                                <!-- 圖片環繞應用場景與最佳實踐 -->
+                                <div class="alert alert-light border border-2 border-success">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>適當間距：</strong>使用 margin 控制圖片與文字距離</li>
-                                                <li><strong>圓角設計：</strong>border-radius 讓圖片更美觀</li>
-                                                <li><strong>陰影效果：</strong>box-shadow 增加立體感</li>
+                                            <h6 class="text-success mb-3">
+                                                <i class="fa-solid fa-clipboard-list me-2"></i>📋 應用場景
+                                            </h6>
+                                            <ul class="mb-0">
+                                                <li><strong>部落格文章：</strong>圖片配文的經典佈局</li>
+                                                <li><strong>新聞報導：</strong>媒體網站的傳統排版</li>
+                                                <li><strong>產品介紹：</strong>圖片與說明文字的組合</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>響應式處理：</strong>小螢幕時取消浮動</li>
-                                                <li><strong>alt 屬性：</strong>為圖片添加替代文字</li>
-                                                <li><strong>容器溢出：</strong>使用 overflow: hidden 包含浮動</li>
+                                            <h6 class="text-success mb-3">
+                                                <i class="fa-solid fa-check-circle me-2"></i>✅ 最佳實踐
+                                            </h6>
+                                            <ul class="mb-0">
+                                                <li><strong>間距設定：</strong>適當的 margin 避免擁擠</li>
+                                                <li><strong>容器包含：</strong>使用 overflow: hidden</li>
+                                                <li><strong>響應式：</strong>小螢幕時取消浮動</li>
                                             </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 圖片環繞應用場景實際樣式展示 -->
+                                    <div class="mt-4 p-3 bg-white rounded border">
+                                        <h6 class="text-secondary mb-3">
+                                            <i class="fa-solid fa-eye me-2"></i>實際樣式展示
+                                        </h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <div class="scenario-demo">
+                                                    <h6 class="small text-muted mb-2">部落格文章佈局</h6>
+                                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                        <div style="float: left; width: 40px; height: 30px; background: #6c757d; margin: 0 8px 8px 0; border-radius: 3px;"></div>
+                                                        <div style="font-size: 10px; line-height: 1.3; color: #495057;">文字環繞圖片的經典排版效果，常見於部落格和新聞網站。</div>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="scenario-demo">
+                                                    <h6 class="small text-muted mb-2">新聞報導排版</h6>
+                                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                        <div style="float: right; width: 40px; height: 30px; background: #6c757d; margin: 0 0 8px 8px; border-radius: 3px;"></div>
+                                                        <div style="font-size: 10px; line-height: 1.3; color: #495057;">圖片也可以右浮動，文字從左側開始環繞。</div>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="scenario-demo">
+                                                    <h6 class="small text-muted mb-2">產品介紹頁面</h6>
+                                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                        <div style="float: left; width: 40px; height: 30px; background: #6c757d; margin: 0 8px 8px 0; border-radius: 3px;"></div>
+                                                        <div style="font-size: 10px; line-height: 1.3; color: #495057;">產品圖片搭配詳細說明文字的組合佈局。</div>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 3. 清除浮動技術 -->
-                            <div class="mb-5">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-3 me-2" style="color: #0ea5e9;"></i>清除浮動技術
+                            
+                            <!-- 2. 首字放大效果 -->
+                            <div class="border border-warning rounded p-4 mb-4">
+                                <h6 class="text-warning mb-3">
+                                    <i class="fa-solid fa-font me-2"></i>首字放大效果（Drop Cap）
                                 </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                <!-- 沒有清除浮動的容器 -->
-                                                <div style="border: 2px solid #ef4444; border-radius: 4px; margin-bottom: 15px; background: #fef2f2; padding: 10px;">
-                                                    <div style="font-size: 10px; color: #dc2626; font-weight: bold; margin-bottom: 8px;">❌ 未清除浮動（高度塌陷）</div>
-                                                    <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
-                                                    <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
-                                                </div>
-                                                
-                                                <!-- 正確清除浮動的容器 -->
-                                                <div style="border: 2px solid #10b981; border-radius: 4px; background: #f0fdf4; padding: 10px; overflow: hidden;">
-                                                    <div style="font-size: 10px; color: #166534; font-weight: bold; margin-bottom: 8px;">✅ 已清除浮動（正確包含）</div>
-                                                    <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
-                                                    <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
-                                                </div>
-                                            </div>
-                                            <small class="text-muted">比較清除浮動前後的差異</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;!-- 問題：未清除浮動 --&gt;
-&lt;div class="container-problem"&gt;
-  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
-  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 解決：使用 clearfix --&gt;
-&lt;div class="container-fixed clearfix"&gt;
-  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
-  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 或者使用 clear 元素 --&gt;
-&lt;div class="container-fixed"&gt;
-  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
-  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
-  &lt;div class="clear"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 浮動元素 */
-.float-item {
-  float: left;
-  width: 100px;
-  height: 60px;
-  background: #3b82f6;
-  margin-right: 10px;
-  border-radius: 4px;
-}
-
-/* 問題容器（高度塌陷）*/
-.container-problem {
-  border: 2px solid #ef4444;
-  background: #fef2f2;
-  padding: 10px;
-}
-
-/* 方法1：現代 clearfix 技術 */
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* 方法2：overflow 方法 */
-.container-fixed {
-  overflow: hidden;
-  border: 2px solid #10b981;
-  background: #f0fdf4;
-  padding: 10px;
-}
-
-/* 方法3：clear 元素 */
-.clear {
-  clear: both;
-}</code></pre>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="text-muted small mb-4">首字放大是經典的雜誌式排版技巧，使用 ::first-letter 偽元素和 float 屬性實現。第一個字母會浮動並放大，創造出優雅的視覺效果。</p>
                                 
-                                <div class="alert alert-warning mt-3">
-                                    <h6 class="text-warning mb-2">⚠️ 浮動問題與解決方案</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>高度塌陷：</strong>父容器無法包含浮動子元素</li>
-                                                <li><strong>佈局影響：</strong>後續元素可能環繞浮動元素</li>
-                                                <li><strong>響應式困難：</strong>不同螢幕尺寸難以控制</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>Clearfix 技術：</strong>使用 ::after 偽元素清除</li>
-                                                <li><strong>Overflow 方法：</strong>設定父容器 overflow: hidden</li>
-                                                <li><strong>Clear 屬性：</strong>使用 clear: both 元素</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 4. 首字放大效果 -->
-                            <div class="mb-4">
-                                <h6 class="text-secondary mb-3">
-                                    <i class="fa-solid fa-circle-4 me-2" style="color: #0ea5e9;"></i>首字放大效果（Drop Cap）
-                                </h6>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="result-display">
-                                            <div class="result-header">實際效果</div>
-                                            <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-                                                <p style="text-align: justify; line-height: 1.6; font-size: 13px; margin: 0; color: #374151;">
-                                                    <span style="float: left; font-size: 3.5em; line-height: 0.8; font-weight: bold; margin: 0.1em 0.1em 0 0; color: #3b82f6; font-family: serif;">在</span>
-                                                    這個範例中，我們使用 ::first-letter 偽元素選擇段落的第一個字母，並設定為左浮動，創造出經典的雜誌風格首字放大效果。這種技巧常見於傳統印刷媒體的精美排版中。
-                                                </p>
+                                <!-- 首字放大應用示範 -->
+                                <div class="property-detail-section border rounded mb-4">
+                                    <!-- 注意事項與 CodePen -->
+                                    <div class="border-top p-3 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-info mb-0">
+                                                    <h6 class="text-info mb-2">🔍 首字放大特性</h6>
+                                                    <ul class="small mb-0">
+                                                        <li><strong>偽元素選擇：</strong>使用 ::first-letter 選擇第一個字母</li>
+                                                        <li><strong>浮動排版：</strong>字母左浮動，文字環繞其周圍</li>
+                                                        <li><strong>視覺突出：</strong>放大字母增加閱讀吸引力</li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <small class="text-muted">傳統雜誌風格的首字放大</small>
+                                            <div class="col-md-4 text-end">
+                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                    <input type="hidden" name="data" value='{"title":"首字放大效果範例","html":"<article class=\"magazine-article\">\n  <p class=\"drop-cap-paragraph\">\n    在這個範例中，我們使用 ::first-letter 偽元素選擇段落的第一個字母，並設定為左浮動，創造出經典的雜誌風格首字放大效果。這種技巧常見於傳統印刷媒體的精美排版中。\n  </p>\n  \n  <p>\n    首字放大效果能夠吸引讀者的注意力，增加文章的視覺吸引力，讓內容呈現更加專業和精緻。適合用於文章開頭、章節標題等重要段落。\n  </p>\n</article>","css":"/* 文章容器 */\n.magazine-article {\n  background: #f8fafc;\n  padding: 30px;\n  border-radius: 8px;\n  max-width: 600px;\n  margin: 0 auto;\n  line-height: 1.6;\n}\n\n/* 首字放大效果 */\n.drop-cap-paragraph::first-letter {\n  float: left;\n  font-size: 4em;\n  line-height: 0.8;\n  font-weight: bold;\n  font-family: serif;\n  margin: 0.1em 0.15em 0 0;\n  color: #3b82f6;\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);\n}\n\n/* 段落樣式 */\n.magazine-article p {\n  text-align: justify;\n  line-height: 1.6;\n  color: #374151;\n  margin-bottom: 20px;\n}\n\n/* 響應式調整 */\n@media (max-width: 768px) {\n  .drop-cap-paragraph::first-letter {\n    font-size: 3em;\n    margin: 0.05em 0.1em 0 0;\n  }\n}"}'>
+                                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                        <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                        在 CodePen 中練習
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">HTML 結構</div>
-                                            <pre><code>&lt;article class="magazine-article"&gt;
+                                    
+                                    <div class="row g-0">
+                                        <!-- 效果展示欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-white h-100">
+                                                <h6 class="text-primary mb-3 text-center">
+                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                </h6>
+                                                <div class="effect-demo text-center mb-3">
+                                                    <div class="drop-cap-demo">
+                                                        <p style="text-align: justify; line-height: 1.6; font-size: 13px; margin: 0; color: #374151; background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                            <span style="float: left; font-size: 3.5em; line-height: 0.8; font-weight: bold; margin: 0.1em 0.1em 0 0; color: #3b82f6; font-family: serif;">在</span>
+                                                            這個範例中，我們使用 ::first-letter 偽元素選擇段落的第一個字母，並設定為左浮動，創造出經典的雜誌風格首字放大效果。這種技巧常見於傳統印刷媒體的精美排版中。
+                                                        </p>
+                                                    </div>
+                                                    <small class="text-muted">傳統雜誌風格的首字放大</small>
+                                                </div>
+                                                <!-- 應用場景已移至區塊底部 -->
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- HTML 程式碼欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-warning mb-3 text-center">
+                                                    <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>&lt;article class="magazine-article"&gt;
   &lt;p class="drop-cap-paragraph"&gt;
     在這個範例中，我們使用 ::first-letter 
     偽元素選擇段落的第一個字母，並設定為
@@ -8262,12 +8151,18 @@ button {
     更加專業和精緻。
   &lt;/p&gt;
 &lt;/article&gt;</code></pre>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="code-example">
-                                            <div class="code-header">CSS 樣式</div>
-                                            <pre><code>/* 文章容器 */
+                                        
+                                        <!-- CSS 程式碼欄 -->
+                                        <div class="col-md-4">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-info mb-3 text-center">
+                                                    <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                                </h6>
+                                                <div class="code-example">
+                                                    <pre class="small bg-light text-dark p-3 rounded"><code>/* 文章容器 */
 .magazine-article {
   background: #f8fafc;
   padding: 30px;
@@ -8303,49 +8198,227 @@ button {
     margin: 0.05em 0.1em 0 0;
   }
 }</code></pre>
+                                                </div>
+                                                <!-- 最佳實踐已移至區塊底部 -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="alert alert-info mt-3">
-                                    <h6 class="text-info mb-2">💡 首字放大設計要點</h6>
+                                <!-- 首字放大應用場景與最佳實踐 -->
+                                <div class="alert alert-light border border-2 border-success">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>字體選擇：</strong>serif 字體更具傳統美感</li>
-                                                <li><strong>尺寸比例：</strong>通常為正文的 3-4 倍大小</li>
-                                                <li><strong>行高調整：</strong>line-height: 0.8 讓字母貼合文字</li>
+                                            <h6 class="text-success mb-3">
+                                                <i class="fa-solid fa-clipboard-list me-2"></i>� 應用場景
+                                            </h6>
+                                            <ul class="mb-0">
+                                                <li><strong>雜誌文章：</strong>精美的文章開頭設計</li>
+                                                <li><strong>書籍排版：</strong>章節開始的視覺標記</li>
+                                                <li><strong>部落格內容：</strong>增加內容的專業感</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
-                                            <ul class="small mb-2">
-                                                <li><strong>間距控制：</strong>適當的 margin 避免過於擁擠</li>
-                                                <li><strong>顏色搭配：</strong>使用主題色增加視覺層次</li>
-                                                <li><strong>陰影效果：</strong>text-shadow 增加立體感</li>
+                                            <h6 class="text-success mb-3">
+                                                <i class="fa-solid fa-check-circle me-2"></i>✅ 最佳實踐
+                                            </h6>
+                                            <ul class="mb-0">
+                                                <li><strong>字體選擇：</strong>serif 字體更具傳統美感</li>
+                                                <li><strong>尺寸比例：</strong>通常為正文的 3-4 倍大小</li>
+                                                <li><strong>間距調整：</strong>適當的 margin 避免擁擠</li>
                                             </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 首字放大應用場景實際樣式展示 -->
+                                    <div class="mt-4 p-3 bg-white rounded border">
+                                        <h6 class="text-secondary mb-3">
+                                            <i class="fa-solid fa-eye me-2"></i>實際樣式展示
+                                        </h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <div class="scenario-demo">
+                                                    <h6 class="small text-muted mb-2">雜誌風格文章</h6>
+                                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                        <p style="font-size: 10px; line-height: 1.3; color: #495057; margin: 0;">
+                                                            <span style="float: left; font-size: 2em; line-height: 0.8; font-weight: bold; margin: 0.05em 0.05em 0 0; color: #3b82f6; font-family: serif;">經</span>
+                                                            典的雜誌排版技巧，首字放大增加視覺吸引力。
+                                                        </p>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="scenario-demo">
+                                                    <h6 class="small text-muted mb-2">書籍章節開頭</h6>
+                                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                        <p style="font-size: 10px; line-height: 1.3; color: #495057; margin: 0;">
+                                                            <span style="float: left; font-size: 2em; line-height: 0.8; font-weight: bold; margin: 0.05em 0.05em 0 0; color: #059669; font-family: serif;">在</span>
+                                                            書籍設計中標記新章節的開始，提升閱讀體驗。
+                                                        </p>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="scenario-demo">
+                                                    <h6 class="small text-muted mb-2">部落格精美排版</h6>
+                                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid #dee2e6;">
+                                                        <p style="font-size: 10px; line-height: 1.3; color: #495057; margin: 0;">
+                                                            <span style="float: left; font-size: 2em; line-height: 0.8; font-weight: bold; margin: 0.05em 0.05em 0 0; color: #dc2626; font-family: serif;">部</span>
+                                                            落格文章使用首字放大增加專業感和美觀度。
+                                                        </p>
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+                        <div class="border border-warning rounded p-4 mb-4">
+                                <h6 class="text-warning mb-3">
+                                    <i class="fa-solid fa-broom me-2"></i>清除浮動技術
+                                </h6>
+                                <p class="text-muted small mb-4">清除浮動是解決父容器高度塌陷問題的重要技術。當子元素浮動時，父容器可能無法正確包含它們，導致佈局問題。</p>
+                                
+                                <!-- 清除浮動應用示範 -->
+                                <div class="property-detail-section border rounded mb-4">
+                                    <!-- 注意事項與 CodePen -->
+                                    <div class="border-top p-3 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="alert alert-info mb-0">
+                                                    <h6 class="text-info mb-2">🔍 清除浮動特性</h6>
+                                                    <ul class="small mb-0">
+                                                        <li><strong>高度塌陷問題：</strong>父容器無法包含浮動子元素</li>
+                                                        <li><strong>三種解決方法：</strong>clearfix、overflow、clear 元素</li>
+                                                        <li><strong>現代替代方案：</strong>建議使用 Flexbox 或 Grid</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 text-end">
+                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                    <input type="hidden" name="data" value="{&quot;title&quot;:&quot;清除浮動技術範例&quot;,&quot;html&quot;:&quot;&lt;!-- 問題：未清除浮動 --&gt;\n&lt;div class=\&quot;container-problem\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- 解決：使用 clearfix --&gt;\n&lt;div class=\&quot;container-fixed clearfix\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- 或者使用 clear 元素 --&gt;\n&lt;div class=\&quot;container-fixed\&quot;&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 1&lt;/div&gt;\n  &lt;div class=\&quot;float-item\&quot;&gt;浮動元素 2&lt;/div&gt;\n  &lt;div class=\&quot;clear\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;&quot;,&quot;css&quot;:&quot;/* 浮動元素 */\n.float-item {\n  float: left;\n  width: 100px;\n  height: 60px;\n  background: #3b82f6;\n  margin-right: 10px;\n  border-radius: 4px;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n}\n\n/* 問題容器（高度塌陷）*/\n.container-problem {\n  border: 2px solid #ef4444;\n  background: #fef2f2;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n\n.container-problem::before {\n  content: \&quot;❌ 未清除浮動（高度塌陷）\&quot;;\n  display: block;\n  font-size: 12px;\n  color: #dc2626;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n\n/* 方法1：現代 clearfix 技術 */\n.clearfix::after {\n  content: \&quot;\&quot;;\n  display: block;\n  clear: both;\n}\n\n/* 方法2：overflow 方法 */\n.container-fixed {\n  overflow: hidden;\n  border: 2px solid #10b981;\n  background: #f0fdf4;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n\n.container-fixed::before {\n  content: \&quot;✅ 已清除浮動（正確包含）\&quot;;\n  display: block;\n  font-size: 12px;\n  color: #166534;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n\n/* 方法3：clear 元素 */\n.clear {\n  clear: both;\n}&quot;}">
+                                                    <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                                        <i class="fa-solid fa-external-link-alt me-1"></i>
+                                                        在 CodePen 中練習
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row g-0">
+                                        <!-- 效果展示欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 bg-white h-100">
+                                                <h6 class="text-primary mb-3 text-center">
+                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                </h6>
+                                                <div class="effect-demo text-center mb-3">
+                                                    <div style="background: #f8fafc; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+                                                        <!-- 沒有清除浮動的容器 -->
+                                                        <div style="border: 2px solid #ef4444; border-radius: 4px; margin-bottom: 15px; background: #fef2f2; padding: 10px;">
+                                                            <div style="font-size: 10px; color: #dc2626; font-weight: bold; margin-bottom: 8px;">❌ 未清除浮動（高度塌陷）</div>
+                                                            <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
+                                                            <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
+                                                        </div>
+                                                        <!-- 正確清除浮動的容器 -->
+                                                        <div style="border: 2px solid #10b981; border-radius: 4px; background: #f0fdf4; padding: 10px; overflow: hidden;">
+                                                            <div style="font-size: 10px; color: #166534; font-weight: bold; margin-bottom: 8px;">✅ 已清除浮動（正確包含）</div>
+                                                            <div style="float: left; width: 60px; height: 40px; background: #3b82f6; margin-right: 8px; border-radius: 3px;"></div>
+                                                            <div style="float: left; width: 60px; height: 40px; background: #10b981; border-radius: 3px;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted">比較清除浮動前後的差異</small>
+                                                </div>
+                                                <!-- 應用場景已移至區塊底部 -->
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- HTML 程式碼欄 -->
+                                        <div class="col-md-4 border-end">
+                                            <div class="p-3 h-100">
+                                                <h6 class="text-warning mb-3 text-center">
+                                                    <i class="fa-brands fa-html5 me-2"></i>HTML 結構
+                                                </h6>
+                                                <div class="code-example">
+                                                    <div class="code-container"><button class="copy-button" title="複製程式碼"><i class="fa-solid fa-copy"></i>複製</button><pre class="small bg-light text-dark p-3 rounded"><code>&lt;!-- 問題：未清除浮動 --&gt;
+&lt;div class="container-problem"&gt;
+  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
+  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 解決：使用 clearfix --&gt;
+&lt;div class="container-fixed clearfix"&gt;
+  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
+  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 或者使用 clear 元素 --&gt;
+&lt;div class="container-fixed"&gt;
+  &lt;div class="float-item"&gt;浮動元素 1&lt;/div&gt;
+  &lt;div class="float-item"&gt;浮動元素 2&lt;/div&gt;
+  &lt;div class="clear"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 h-100">
+                                            <h6 class="text-info mb-3 text-center">
+                                                <i class="fa-brands fa-css3-alt me-2"></i>CSS 樣式
+                                            </h6>
+                                            <div class="code-example">
+                                                <div class="code-container"><button class="copy-button" title="複製程式碼"><i class="fa-solid fa-copy"></i>複製</button><pre class="small bg-light text-dark p-3 rounded"><code>/* 浮動元素 */
+.float-item {
+  float: left;
+  width: 100px;
+  height: 60px;
+  background: #3b82f6;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+/* 問題容器（高度塌陷）*/
+.container-problem {
+  border: 2px solid #ef4444;
+  background: #fef2f2;
+  padding: 10px;
+}
+
+/* 方法1：現代 clearfix 技術 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 方法2：overflow 方法 */
+.container-fixed {
+  overflow: hidden;
+  border: 2px solid #10b981;
+  background: #f0fdf4;
+  padding: 10px;
+}
+
+/* 方法3：clear 元素 */
+.clear {
+  clear: both;
+}</code></pre></div>
+                                            </div>
+                                            <!-- 最佳實踐已移至區塊底部 -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
     
-                        <!-- Float CodePen 實作練習 -->
-                        <div class="mt-4 p-3 border border-info rounded bg-light">
-                            <h6 class="text-info mb-3">
-                                <i class="fa-solid fa-code me-2"></i>實作練習：Float 文字環繞效果
-                            </h6>
-                            <p class="small text-muted mb-3">練習使用 float 實現文字環繞圖片和首字放大效果</p>
-                            
-                            <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
-                                <input type="hidden" name="data" value='{"title":"Float 文字環繞練習","html":"<!-- HTML 結構 -->\n<article class=\"blog-post\">\n  <h1>Float 文字環繞效果示範</h1>\n  \n  <!-- 任務1: 圖片文字環繞 -->\n  <section class=\"image-float-demo\">\n    <h2>圖片文字環繞</h2>\n    <div class=\"article-content\">\n      <img src=\"https://picsum.photos/200/150\" alt=\"示範圖片\" class=\"float-image-left\">\n      <p>這是一個展示圖片左浮動效果的段落。圖片會浮動到左側，而文字內容會從圖片的右側開始環繞。這種佈局方式在部落格文章、新聞報導和雜誌排版中非常常見。透過適當的 margin 設定，我們可以控制圖片與文字之間的間距，讓整體版面看起來更加美觀和易讀。</p>\n      \n      <img src=\"https://picsum.photos/180/120\" alt=\"示範圖片\" class=\"float-image-right\">\n      <p>這是展示圖片右浮動的另一個段落。現在圖片浮動到右側，文字會從左側開始環繞圖片。注意觀察文字是如何自動調整位置來適應浮動元素的。這種靈活的排版方式讓內容呈現更加生動有趣。</p>\n    </div>\n  </section>\n  \n  <!-- 任務2: 首字放大效果 -->\n  <section class=\"drop-cap-demo\">\n    <h2>首字放大效果</h2>\n    <p class=\"drop-cap-paragraph\">這個段落展示了經典的首字放大效果。第一個字使用了浮動技術，讓它變得更大更醒目，其餘文字會環繞在首字的周圍。這種技巧常見於傳統印刷媒體，如雜誌和報紙的排版設計中，能夠吸引讀者的注意力並增加文章的視覺吸引力。</p>\n  </section>\n  \n  <!-- 任務3: 清除浮動練習 -->\n  <section class=\"clearfix-demo\">\n    <h2>清除浮動練習</h2>\n    <div class=\"container-with-floats\">\n      <div class=\"float-box left\">左浮動盒子</div>\n      <div class=\"float-box right\">右浮動盒子</div>\n      <p>這個容器包含浮動元素，需要使用 clearfix 技術來確保容器能夠正確包含浮動的子元素。</p>\n    </div>\n    \n    <p class=\"after-float\">這個段落應該出現在浮動元素下方，不受浮動影響。</p>\n  </section>\n</article>","css":"/* 基礎樣式 */\nbody {\n  font-family: Arial, sans-serif;\n  line-height: 1.6;\n  margin: 0;\n  padding: 20px;\n  background: #f8fafc;\n}\n\n.blog-post {\n  max-width: 800px;\n  margin: 0 auto;\n  background: white;\n  padding: 30px;\n  border-radius: 12px;\n  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);\n}\n\nsection {\n  margin-bottom: 40px;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n\nh1, h2 {\n  color: #1f2937;\n}\n\np {\n  color: #374151;\n  text-align: justify;\n}\n\n/* 任務1: 圖片浮動效果 */\n.float-image-left {\n  /* 設定左浮動 */\n  /* 設定寬度、margin、border-radius */\n  /* 提示：margin: 0 20px 20px 0 */\n}\n\n.float-image-right {\n  /* 設定右浮動 */\n  /* 設定寬度、margin、border-radius */\n  /* 提示：margin: 0 0 20px 20px */\n}\n\n/* 任務2: 首字放大效果 */\n.drop-cap-paragraph::first-letter {\n  /* 使用 float 和字體樣式創建首字放大 */\n  /* 設定：float, font-size, line-height, margin, color */\n  /* 提示：font-size: 4em, color: #3b82f6 */\n}\n\n/* 任務3: 浮動盒子和清除浮動 */\n.container-with-floats {\n  /* 添加 clearfix 類別或使用其他清除浮動方法 */\n  background: #f3f4f6;\n  padding: 20px;\n  border-radius: 8px;\n  margin-bottom: 20px;\n}\n\n.float-box {\n  width: 150px;\n  height: 100px;\n  padding: 15px;\n  margin: 10px;\n  border-radius: 8px;\n  color: white;\n  font-weight: bold;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.float-box.left {\n  /* 設定左浮動和背景色 */\n  /* 提示：float: left, background: #3b82f6 */\n}\n\n.float-box.right {\n  /* 設定右浮動和背景色 */\n  /* 提示：float: right, background: #10b981 */\n}\n\n.after-float {\n  /* 確保這個段落不受浮動影響 */\n  /* 提示：可能需要 clear: both */\n  background: #fef3c7;\n  padding: 15px;\n  border-radius: 6px;\n  border-left: 4px solid #f59e0b;\n}\n\n/* Clearfix 技術 */\n.clearfix::after {\n  content: \"\";\n  display: block;\n  clear: both;\n}\n\n/* 提示：完成目標 */\n/* 1. .float-image-left 設定 float: left */\n/* 2. .float-image-right 設定 float: right */\n/* 3. .drop-cap-paragraph::first-letter 設定 float: left 和樣式 */\n/* 4. .container-with-floats 添加 clearfix 類別 */\n/* 5. .float-box.left 和 .float-box.right 設定對應的浮動 */","js":""}'>
-                                <button type="submit" class="btn btn-outline-info btn-sm">
-                                    <i class="fa-solid fa-external-link-alt me-1"></i>
-                                    在 CodePen 中練習
-                                </button>
-                            </form>
-                        </div>
-
-                        <!-- 6.6 現代佈局方法預覽 -->
+                        <!-- 6.5 現代佈局方法預覽 -->
                         <h6 class="mt-4 mb-2 fw-bold">6.5 現代佈局方法預覽</h6>
                         
                         <!-- 理論概述 -->
@@ -10773,6 +10846,153 @@ button {
                                         padding: 12px;
                                         font-size: 15px;
                                     }
+                                }
+                            </style>
+                            
+                            <!-- 浮動圖片展示樣式 -->
+                            <style>
+                                /* 浮動圖片文字環繞展示 */
+                                .float-image-demo {
+                                    background: #f8fafc;
+                                    padding: 20px;
+                                    border: 2px solid #e5e7eb;
+                                    border-radius: 8px;
+                                    overflow: hidden;
+                                    line-height: 1.6;
+                                    min-height: 150px;
+                                }
+                                
+                                .float-image-demo .article-image {
+                                    float: left;
+                                    width: 120px;
+                                    height: 90px;
+                                    margin: 0 15px 15px 0;
+                                    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+                                    border-radius: 8px;
+                                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: white;
+                                    font-weight: bold;
+                                    font-size: 10px;
+                                    text-align: center;
+                                }
+                                
+                                .float-image-demo .article-image::before {
+                                    content: "圖片區域";
+                                }
+                                
+                                .float-image-demo .article-text {
+                                    text-align: justify;
+                                    color: #374151;
+                                    font-size: 14px;
+                                    line-height: 1.5;
+                                    margin: 0;
+                                }
+                                
+                                /* 響應式處理 */
+                                @media (max-width: 768px) {
+                                    .float-image-demo .article-image {
+                                        float: none;
+                                        display: block;
+                                        margin: 0 auto 15px auto;
+                                        width: 100px;
+                                        height: 75px;
+                                    }
+                                }
+                            </style>
+                            
+                            <!-- 首字放大效果展示樣式 -->
+                            <style>
+                                /* 首字放大效果展示 */
+                                .drop-cap-demo p {
+                                    text-align: justify;
+                                    line-height: 1.6;
+                                    font-size: 13px;
+                                    margin: 0;
+                                    color: #374151;
+                                    background: #f8fafc;
+                                    padding: 15px;
+                                    border: 2px solid #e5e7eb;
+                                    border-radius: 8px;
+                                }
+                                
+                                .drop-cap-demo p span {
+                                    float: left;
+                                    font-size: 3.5em;
+                                    line-height: 0.8;
+                                    font-weight: bold;
+                                    margin: 0.1em 0.1em 0 0;
+                                    color: #3b82f6;
+                                    font-family: serif;
+                                    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+                                }
+                                
+                                /* 響應式調整 */
+                                @media (max-width: 768px) {
+                                    .drop-cap-demo p span {
+                                        font-size: 3em;
+                                        margin: 0.05em 0.08em 0 0;
+                                    }
+                                }
+                                
+                                /* 清除浮動技術樣式 */
+                                .clearfix-demo .float-item {
+                                    float: left;
+                                    width: 100px;
+                                    height: 60px;
+                                    background: #3b82f6;
+                                    margin-right: 10px;
+                                    border-radius: 4px;
+                                    color: white;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 12px;
+                                }
+                                
+                                .clearfix-demo .container-problem {
+                                    border: 2px solid #ef4444;
+                                    background: #fef2f2;
+                                    padding: 10px;
+                                    margin-bottom: 20px;
+                                }
+                                
+                                .clearfix-demo .container-problem::before {
+                                    content: "❌ 未清除浮動（高度塌陷）";
+                                    display: block;
+                                    font-size: 12px;
+                                    color: #dc2626;
+                                    font-weight: bold;
+                                    margin-bottom: 10px;
+                                }
+                                
+                                .clearfix-demo .clearfix::after {
+                                    content: "";
+                                    display: block;
+                                    clear: both;
+                                }
+                                
+                                .clearfix-demo .container-fixed {
+                                    overflow: hidden;
+                                    border: 2px solid #10b981;
+                                    background: #f0fdf4;
+                                    padding: 10px;
+                                    margin-bottom: 20px;
+                                }
+                                
+                                .clearfix-demo .container-fixed::before {
+                                    content: "✅ 已清除浮動（正確包含）";
+                                    display: block;
+                                    font-size: 12px;
+                                    color: #166534;
+                                    font-weight: bold;
+                                    margin-bottom: 10px;
+                                }
+                                
+                                .clearfix-demo .clear {
+                                    clear: both;
                                 }
                             </style>
                             
