@@ -172,34 +172,59 @@ form button:hover {
     transform: translateY(-2px);
 }
 
-/* 響應式設計 - 多重斷點（補充 index-menu、back-to-top） */
-@media (max-width: 600px) {
-    .container, main {
-        padding: 10px;
-    }
-    .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .index-menu {
-        font-size: 0.95rem;
-    }
-    .back-to-top {
-        width: 45px;
-        height: 45px;
-        font-size: 18px;
-        bottom: 15px;
-        right: 15px;
-    }
+/* ========== 程式碼複製按鈕樣式 ========== */
+.code-container {
+    position: relative;
+    margin: 12px 0;
 }
-@media (max-width: 480px) {
-    .index-menu {
-        font-size: 0.9rem;
+
+.code-container pre {
+    margin: 0;
+    padding-right: 50px; /* 為複製按鈕留出空間 */
+}
+
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.copy-button:hover {
+    background: #495057;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.copy-button.copied {
+    background: #28a745;
+    color: white;
+}
+
+.copy-button i {
+    margin-right: 4px;
+}
+
+/* 響應式設計 - 複製按鈕 */
+@media (max-width: 600px) {
+    .copy-button {
+        padding: 3px 6px;
+        font-size: 11px;
+        top: 6px;
+        right: 6px;
+    }
+    
+    .code-container pre {
+        padding-right: 45px;
     }
 }
 
