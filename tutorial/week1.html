@@ -9264,28 +9264,48 @@ button {
                                         </div>
                                     </div>
                                 </div>
-                            </div>                            <!-- Flexbox 置中技巧 -->
-                            <div class="centering-section mb-4">
-                                <h6 class="text-success mb-3">
-                                    <i class="fa-solid fa-crosshairs me-2"></i>2. Flexbox 置中技巧
-                                </h6>
+                            </div>                            <!-- 6.5.1 Flexbox 水平置中 -->
+                            <div class="subsection border-start border-3 border-success ps-3 mb-4">
+                                <h6 class="fw-bold text-success mb-3">6.5.1 Flexbox 水平置中</h6>
                                 
-                                <div class="alert alert-success">
-                                    <h6 class="text-success mb-2">🎯 Flexbox 是置中的最佳解決方案</h6>
-                                    <p class="small mb-2">
-                                        使用 <code>justify-content</code> 控制主軸對齊，<code>align-items</code> 控制交叉軸對齊，
-                                        輕鬆實現各種置中效果。掌握 Flexbox 置中技巧是現代網頁佈局的核心技能。
+                                <!-- 核心概念 -->
+                                <div class="concept-box bg-success-subtle p-3 rounded mb-3">
+                                    <h6><i class="fa-solid fa-arrows-left-right text-success me-2"></i>核心概念</h6>
+                                    <p class="mb-3">
+                                        <strong>水平置中</strong>是網頁佈局中最常遇到的需求之一。使用 Flexbox 的 <code>justify-content: center</code> 
+                                        可以輕鬆實現各種元素的水平置中效果，無論是單個元素還是多個元素，都能提供一致且可靠的置中解決方案。
                                     </p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>🎯 特性說明：</strong>
+                                            <ul class="small mb-0">
+                                                <li><strong>靈活性：</strong>適用於各種元素類型</li>
+                                                <li><strong>響應式：</strong>自動適應容器寬度</li>
+                                                <li><strong>易維護：</strong>簡潔的 CSS 程式碼</li>
+                                                <li><strong>兼容性：</strong>現代瀏覽器全支援</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>🚀 應用場景：</strong>
+                                            <ul class="small mb-0">
+                                                <li>導航選單按鈕置中</li>
+                                                <li>頁面標題文字對齊</li>
+                                                <li>圖片水平置中展示</li>
+                                                <li>表單按鈕群組對齊</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <!-- 水平置中 -->
+                                <!-- 實戰範例 -->
                                 <div class="property-detail-section border rounded mb-4">
                                     <div class="row g-0">
-                                        <!-- 效果展示欄 -->
+                                        <!-- 實際效果展示 -->
                                         <div class="col-md-4 border-end">
                                             <div class="p-3 bg-light h-100">
                                                 <h6 class="text-primary mb-3 text-center">
-                                                    <i class="fa-solid fa-arrows-left-right me-2"></i>實際效果展示
+                                                    <i class="fa-solid fa-eye me-2"></i>實際效果展示
                                                 </h6>
                                                 <div class="effect-demo text-center mb-3">
                                                     <!-- 單個項目水平置中 -->
@@ -9304,19 +9324,10 @@ button {
                                                     
                                                     <small class="text-muted">justify-content: center 水平置中效果</small>
                                                 </div>
-                                                <div class="application-scenarios">
-                                                    <h6 class="small text-success mb-2">📋 應用場景</h6>
-                                                    <ul class="small text-muted mb-0 ps-3">
-                                                        <li>導航列按鈕置中</li>
-                                                        <li>標題文字對齊</li>
-                                                        <li>圖片水平置中</li>
-                                                        <li>表單按鈕對齊</li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- HTML 程式碼欄 -->
+                                        <!-- HTML 程式碼 -->
                                         <div class="col-md-4 border-end">
                                             <div class="p-3 h-100">
                                                 <h6 class="text-warning mb-3 text-center">
@@ -9340,7 +9351,7 @@ button {
                                             </div>
                                         </div>
                                         
-                                        <!-- CSS 程式碼欄 -->
+                                        <!-- CSS 程式碼 -->
                                         <div class="col-md-4">
                                             <div class="p-3 h-100">
                                                 <h6 class="text-info mb-3 text-center">
@@ -9368,51 +9379,135 @@ button {
     }
 }</code></pre>
                                                 </div>
-                                                <div class="best-practices mt-3">
-                                                    <h6 class="small text-success mb-2">✅ 最佳實踐</h6>
-                                                    <ul class="small text-muted mb-0 ps-3">
-                                                        <li>適用於內聯和塊級元素</li>
-                                                        <li>比 text-align 更靈活</li>
-                                                        <li>支援多個子元素</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- 注意事項與 CodePen -->
-                                    <div class="border-top p-3 bg-light">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h6 class="small text-danger mb-2">⚠️ 注意事項</h6>
-                                                <ul class="small text-muted mb-0 ps-3">
-                                                    <li>確保父容器有足夠寬度</li>
-                                                    <li>注意子元素的 margin 影響</li>
-                                                    <li>配合 flex-wrap 處理換行情況</li>
-                                                    <li>考慮在小螢幕上的表現</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4 text-end">
-                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
-                                                    <input type="hidden" name="data" value='{"title":"Flexbox 水平置中技巧","description":"練習使用 justify-content: center 實現水平置中","html":"<!DOCTYPE html>\n<html lang=\"zh-TW\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flexbox 水平置中</title>\n</head>\n<body>\n    <h2>Flexbox 水平置中範例</h2>\n    \n    <!-- 單個項目水平置中 -->\n    <div class=\"example-1\">\n        <h3>單個項目水平置中</h3>\n        <div class=\"horizontal-center\">\n            <div class=\"item\">水平置中內容</div>\n        </div>\n    </div>\n    \n    <!-- 多個項目水平置中 -->\n    <div class=\"example-2\">\n        <h3>多個項目水平置中</h3>\n        <div class=\"horizontal-center-multi\">\n            <button>按鈕 1</button>\n            <button>按鈕 2</button>\n            <button>按鈕 3</button>\n        </div>\n    </div>\n    \n    <!-- 響應式水平置中 -->\n    <div class=\"example-3\">\n        <h3>響應式水平置中（縮小視窗觀察）</h3>\n        <div class=\"horizontal-center-responsive\">\n            <div class=\"card\">卡片 1</div>\n            <div class=\"card\">卡片 2</div>\n        </div>\n    </div>\n</body>\n</html>","css":"/* 基本樣式 */\nbody {\n    font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    margin: 20px;\n    background: #f8f9fa;\n}\n\nh2, h3 {\n    color: #333;\n    margin-bottom: 15px;\n}\n\n.example-1, .example-2, .example-3 {\n    margin-bottom: 40px;\n    padding: 20px;\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n/* 1. 單個項目水平置中 */\n.horizontal-center {\n    display: flex;\n    justify-content: center;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    min-height: 80px;\n    align-items: center;\n}\n\n.item {\n    background: white;\n    color: #333;\n    padding: 15px 25px;\n    border-radius: 6px;\n    font-weight: bold;\n    box-shadow: 0 2px 8px rgba(0,0,0,0.2);\n}\n\n/* 2. 多個項目水平置中 */\n.horizontal-center-multi {\n    display: flex;\n    justify-content: center;\n    gap: 15px;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    min-height: 60px;\n    align-items: center;\n}\n\n.horizontal-center-multi button {\n    background: white;\n    color: #333;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 6px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: all 0.3s ease;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n.horizontal-center-multi button:hover {\n    transform: translateY(-2px);\n    box-shadow: 0 4px 8px rgba(0,0,0,0.2);\n}\n\n/* 3. 響應式水平置中 */\n.horizontal-center-responsive {\n    display: flex;\n    justify-content: center;\n    gap: 20px;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    min-height: 80px;\n    align-items: center;\n}\n\n.card {\n    background: white;\n    color: #333;\n    padding: 20px;\n    border-radius: 8px;\n    font-weight: bold;\n    min-width: 120px;\n    text-align: center;\n    box-shadow: 0 2px 8px rgba(0,0,0,0.2);\n}\n\n/* 響應式設計 */\n@media (max-width: 768px) {\n    .horizontal-center-responsive {\n        flex-direction: column;\n        align-items: center;\n    }\n    \n    .horizontal-center-multi {\n        flex-wrap: wrap;\n    }\n}","js":"// 你可以在這裡添加 JavaScript 互動效果\nconsole.log(\"Flexbox 水平置中範例載入完成！\");\n\n// 可選：添加點擊效果\ndocument.querySelectorAll(\"button\").forEach(button => {\n    button.addEventListener(\"click\", function() {\n        this.style.background = \"#007bff\";\n        this.style.color = \"white\";\n        setTimeout(() => {\n            this.style.background = \"white\";\n            this.style.color = \"#333\";\n        }, 200);\n    });\n});"}'
-                                                    >
-                                                    <button type="submit" class="btn btn-sm btn-outline-primary">
-                                                        <i class="fa-brands fa-codepen me-1"></i>CodePen 練習
-                                                    </button>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- 垂直置中 -->
+                                <!-- 應用場景與最佳實踐 -->
+                                <div class="application-section bg-light p-3 rounded mb-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="text-success mb-2">
+                                                <i class="fa-solid fa-lightbulb me-2"></i>應用場景
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>導航列按鈕置中：</strong>主選單項目水平對齊</li>
+                                                <li><strong>標題文字對齊：</strong>頁面標題居中顯示</li>
+                                                <li><strong>圖片水平置中：</strong>圖片在容器中置中</li>
+                                                <li><strong>表單按鈕對齊：</strong>提交按鈕置中排列</li>
+                                                <li><strong>卡片內容置中：</strong>卡片內元素水平對齊</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="text-success mb-2">
+                                                <i class="fa-solid fa-star me-2"></i>最佳實踐
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>適用範圍廣：</strong>適用於內聯和塊級元素</li>
+                                                <li><strong>優於 text-align：</strong>比 text-align 更靈活</li>
+                                                <li><strong>支援多元素：</strong>可同時置中多個子元素</li>
+                                                <li><strong>響應式友好：</strong>配合媒體查詢調整</li>
+                                                <li><strong>效能優良：</strong>不需要額外的 JavaScript</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 實際樣式展示 -->
+                                <div class="live-demo-section border rounded p-3 mb-3">
+                                    <h6 class="text-info mb-3">
+                                        <i class="fa-solid fa-play me-2"></i>實際樣式展示
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block mb-2">單個元素水平置中</small>
+                                            <div class="horizontal-center mb-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 8px; min-height: 80px;">
+                                                <div class="bg-white text-dark px-3 py-2 rounded shadow">
+                                                    <strong>置中的內容</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block mb-2">多個元素水平置中</small>
+                                            <div class="horizontal-center mb-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 8px; min-height: 80px; gap: 15px;">
+                                                <button class="btn btn-sm btn-light">按鈕 1</button>
+                                                <button class="btn btn-sm btn-light">按鈕 2</button>
+                                                <button class="btn btn-sm btn-light">按鈕 3</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 注意事項與 CodePen -->
+                                <div class="border-top pt-3">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h6 class="text-danger mb-2">
+                                                <i class="fa-solid fa-exclamation-triangle me-2"></i>注意事項
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>容器寬度：</strong>確保父容器有足夠寬度</li>
+                                                <li><strong>Margin 影響：</strong>注意子元素的 margin 影響</li>
+                                                <li><strong>換行處理：</strong>配合 flex-wrap 處理換行情況</li>
+                                                <li><strong>響應式設計：</strong>考慮在小螢幕上的表現</li>
+                                                <li><strong>浏覽器支援：</strong>IE11+ 支援，移動端完全支援</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                <input type="hidden" name="data" value='{"title":"Flexbox 水平置中技巧","description":"練習使用 justify-content: center 實現水平置中","html":"<!DOCTYPE html>\n<html lang=\"zh-TW\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flexbox 水平置中</title>\n</head>\n<body>\n    <h2>Flexbox 水平置中範例</h2>\n    \n    <!-- 單個項目水平置中 -->\n    <div class=\"example-1\">\n        <h3>單個項目水平置中</h3>\n        <div class=\"horizontal-center\">\n            <div class=\"item\">水平置中內容</div>\n        </div>\n    </div>\n    \n    <!-- 多個項目水平置中 -->\n    <div class=\"example-2\">\n        <h3>多個項目水平置中</h3>\n        <div class=\"horizontal-center-multi\">\n            <button>按鈕 1</button>\n            <button>按鈕 2</button>\n            <button>按鈕 3</button>\n        </div>\n    </div>\n    \n    <!-- 響應式水平置中 -->\n    <div class=\"example-3\">\n        <h3>響應式水平置中（縮小視窗觀察）</h3>\n        <div class=\"horizontal-center-responsive\">\n            <div class=\"card\">卡片 1</div>\n            <div class=\"card\">卡片 2</div>\n        </div>\n    </div>\n</body>\n</html>","css":"/* 基本樣式 */\nbody {\n    font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    margin: 20px;\n    background: #f8f9fa;\n}\n\nh2, h3 {\n    color: #333;\n    margin-bottom: 15px;\n}\n\n.example-1, .example-2, .example-3 {\n    margin-bottom: 40px;\n    padding: 20px;\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n/* 1. 單個項目水平置中 */\n.horizontal-center {\n    display: flex;\n    justify-content: center;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    min-height: 80px;\n    align-items: center;\n}\n\n.item {\n    background: white;\n    color: #333;\n    padding: 15px 25px;\n    border-radius: 6px;\n    font-weight: bold;\n    box-shadow: 0 2px 8px rgba(0,0,0,0.2);\n}\n\n/* 2. 多個項目水平置中 */\n.horizontal-center-multi {\n    display: flex;\n    justify-content: center;\n    gap: 15px;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    min-height: 60px;\n    align-items: center;\n}\n\n.horizontal-center-multi button {\n    background: white;\n    color: #333;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 6px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: all 0.3s ease;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n.horizontal-center-multi button:hover {\n    transform: translateY(-2px);\n    box-shadow: 0 4px 8px rgba(0,0,0,0.2);\n}\n\n/* 3. 響應式水平置中 */\n.horizontal-center-responsive {\n    display: flex;\n    justify-content: center;\n    gap: 20px;\n    padding: 20px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    min-height: 80px;\n    align-items: center;\n}\n\n.card {\n    background: white;\n    color: #333;\n    padding: 20px;\n    border-radius: 8px;\n    font-weight: bold;\n    min-width: 120px;\n    text-align: center;\n    box-shadow: 0 2px 8px rgba(0,0,0,0.2);\n}\n\n/* 響應式設計 */\n@media (max-width: 768px) {\n    .horizontal-center-responsive {\n        flex-direction: column;\n        align-items: center;\n    }\n    \n    .horizontal-center-multi {\n        flex-wrap: wrap;\n    }\n}","js":"// 你可以在這裡添加 JavaScript 互動效果\nconsole.log(\"Flexbox 水平置中範例載入完成！\");\n\n// 可選：添加點擊效果\ndocument.querySelectorAll(\"button\").forEach(button => {\n    button.addEventListener(\"click\", function() {\n        this.style.background = \"#007bff\";\n        this.style.color = \"white\";\n        setTimeout(() => {\n            this.style.background = \"white\";\n            this.style.color = \"#333\";\n        }, 200);\n    });\n});"}'
+                                                >
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    <i class="fa-brands fa-codepen me-2"></i>CodePen 練習
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="subsection border-start border-3 border-warning ps-3 mb-4">
+                                <h6 class="fw-bold text-warning mb-3">6.5.2 Flexbox 垂直置中</h6>
+                                
+                                <!-- 核心概念 -->
+                                <div class="concept-box bg-warning-subtle p-3 rounded mb-3">
+                                    <h6><i class="fa-solid fa-arrows-up-down text-warning me-2"></i>核心概念</h6>
+                                    <p class="mb-3">
+                                        <strong>垂直置中</strong>在傳統 CSS 中一直是個棘手的問題。使用 Flexbox 的 <code>align-items: center</code> 
+                                        可以輕鬆實現垂直置中效果，無需考慮內容的高度或類型，提供了比傳統 vertical-align 更可靠的垂直對齊解決方案。
+                                    </p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>🎯 特性說明：</strong>
+                                            <ul class="small mb-0">
+                                                <li><strong>高度自適應：</strong>無需固定高度即可置中</li>
+                                                <li><strong>內容無關：</strong>適用於任何類型的內容</li>
+                                                <li><strong>多行支援：</strong>完美處理多行文字</li>
+                                                <li><strong>瀏覽器支援：</strong>現代瀏覽器完全支援</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>🚀 應用場景：</strong>
+                                            <ul class="small mb-0">
+                                                <li>卡片內容垂直置中</li>
+                                                <li>側邊欄選單對齊</li>
+                                                <li>圖示與文字對齊</li>
+                                                <li>Modal 對話框置中</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 實戰範例 -->
                                 <div class="property-detail-section border rounded mb-4">
                                     <div class="row g-0">
-                                        <!-- 效果展示欄 -->
+                                        <!-- 實際效果展示 -->
                                         <div class="col-md-4 border-end">
                                             <div class="p-3 bg-light h-100">
                                                 <h6 class="text-primary mb-3 text-center">
-                                                    <i class="fa-solid fa-arrows-up-down me-2"></i>實際效果展示
+                                                    <i class="fa-solid fa-eye me-2"></i>實際效果展示
                                                 </h6>
                                                 <div class="effect-demo text-center mb-3">
                                                     <!-- 垂直置中內容 -->
@@ -9431,19 +9526,10 @@ button {
                                                     
                                                     <small class="text-muted">align-items: center 垂直置中效果</small>
                                                 </div>
-                                                <div class="application-scenarios">
-                                                    <h6 class="small text-success mb-2">📋 應用場景</h6>
-                                                    <ul class="small text-muted mb-0 ps-3">
-                                                        <li>卡片內容垂直置中</li>
-                                                        <li>側邊欄選單對齊</li>
-                                                        <li>圖示與文字對齊</li>
-                                                        <li>Modal 對話框置中</li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- HTML 程式碼欄 -->
+                                        <!-- HTML 程式碼 -->
                                         <div class="col-md-4 border-end">
                                             <div class="p-3 h-100">
                                                 <h6 class="text-warning mb-3 text-center">
@@ -9467,7 +9553,7 @@ button {
                                             </div>
                                         </div>
                                         
-                                        <!-- CSS 程式碼欄 -->
+                                        <!-- CSS 程式碼 -->
                                         <div class="col-md-4">
                                             <div class="p-3 h-100">
                                                 <h6 class="text-info mb-3 text-center">
@@ -9495,51 +9581,141 @@ button {
     height: 100vh;
 }</code></pre>
                                                 </div>
-                                                <div class="best-practices mt-3">
-                                                    <h6 class="small text-success mb-2">✅ 最佳實踐</h6>
-                                                    <ul class="small text-muted mb-0 ps-3">
-                                                        <li>設定最小高度避免塌陷</li>
-                                                        <li>適用於不固定高度內容</li>
-                                                        <li>比 vertical-align 更可靠</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- 注意事項與 CodePen -->
-                                    <div class="border-top p-3 bg-light">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h6 class="small text-danger mb-2">⚠️ 注意事項</h6>
-                                                <ul class="small text-muted mb-0 ps-3">
-                                                    <li>父容器必須有明確的高度</li>
-                                                    <li>避免使用 align-items: baseline</li>
-                                                    <li>注意多行文字的對齊效果</li>
-                                                    <li>配合 flex-direction 調整主軸</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4 text-end">
-                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
-                                                    <input type="hidden" name="data" value='{"title":"Flexbox 垂直置中技巧","description":"練習使用 align-items: center 實現垂直置中","html":"<!DOCTYPE html>\n<html lang=\"zh-TW\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flexbox 垂直置中</title>\n</head>\n<body>\n    <h2>Flexbox 垂直置中範例</h2>\n    \n    <!-- 基本垂直置中 -->\n    <div class=\"example-1\">\n        <h3>基本垂直置中</h3>\n        <div class=\"vertical-center\">\n            <div class=\"content\">\n                <h4>垂直置中標題</h4>\n                <p>這裡是內容</p>\n            </div>\n        </div>\n    </div>\n    \n    <!-- 圖示與文字垂直對齊 -->\n    <div class=\"example-2\">\n        <h3>圖示與文字垂直對齊</h3>\n        <div class=\"icon-text-vertical\">\n            <div class=\"icon\">⭐</div>\n            <span>重要訊息</span>\n        </div>\n        <div class=\"icon-text-vertical\">\n            <div class=\"icon\">📱</div>\n            <span>聯絡方式</span>\n        </div>\n        <div class=\"icon-text-vertical\">\n            <div class=\"icon\">🎯</div>\n            <span>目標設定</span>\n        </div>\n    </div>\n    \n    <!-- 全高度垂直置中 -->\n    <div class=\"example-3\">\n        <h3>全高度垂直置中</h3>\n        <div class=\"full-height-center\">\n            <div class=\"modal-content\">\n                <h4>對話框內容</h4>\n                <p>這個對話框在容器中垂直置中</p>\n                <button>確認</button>\n            </div>\n        </div>\n    </div>\n</body>\n</html>","css":"/* 基本樣式 */\nbody {\n    font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    margin: 20px;\n    background: #f8f9fa;\n}\n\nh2, h3, h4 {\n    color: #333;\n    margin-bottom: 15px;\n}\n\n.example-1, .example-2, .example-3 {\n    margin-bottom: 40px;\n    padding: 20px;\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n/* 1. 基本垂直置中 */\n.vertical-center {\n    display: flex;\n    align-items: center;\n    min-height: 200px;\n    padding: 20px;\n    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);\n    border-radius: 8px;\n}\n\n.content {\n    background: white;\n    padding: 25px;\n    border-radius: 8px;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.2);\n    max-width: 300px;\n}\n\n.content h4 {\n    margin: 0 0 10px 0;\n    color: #333;\n    font-size: 18px;\n}\n\n.content p {\n    margin: 0;\n    color: #666;\n    font-size: 14px;\n}\n\n/* 2. 圖示與文字垂直對齊 */\n.icon-text-vertical {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 15px 20px;\n    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);\n    border-radius: 8px;\n    margin-bottom: 10px;\n    color: white;\n    font-weight: bold;\n}\n\n.icon {\n    font-size: 24px;\n    width: 40px;\n    height: 40px;\n    background: rgba(255,255,255,0.2);\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n/* 3. 全高度垂直置中 */\n.full-height-center {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 300px;\n    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);\n    border-radius: 8px;\n}\n\n.modal-content {\n    background: white;\n    padding: 30px;\n    border-radius: 12px;\n    text-align: center;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.3);\n    max-width: 350px;\n}\n\n.modal-content h4 {\n    margin: 0 0 15px 0;\n    color: #333;\n}\n\n.modal-content p {\n    margin: 0 0 20px 0;\n    color: #666;\n    line-height: 1.5;\n}\n\n.modal-content button {\n    background: #007bff;\n    color: white;\n    border: none;\n    padding: 10px 25px;\n    border-radius: 6px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: background 0.3s ease;\n}\n\n.modal-content button:hover {\n    background: #0056b3;\n}","js":"// 垂直置中互動效果\nconsole.log(\"Flexbox 垂直置中範例載入完成！\");\n\n// 為圖示文字區塊添加懸停效果\ndocument.querySelectorAll(\".icon-text-vertical\").forEach(item => {\n    item.addEventListener(\"mouseenter\", function() {\n        this.style.transform = \"scale(1.05)\";\n        this.style.transition = \"all 0.3s ease\";\n    });\n    \n    item.addEventListener(\"mouseleave\", function() {\n        this.style.transform = \"scale(1)\";\n    });\n});\n\n// 模態框按鈕點擊效果\ndocument.querySelector(\".modal-content button\")?.addEventListener(\"click\", function() {\n    alert(\"垂直置中效果展示完成！\");\n});"}'
-                                                    >
-                                                    <button type="submit" class="btn btn-sm btn-outline-primary">
-                                                        <i class="fa-brands fa-codepen me-1"></i>CodePen 練習
-                                                    </button>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- 完美置中 -->
+                                <!-- 應用場景與最佳實踐 -->
+                                <div class="application-section bg-light p-3 rounded mb-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="text-warning mb-2">
+                                                <i class="fa-solid fa-lightbulb me-2"></i>應用場景
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>卡片內容垂直置中：</strong>卡片內元素垂直對齊</li>
+                                                <li><strong>側邊欄選單對齊：</strong>選單項目垂直置中</li>
+                                                <li><strong>圖示與文字對齊：</strong>圖示文字垂直對齊</li>
+                                                <li><strong>Modal 對話框置中：</strong>對話框內容垂直置中</li>
+                                                <li><strong>導航欄項目：</strong>導航欄內容垂直對齊</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="text-warning mb-2">
+                                                <i class="fa-solid fa-star me-2"></i>最佳實踐
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>設定最小高度：</strong>避免容器高度塌陷</li>
+                                                <li><strong>適用於不固定高度：</strong>內容高度可變</li>
+                                                <li><strong>比 vertical-align 更可靠：</strong>現代化解決方案</li>
+                                                <li><strong>配合 flex-direction：</strong>調整主軸方向</li>
+                                                <li><strong>響應式友好：</strong>適合各種螢幕尺寸</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 實際樣式展示 -->
+                                <div class="live-demo-section border rounded p-3 mb-3">
+                                    <h6 class="text-warning mb-3">
+                                        <i class="fa-solid fa-play me-2"></i>實際樣式展示
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block mb-2">基本垂直置中</small>
+                                            <div class="vertical-center mb-3" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 20px; border-radius: 8px; min-height: 120px;">
+                                                <div class="bg-white text-dark px-3 py-2 rounded shadow">
+                                                    <h6 class="mb-1"><strong>垂直置中標題</strong></h6>
+                                                    <p class="mb-0 small">這裡是內容文字</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block mb-2">圖示文字垂直對齊</small>
+                                            <div class="icon-text-vertical mb-2" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 15px; border-radius: 8px; color: white; gap: 12px;">
+                                                <i class="fa-solid fa-star"></i>
+                                                <span><strong>重要訊息</strong></span>
+                                            </div>
+                                            <div class="icon-text-vertical mb-2" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 15px; border-radius: 8px; color: white; gap: 12px;">
+                                                <i class="fa-solid fa-phone"></i>
+                                                <span><strong>聯絡方式</strong></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 注意事項與 CodePen -->
+                                <div class="border-top pt-3">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h6 class="text-danger mb-2">
+                                                <i class="fa-solid fa-exclamation-triangle me-2"></i>注意事項
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>父容器高度：</strong>父容器必須有明確的高度</li>
+                                                <li><strong>避免 baseline：</strong>避免使用 align-items: baseline</li>
+                                                <li><strong>多行文字：</strong>注意多行文字的對齊效果</li>
+                                                <li><strong>主軸方向：</strong>配合 flex-direction 調整主軸</li>
+                                                <li><strong>瀏覽器支援：</strong>IE11+ 支援，移動端完全支援</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                <input type="hidden" name="data" value='{"title":"Flexbox 垂直置中技巧","description":"練習使用 align-items: center 實現垂直置中","html":"<!DOCTYPE html>\n<html lang=\"zh-TW\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flexbox 垂直置中</title>\n</head>\n<body>\n    <h2>Flexbox 垂直置中範例</h2>\n    \n    <!-- 基本垂直置中 -->\n    <div class=\"example-1\">\n        <h3>基本垂直置中</h3>\n        <div class=\"vertical-center\">\n            <div class=\"content\">\n                <h4>垂直置中標題</h4>\n                <p>這裡是內容</p>\n            </div>\n        </div>\n    </div>\n    \n    <!-- 圖示與文字垂直對齊 -->\n    <div class=\"example-2\">\n        <h3>圖示與文字垂直對齊</h3>\n        <div class=\"icon-text-vertical\">\n            <div class=\"icon\">⭐</div>\n            <span>重要訊息</span>\n        </div>\n        <div class=\"icon-text-vertical\">\n            <div class=\"icon\">📱</div>\n            <span>聯絡方式</span>\n        </div>\n        <div class=\"icon-text-vertical\">\n            <div class=\"icon\">🎯</div>\n            <span>目標設定</span>\n        </div>\n    </div>\n    \n    <!-- 全高度垂直置中 -->\n    <div class=\"example-3\">\n        <h3>全高度垂直置中</h3>\n        <div class=\"full-height-center\">\n            <div class=\"modal-content\">\n                <h4>對話框內容</h4>\n                <p>這個對話框在容器中垂直置中</p>\n                <button>確認</button>\n            </div>\n        </div>\n    </div>\n</body>\n</html>","css":"/* 基本樣式 */\nbody {\n    font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    margin: 20px;\n    background: #f8f9fa;\n}\n\nh2, h3, h4 {\n    color: #333;\n    margin-bottom: 15px;\n}\n\n.example-1, .example-2, .example-3 {\n    margin-bottom: 40px;\n    padding: 20px;\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n/* 1. 基本垂直置中 */\n.vertical-center {\n    display: flex;\n    align-items: center;\n    min-height: 200px;\n    padding: 20px;\n    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);\n    border-radius: 8px;\n}\n\n.content {\n    background: white;\n    padding: 25px;\n    border-radius: 8px;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.2);\n    max-width: 300px;\n}\n\n.content h4 {\n    margin: 0 0 10px 0;\n    color: #333;\n    font-size: 18px;\n}\n\n.content p {\n    margin: 0;\n    color: #666;\n    font-size: 14px;\n}\n\n/* 2. 圖示與文字垂直對齊 */\n.icon-text-vertical {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 15px 20px;\n    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);\n    border-radius: 8px;\n    margin-bottom: 10px;\n    color: white;\n    font-weight: bold;\n}\n\n.icon {\n    font-size: 24px;\n    width: 40px;\n    height: 40px;\n    background: rgba(255,255,255,0.2);\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n/* 3. 全高度垂直置中 */\n.full-height-center {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 300px;\n    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);\n    border-radius: 8px;\n}\n\n.modal-content {\n    background: white;\n    padding: 30px;\n    border-radius: 12px;\n    text-align: center;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.3);\n    max-width: 350px;\n}\n\n.modal-content h4 {\n    margin: 0 0 15px 0;\n    color: #333;\n}\n\n.modal-content p {\n    margin: 0 0 20px 0;\n    color: #666;\n    line-height: 1.5;\n}\n\n.modal-content button {\n    background: #007bff;\n    color: white;\n    border: none;\n    padding: 10px 25px;\n    border-radius: 6px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: background 0.3s ease;\n}\n\n.modal-content button:hover {\n    background: #0056b3;\n}","js":"// 垂直置中互動效果\nconsole.log(\"Flexbox 垂直置中範例載入完成！\");\n\n// 為圖示文字區塊添加懸停效果\ndocument.querySelectorAll(\".icon-text-vertical\").forEach(item => {\n    item.addEventListener(\"mouseenter\", function() {\n        this.style.transform = \"scale(1.05)\";\n        this.style.transition = \"all 0.3s ease\";\n    });\n    \n    item.addEventListener(\"mouseleave\", function() {\n        this.style.transform = \"scale(1)\";\n    });\n});\n\n// 模態框按鈕點擊效果\ndocument.querySelector(\".modal-content button\")?.addEventListener(\"click\", function() {\n    alert(\"垂直置中效果展示完成！\");\n});"}'
+                                                >
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    <i class="fa-brands fa-codepen me-2"></i>CodePen 練習
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 6.5.3 Flexbox 完美置中 -->
+
+                            <div class="subsection border-start border-3 border-info ps-3 mb-4">
+                                <h6 class="fw-bold text-info mb-3">6.5.3 Flexbox 完美置中</h6>
+                                
+                                <!-- 核心概念 -->
+                                <div class="concept-box bg-info-subtle p-3 rounded mb-3">
+                                    <h6><i class="fa-solid fa-crosshairs text-info me-2"></i>核心概念</h6>
+                                    <p class="mb-3">
+                                        <strong>完美置中</strong>是結合水平置中和垂直置中的終極解決方案。使用 Flexbox 的 <code>justify-content: center</code> 
+                                        和 <code>align-items: center</code> 的組合，能夠實現真正的完美置中效果，無論內容大小或容器尺寸如何變化，都能保持完美的置中狀態。
+                                    </p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>🎯 特性說明：</strong>
+                                            <ul class="small mb-0">
+                                                <li><strong>雙軸置中：</strong>同時控制水平和垂直置中</li>
+                                                <li><strong>內容無關：</strong>適用於任何大小的內容</li>
+                                                <li><strong>完美對齊：</strong>實現真正的視覺平衡</li>
+                                                <li><strong>響應式優秀：</strong>各種螢幕尺寸表現優異</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>🚀 應用場景：</strong>
+                                            <ul class="small mb-0">
+                                                <li>Loading 動畫置中</li>
+                                                <li>錯誤頁面內容</li>
+                                                <li>Hero 區塊主標題</li>
+                                                <li>模態視窗內容</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 實戰範例 -->
                                 <div class="property-detail-section border rounded mb-4">
                                     <div class="row g-0">
-                                        <!-- 效果展示欄 -->
+                                        <!-- 實際效果展示 -->
                                         <div class="col-md-4 border-end">
                                             <div class="p-3 bg-light h-100">
                                                 <h6 class="text-primary mb-3 text-center">
-                                                    <i class="fa-solid fa-crosshairs me-2"></i>實際效果展示
+                                                    <i class="fa-solid fa-eye me-2"></i>實際效果展示
                                                 </h6>
                                                 <div class="effect-demo text-center mb-3">
                                                     <!-- 歡迎頁面完美置中 -->
@@ -9562,19 +9738,10 @@ button {
                                                     
                                                     <small class="text-muted">justify-content + align-items 完美置中</small>
                                                 </div>
-                                                <div class="application-scenarios">
-                                                    <h6 class="small text-success mb-2">📋 應用場景</h6>
-                                                    <ul class="small text-muted mb-0 ps-3">
-                                                        <li>Loading 動畫置中</li>
-                                                        <li>錯誤頁面內容</li>
-                                                        <li>Hero 區塊主標題</li>
-                                                        <li>模態視窗內容</li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- HTML 程式碼欄 -->
+                                        <!-- HTML 程式碼 -->
                                         <div class="col-md-4 border-end">
                                             <div class="p-3 h-100">
                                                 <h6 class="text-warning mb-3 text-center">
@@ -9602,7 +9769,7 @@ button {
                                             </div>
                                         </div>
                                         
-                                        <!-- CSS 程式碼欄 -->
+                                        <!-- CSS 程式碼 -->
                                         <div class="col-md-4">
                                             <div class="p-3 h-100">
                                                 <h6 class="text-info mb-3 text-center">
@@ -9633,39 +9800,93 @@ button {
     padding: 2rem;
 }</code></pre>
                                                 </div>
-                                                <div class="best-practices mt-3">
-                                                    <h6 class="small text-success mb-2">✅ 最佳實踐</h6>
-                                                    <ul class="small text-muted mb-0 ps-3">
-                                                        <li>最強大的置中解決方案</li>
-                                                        <li>適用於任何大小的內容</li>
-                                                        <li>響應式表現優秀</li>
-                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 應用場景與最佳實踐 -->
+                                <div class="application-section bg-light p-3 rounded mb-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="text-info mb-2">
+                                                <i class="fa-solid fa-lightbulb me-2"></i>應用場景
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>Loading 動畫置中：</strong>載入動畫完美置中顯示</li>
+                                                <li><strong>錯誤頁面內容：</strong>404 頁面內容置中</li>
+                                                <li><strong>Hero 區塊主標題：</strong>首頁主標題完美置中</li>
+                                                <li><strong>模態視窗內容：</strong>對話框完美置中</li>
+                                                <li><strong>登入表單：</strong>登入頁面表單置中</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="text-info mb-2">
+                                                <i class="fa-solid fa-star me-2"></i>最佳實踐
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>最強大的解決方案：</strong>完美置中的終極方案</li>
+                                                <li><strong>適用於任何內容：</strong>無論內容大小皆可置中</li>
+                                                <li><strong>響應式表現優秀：</strong>各種裝置完美適配</li>
+                                                <li><strong>維護簡便：</strong>程式碼簡潔易維護</li>
+                                                <li><strong>視覺平衡：</strong>實現真正的視覺平衡</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 實際樣式展示 -->
+                                <div class="live-demo-section border rounded p-3 mb-3">
+                                    <h6 class="text-info mb-3">
+                                        <i class="fa-solid fa-play me-2"></i>實際樣式展示
+                                    </h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block mb-2">歡迎頁面完美置中</small>
+                                            <div class="perfect-center mb-3" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 20px; border-radius: 8px; min-height: 120px;">
+                                                <div class="bg-white text-dark px-3 py-2 rounded shadow text-center">
+                                                    <h6 class="mb-1"><strong>歡迎訪問</strong></h6>
+                                                    <p class="mb-1 small">網站正在載入中...</p>
+                                                    <div style="width: 16px; height: 16px; border: 2px solid #007bff; border-radius: 50%; border-top: 2px solid transparent; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block mb-2">錯誤頁面完美置中</small>
+                                            <div class="perfect-center mb-3" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 20px; border-radius: 8px; min-height: 120px;">
+                                                <div class="bg-white text-dark px-3 py-2 rounded shadow text-center">
+                                                    <h6 class="mb-1"><strong>404</strong></h6>
+                                                    <p class="mb-1 small">找不到頁面</p>
+                                                    <button class="btn btn-primary btn-sm">返回首頁</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <!-- 注意事項與 CodePen -->
-                                    <div class="border-top p-3 bg-light">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h6 class="small text-danger mb-2">⚠️ 注意事項</h6>
-                                                <ul class="small text-muted mb-0 ps-3">
-                                                    <li>確認容器有適當的高度和寬度</li>
-                                                    <li>避免內容溢出容器邊界</li>
-                                                    <li>考慮內容動態變化的情況</li>
-                                                    <li>注意在不同裝置上的表現</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4 text-end">
-                                                <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
-                                                    <input type="hidden" name="data" value='{"title":"Flexbox 完美置中技巧","description":"練習使用 justify-content + align-items 實現完美置中","html":"<!DOCTYPE html>\n<html lang=\"zh-TW\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flexbox 完美置中</title>\n</head>\n<body>\n    <h2>Flexbox 完美置中範例</h2>\n    \n    <!-- 歡迎頁面完美置中 -->\n    <div class=\"example-1\">\n        <h3>歡迎頁面完美置中</h3>\n        <div class=\"perfect-center\">\n            <div class=\"centered-content\">\n                <h2>歡迎訪問</h2>\n                <p>網站正在載入中...</p>\n                <div class=\"loading-spinner\"></div>\n            </div>\n        </div>\n    </div>\n    \n    <!-- 錯誤頁面完美置中 -->\n    <div class=\"example-2\">\n        <h3>錯誤頁面完美置中</h3>\n        <div class=\"error-page-center\">\n            <div class=\"error-content\">\n                <h1>404</h1>\n                <p>找不到頁面</p>\n                <button onclick=\"alert(\\\"返回首頁\\\")\">返回首頁</button>\n            </div>\n        </div>\n    </div>\n    \n    <!-- Hero 區塊完美置中 -->\n    <div class=\"example-3\">\n        <h3>Hero 區塊完美置中</h3>\n        <div class=\"hero-center\">\n            <div class=\"hero-content\">\n                <h1>創新科技</h1>\n                <p>改變世界的力量就在您手中</p>\n                <div class=\"hero-buttons\">\n                    <button class=\"btn-primary\">立即開始</button>\n                    <button class=\"btn-secondary\">了解更多</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</body>\n</html>","css":"/* 基本樣式 */\nbody {\n    font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    margin: 20px;\n    background: #f8f9fa;\n}\n\nh1, h2, h3 {\n    color: #333;\n    margin-bottom: 15px;\n}\n\n.example-1, .example-2, .example-3 {\n    margin-bottom: 40px;\n    padding: 20px;\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n/* 1. 歡迎頁面完美置中 */\n.perfect-center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    min-height: 300px;\n    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);\n    border-radius: 8px;\n}\n\n.centered-content {\n    text-align: center;\n    background: white;\n    padding: 40px;\n    border-radius: 12px;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.2);\n    max-width: 400px;\n}\n\n.centered-content h2 {\n    margin: 0 0 15px 0;\n    color: #333;\n    font-size: 28px;\n}\n\n.centered-content p {\n    margin: 0 0 20px 0;\n    color: #666;\n    font-size: 16px;\n}\n\n/* Loading 動畫 */\n.loading-spinner {\n    width: 40px;\n    height: 40px;\n    border: 4px solid #f3f3f3;\n    border-top: 4px solid #4facfe;\n    border-radius: 50%;\n    animation: spin 1s linear infinite;\n    margin: 0 auto;\n}\n\n@keyframes spin {\n    0% { transform: rotate(0deg); }\n    100% { transform: rotate(360deg); }\n}\n\n/* 2. 錯誤頁面完美置中 */\n.error-page-center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 250px;\n    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);\n    border-radius: 8px;\n}\n\n.error-content {\n    text-align: center;\n    background: white;\n    padding: 40px;\n    border-radius: 12px;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.2);\n}\n\n.error-content h1 {\n    font-size: 72px;\n    margin: 0 0 15px 0;\n    color: #ff6b6b;\n    font-weight: bold;\n}\n\n.error-content p {\n    margin: 0 0 25px 0;\n    color: #666;\n    font-size: 18px;\n}\n\n.error-content button {\n    background: #007bff;\n    color: white;\n    border: none;\n    padding: 12px 30px;\n    border-radius: 8px;\n    font-size: 16px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: all 0.3s ease;\n}\n\n.error-content button:hover {\n    background: #0056b3;\n    transform: translateY(-2px);\n}\n\n/* 3. Hero 區塊完美置中 */\n.hero-center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    min-height: 350px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    position: relative;\n    overflow: hidden;\n}\n\n.hero-center::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: rgba(0,0,0,0.3);\n}\n\n.hero-content {\n    text-align: center;\n    color: white;\n    z-index: 1;\n    position: relative;\n    max-width: 500px;\n    padding: 20px;\n}\n\n.hero-content h1 {\n    font-size: 48px;\n    margin: 0 0 20px 0;\n    color: white;\n    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);\n}\n\n.hero-content p {\n    font-size: 20px;\n    margin: 0 0 30px 0;\n    color: rgba(255,255,255,0.9);\n    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);\n}\n\n.hero-buttons {\n    display: flex;\n    justify-content: center;\n    gap: 15px;\n    flex-wrap: wrap;\n}\n\n.btn-primary, .btn-secondary {\n    padding: 15px 30px;\n    border: none;\n    border-radius: 8px;\n    font-size: 16px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: all 0.3s ease;\n}\n\n.btn-primary {\n    background: #ff6b6b;\n    color: white;\n}\n\n.btn-primary:hover {\n    background: #ff5252;\n    transform: translateY(-2px);\n}\n\n.btn-secondary {\n    background: transparent;\n    color: white;\n    border: 2px solid white;\n}\n\n.btn-secondary:hover {\n    background: white;\n    color: #333;\n    transform: translateY(-2px);\n}\n\n@media (max-width: 768px) {\n    .hero-content h1 {\n        font-size: 36px;\n    }\n    \n    .hero-content p {\n        font-size: 16px;\n    }\n    \n    .hero-buttons {\n        flex-direction: column;\n        align-items: center;\n    }\n}","js":"// 完美置中互動效果\nconsole.log(\"Flexbox 完美置中範例載入完成！\");\n\n// Hero 按鈕點擊效果\ndocument.querySelector(\".btn-primary\")?.addEventListener(\"click\", function() {\n    alert(\"立即開始 - 完美置中效果展示！\");\n});\n\ndocument.querySelector(\".btn-secondary\")?.addEventListener(\"click\", function() {\n    alert(\"了解更多 - Flexbox 完美置中技巧\");\n});\n\n// 添加懸停效果給所有完美置中容器\ndocument.querySelectorAll(\".perfect-center, .error-page-center, .hero-center\").forEach(container => {\n    container.addEventListener(\"mouseenter\", function() {\n        this.style.transform = \"scale(1.02)\";\n        this.style.transition = \"transform 0.3s ease\";\n    });\n    \n    container.addEventListener(\"mouseleave\", function() {\n        this.style.transform = \"scale(1)\";\n    });\n});\n\n// Loading 動畫完成後的效果\nsetTimeout(() => {\n    const spinner = document.querySelector(\".loading-spinner\");\n    if (spinner) {\n        spinner.style.display = \"none\";\n        const loadingText = document.createElement(\"div\");\n        loadingText.textContent = \"載入完成！\";\n        loadingText.style.color = \"#28a745\";\n        loadingText.style.fontWeight = \"bold\";\n        spinner.parentNode.appendChild(loadingText);\n    }\n}, 3000);"}'
-                                                    >
-                                                    <button type="submit" class="btn btn-sm btn-outline-primary">
-                                                        <i class="fa-brands fa-codepen me-1"></i>CodePen 練習
-                                                    </button>
-                                                </form>
-                                            </div>
+                                </div>
+
+                                <!-- 注意事項與 CodePen -->
+                                <div class="border-top pt-3">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h6 class="text-danger mb-2">
+                                                <i class="fa-solid fa-exclamation-triangle me-2"></i>注意事項
+                                            </h6>
+                                            <ul class="small text-muted mb-0">
+                                                <li><strong>容器尺寸：</strong>確認容器有適當的高度和寬度</li>
+                                                <li><strong>內容溢出：</strong>避免內容溢出容器邊界</li>
+                                                <li><strong>動態變化：</strong>考慮內容動態變化的情況</li>
+                                                <li><strong>裝置適配：</strong>注意在不同裝置上的表現</li>
+                                                <li><strong>性能考量：</strong>避免在大型列表中使用完美置中</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <form action="https://codepen.io/pen/define" method="POST" target="_blank" class="d-inline">
+                                                <input type="hidden" name="data" value='{"title":"Flexbox 完美置中技巧","description":"練習使用 justify-content + align-items 實現完美置中","html":"<!DOCTYPE html>\n<html lang=\"zh-TW\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Flexbox 完美置中</title>\n</head>\n<body>\n    <h2>Flexbox 完美置中範例</h2>\n    \n    <!-- 歡迎頁面完美置中 -->\n    <div class=\"example-1\">\n        <h3>歡迎頁面完美置中</h3>\n        <div class=\"perfect-center\">\n            <div class=\"centered-content\">\n                <h2>歡迎訪問</h2>\n                <p>網站正在載入中...</p>\n                <div class=\"loading-spinner\"></div>\n            </div>\n        </div>\n    </div>\n    \n    <!-- 錯誤頁面完美置中 -->\n    <div class=\"example-2\">\n        <h3>錯誤頁面完美置中</h3>\n        <div class=\"error-page-center\">\n            <div class=\"error-content\">\n                <h1>404</h1>\n                <p>找不到頁面</p>\n                <button onclick=\"alert(\\\"返回首頁\\\")\">返回首頁</button>\n            </div>\n        </div>\n    </div>\n    \n    <!-- Hero 區塊完美置中 -->\n    <div class=\"example-3\">\n        <h3>Hero 區塊完美置中</h3>\n        <div class=\"hero-center\">\n            <div class=\"hero-content\">\n                <h1>創新科技</h1>\n                <p>改變世界的力量就在您手中</p>\n                <div class=\"hero-buttons\">\n                    <button class=\"btn-primary\">立即開始</button>\n                    <button class=\"btn-secondary\">了解更多</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</body>\n</html>","css":"/* 基本樣式 */\nbody {\n    font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    margin: 20px;\n    background: #f8f9fa;\n}\n\nh1, h2, h3 {\n    color: #333;\n    margin-bottom: 15px;\n}\n\n.example-1, .example-2, .example-3 {\n    margin-bottom: 40px;\n    padding: 20px;\n    background: white;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n/* 1. 歡迎頁面完美置中 */\n.perfect-center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    min-height: 300px;\n    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);\n    border-radius: 8px;\n}\n\n.centered-content {\n    text-align: center;\n    background: white;\n    padding: 40px;\n    border-radius: 12px;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.2);\n    max-width: 400px;\n}\n\n.centered-content h2 {\n    margin: 0 0 15px 0;\n    color: #333;\n    font-size: 28px;\n}\n\n.centered-content p {\n    margin: 0 0 20px 0;\n    color: #666;\n    font-size: 16px;\n}\n\n/* Loading 動畫 */\n.loading-spinner {\n    width: 40px;\n    height: 40px;\n    border: 4px solid #f3f3f3;\n    border-top: 4px solid #4facfe;\n    border-radius: 50%;\n    animation: spin 1s linear infinite;\n    margin: 0 auto;\n}\n\n@keyframes spin {\n    0% { transform: rotate(0deg); }\n    100% { transform: rotate(360deg); }\n}\n\n/* 2. 錯誤頁面完美置中 */\n.error-page-center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 250px;\n    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);\n    border-radius: 8px;\n}\n\n.error-content {\n    text-align: center;\n    background: white;\n    padding: 40px;\n    border-radius: 12px;\n    box-shadow: 0 8px 25px rgba(0,0,0,0.2);\n}\n\n.error-content h1 {\n    font-size: 72px;\n    margin: 0 0 15px 0;\n    color: #ff6b6b;\n    font-weight: bold;\n}\n\n.error-content p {\n    margin: 0 0 25px 0;\n    color: #666;\n    font-size: 18px;\n}\n\n.error-content button {\n    background: #007bff;\n    color: white;\n    border: none;\n    padding: 12px 30px;\n    border-radius: 8px;\n    font-size: 16px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: all 0.3s ease;\n}\n\n.error-content button:hover {\n    background: #0056b3;\n    transform: translateY(-2px);\n}\n\n/* 3. Hero 區塊完美置中 */\n.hero-center {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    min-height: 350px;\n    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n    border-radius: 8px;\n    position: relative;\n    overflow: hidden;\n}\n\n.hero-center::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: rgba(0,0,0,0.3);\n}\n\n.hero-content {\n    text-align: center;\n    color: white;\n    z-index: 1;\n    position: relative;\n    max-width: 500px;\n    padding: 20px;\n}\n\n.hero-content h1 {\n    font-size: 48px;\n    margin: 0 0 20px 0;\n    color: white;\n    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);\n}\n\n.hero-content p {\n    font-size: 20px;\n    margin: 0 0 30px 0;\n    color: rgba(255,255,255,0.9);\n    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);\n}\n\n.hero-buttons {\n    display: flex;\n    justify-content: center;\n    gap: 15px;\n    flex-wrap: wrap;\n}\n\n.btn-primary, .btn-secondary {\n    padding: 15px 30px;\n    border: none;\n    border-radius: 8px;\n    font-size: 16px;\n    font-weight: bold;\n    cursor: pointer;\n    transition: all 0.3s ease;\n}\n\n.btn-primary {\n    background: #ff6b6b;\n    color: white;\n}\n\n.btn-primary:hover {\n    background: #ff5252;\n    transform: translateY(-2px);\n}\n\n.btn-secondary {\n    background: transparent;\n    color: white;\n    border: 2px solid white;\n}\n\n.btn-secondary:hover {\n    background: white;\n    color: #333;\n    transform: translateY(-2px);\n}\n\n@media (max-width: 768px) {\n    .hero-content h1 {\n        font-size: 36px;\n    }\n    \n    .hero-content p {\n        font-size: 16px;\n    }\n    \n    .hero-buttons {\n        flex-direction: column;\n        align-items: center;\n    }\n}","js":"// 完美置中互動效果\nconsole.log(\"Flexbox 完美置中範例載入完成！\");\n\n// Hero 按鈕點擊效果\ndocument.querySelector(\".btn-primary\")?.addEventListener(\"click\", function() {\n    alert(\"立即開始 - 完美置中效果展示！\");\n});\n\ndocument.querySelector(\".btn-secondary\")?.addEventListener(\"click\", function() {\n    alert(\"了解更多 - Flexbox 完美置中技巧\");\n});\n\n// 添加懸停效果給所有完美置中容器\ndocument.querySelectorAll(\".perfect-center, .error-page-center, .hero-center\").forEach(container => {\n    container.addEventListener(\"mouseenter\", function() {\n        this.style.transform = \"scale(1.02)\";\n        this.style.transition = \"transform 0.3s ease\";\n    });\n    \n    container.addEventListener(\"mouseleave\", function() {\n        this.style.transform = \"scale(1)\";\n    });\n});\n\n// Loading 動畫完成後的效果\nsetTimeout(() => {\n    const spinner = document.querySelector(\".loading-spinner\");\n    if (spinner) {\n        spinner.style.display = \"none\";\n        const loadingText = document.createElement(\"div\");\n        loadingText.textContent = \"載入完成！\";\n        loadingText.style.color = \"#28a745\";\n        loadingText.style.fontWeight = \"bold\";\n        spinner.parentNode.appendChild(loadingText);\n    }\n}, 3000);"}'
+                                                >
+                                                <button type="submit" class="btn btn-outline-primary">
+                                                    <i class="fa-brands fa-codepen me-2"></i>CodePen 練習
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -9673,7 +9894,7 @@ button {
 
                         </div>
 
-                        <!-- 6.5.2 CSS Grid 網格佈局簡介 -->
+                        <!-- 6.5.4 CSS Grid 網格佈局簡介 -->
                         <div class="subsection border-start border-3 border-info ps-3 mb-4">
                             <h6 class="fw-bold text-info mb-3">6.5.2 CSS Grid 網格佈局簡介</h6>
                             
@@ -11485,6 +11706,86 @@ button {
                                     align-items: center;
                                     width: fit-content;
                                     margin: 0 auto 15px auto;
+                                }
+                                
+                                /* Flexbox 置中技巧樣式 */
+                                .horizontal-center {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    min-height: 80px;
+                                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                    color: white;
+                                    border-radius: 6px;
+                                    padding: 15px;
+                                    margin-bottom: 10px;
+                                }
+                                
+                                .horizontal-center .centered-item {
+                                    background: white;
+                                    color: #333;
+                                    padding: 10px 20px;
+                                    border-radius: 4px;
+                                    font-weight: bold;
+                                    font-size: 12px;
+                                    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                                }
+                                
+                                .vertical-center {
+                                    display: flex;
+                                    align-items: center;
+                                    min-height: 120px;
+                                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                                    color: white;
+                                    border-radius: 6px;
+                                    padding: 15px;
+                                    margin-bottom: 10px;
+                                }
+                                
+                                .vertical-center .centered-content {
+                                    background: white;
+                                    color: #333;
+                                    padding: 15px;
+                                    border-radius: 4px;
+                                    font-size: 12px;
+                                    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                                }
+                                
+                                .perfect-center {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    min-height: 100px;
+                                    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                                    color: white;
+                                    border-radius: 6px;
+                                    padding: 15px;
+                                    margin-bottom: 10px;
+                                }
+                                
+                                .perfect-center .centered-modal {
+                                    background: white;
+                                    color: #333;
+                                    padding: 20px;
+                                    border-radius: 8px;
+                                    text-align: center;
+                                    font-size: 12px;
+                                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                                }
+                                
+                                .perfect-center .loading-spinner {
+                                    width: 16px;
+                                    height: 16px;
+                                    border: 2px solid #f3f3f3;
+                                    border-top: 2px solid #007bff;
+                                    border-radius: 50%;
+                                    animation: spin 1s linear infinite;
+                                    margin: 5px auto;
+                                }
+                                
+                                @keyframes spin {
+                                    0% { transform: rotate(0deg); }
+                                    100% { transform: rotate(360deg); }
                                 }
                             </style>
                             
