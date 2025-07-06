@@ -77,32 +77,158 @@ table.schedule-table th {
     background: #e0e7ff;
 }
 
+/* ========== 程式碼複製按鈕樣式 ========== */
+.code-container {
+    position: relative;
+    margin: 12px 0;
+}
+
+.code-container pre {
+    margin: 0;
+    padding-right: 50px; /* 為複製按鈕留出空間 */
+}
+
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.copy-button:hover {
+    background: #495057;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.copy-button.copied {
+    background: #28a745;
+    color: white;
+}
+
+.copy-button i {
+    margin-right: 4px;
+}
+
+/* 響應式設計 - 複製按鈕 */
+@media (max-width: 600px) {
+    .copy-button {
+        padding: 3px 6px;
+        font-size: 11px;
+        top: 6px;
+        right: 6px;
+    }
+    
+    .code-container pre {
+        padding-right: 45px;
+    }
+}
+
+/* ========== 動態新增複製按鈕樣式 ========== */
+/* 為動態新增的 pre 元素設定相對定位 */
 pre {
     background: #f3f4f6;
     border-radius: 4px;
     padding: 12px;
     overflow-x: auto;
     margin: 12px 0;
+    position: relative; /* 新增：為動態新增的複製按鈕提供定位基準 */
 }
 
-form input, form textarea, form button {
-    font-size: 1em;
-    padding: 6px 10px;
-    margin-bottom: 12px;
-    border: 1px solid #bcd0ee;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
+/* 確保手動包裹的 code-container 樣式一致 */
+.code-container pre {
+    position: relative;
+    padding-right: 50px;
 }
-form button {
-    background: #2563eb;
-    color: #fff;
+
+/* 自動新增複製按鈕的樣式 */
+pre:not(.code-container pre) {
+    padding-right: 50px; /* 為自動新增的複製按鈕留出空間 */
+}
+
+/* 複製按鈕的通用樣式 */
+pre .copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #6c757d;
+    color: white;
     border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
+    z-index: 10;
+    opacity: 0.7;
 }
-form button:hover {
-    background: #1e40af;
+
+pre .copy-button:hover {
+    background: #495057;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+pre .copy-button.copied {
+    background: #28a745;
+    color: white;
+}
+
+pre .copy-button i {
+    margin-right: 4px;
+}
+
+/* ========== 提示訊息樣式 ========== */
+.toast-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+    font-size: 14px;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.toast-message.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast-message.error {
+    background: #dc3545;
+}
+
+.toast-message i {
+    margin-right: 8px;
+}
+
+/* 響應式設計 - 提示訊息 */
+@media (max-width: 600px) {
+    .toast-message {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        font-size: 13px;
+        padding: 10px 14px;
+    }
 }
 
 /* ========== 索引選單與頁面專用樣式 ========== */
@@ -170,62 +296,6 @@ form button:hover {
 .back-to-top:hover {
     background: #0b5ed7;
     transform: translateY(-2px);
-}
-
-/* ========== 程式碼複製按鈕樣式 ========== */
-.code-container {
-    position: relative;
-    margin: 12px 0;
-}
-
-.code-container pre {
-    margin: 0;
-    padding-right: 50px; /* 為複製按鈕留出空間 */
-}
-
-.copy-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #6c757d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    z-index: 10;
-    opacity: 0.7;
-}
-
-.copy-button:hover {
-    background: #495057;
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
-.copy-button.copied {
-    background: #28a745;
-    color: white;
-}
-
-.copy-button i {
-    margin-right: 4px;
-}
-
-/* 響應式設計 - 複製按鈕 */
-@media (max-width: 600px) {
-    .copy-button {
-        padding: 3px 6px;
-        font-size: 11px;
-        top: 6px;
-        right: 6px;
-    }
-    
-    .code-container pre {
-        padding-right: 45px;
-    }
 }
 
 /* ===================== 列印模式 A4 設定 ===================== */
