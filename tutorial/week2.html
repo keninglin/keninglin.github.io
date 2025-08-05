@@ -1362,9 +1362,9 @@ let age = 25;  // 這也是註解</code></pre>
                                         <div class="bg-danger bg-opacity-10 p-2 rounded mb-2">
                                             <h6 class="text-danger small"><i class="fa-solid fa-times me-1"></i>沒有變數的寫法（不好）</h6>
                                             <pre class="mb-0 small text-dark"><code>// 計算圓形面積，每次都要重新輸入半徑
-console.log(3.14159 * 5 * 5);      // 第一個圓
-console.log(3.14159 * 5 * 5 * 2);  // 計算兩個圓
-console.log(3.14159 * 5 * 5 / 4);  // 計算四分之一圓
+3.14159 * 5 * 5;        // 第一個圓的面積
+3.14159 * 5 * 5 * 2;    // 計算兩個圓的面積
+3.14159 * 5 * 5 / 4;    // 計算四分之一圓的面積
 
 // 問題：重複、容易出錯、難以修改</code></pre>
                                         </div>
@@ -1377,9 +1377,10 @@ let PI = 3.14159;
 let radius = 5;
 let area = PI * radius * radius;
 
-console.log(area);           // 一個圓的面積
-console.log(area * 2);       // 兩個圓的面積
-console.log(area / 4);       // 四分之一圓的面積
+// 現在可以輕鬆重複使用
+area;               // 一個圓的面積
+area * 2;          // 兩個圓的面積  
+area / 4;          // 四分之一圓的面積
 
 // 優點：清楚、易讀、易修改</code></pre>
                                         </div>
@@ -1458,14 +1459,14 @@ let 使用者年齡 = 25;     // 放盒子並立即放入資料</code></pre>
                                             <p class="mb-2"><strong>沒有宣告會怎樣？</strong></p>
                                             <div class="bg-danger bg-opacity-10 p-2 rounded">
                                                 <pre class="mb-0 small text-dark"><code>// ❌ 錯誤：使用未宣告的變數
-console.log(myName);    // ReferenceError: myName is not defined
+myName;    // ReferenceError: myName is not defined
 
 // ✅ 正確：先宣告再使用
 let myName;
-console.log(myName);    // undefined（已宣告但未賦值）
+myName;    // undefined（已宣告但未賦值）
 
 let myName2 = '小明';
-console.log(myName2);   // "小明"（已宣告且已賦值）</code></pre>
+myName2;   // "小明"（已宣告且已賦值）</code></pre>
                                             </div>
                                         </div>
                                     </div>
@@ -1699,6 +1700,113 @@ console.log(typeof (myAge > 18));  // 輸出：boolean</code></pre>
                                 <h6 class="text-primary mb-2"><i class="fa-solid fa-rocket me-2"></i>立即動手試試看！</h6>
                                 <p class="mb-2">打開瀏覽器的 Console，試著執行上面的程式碼。這是學習程式設計最好的方式：<strong>邊學邊做，立即驗證</strong>！</p>
                                 <p class="mb-0 small text-muted">💡 <strong>提示：</strong>接下來我們學習資料型別時，也會經常使用 Console 來測試和理解不同型別的特性。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 變數宣告的重要性實踐 -->
+                        <div class="alert alert-warning mt-3" role="alert">
+                            <h6 class="alert-heading"><i class="fa-solid fa-exclamation-triangle me-2"></i>變數宣告的重要性實踐</h6>
+                            <p class="mb-3">現在你已經學會了 Console 的使用，讓我們用 Console 來實際體驗<strong>為什麼變數宣告這麼重要</strong>！</p>
+                            
+                            <div class="border rounded p-3 bg-light mb-3">
+                                <h6 class="text-info"><i class="fa-solid fa-question-circle me-2"></i>為什麼要宣告變數？</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="small">
+                                            <ul class="mb-0">
+                                                <li>📋 <strong>明確告知：</strong>讓電腦知道這個名稱是變數</li>
+                                                <li>🔒 <strong>避免錯誤：</strong>防止使用不存在的變數</li>
+                                                <li>💾 <strong>記憶體管理：</strong>電腦可以準備適當的存儲空間</li>
+                                                <li>🎯 <strong>作用域控制：</strong>決定變數在哪裡可以使用</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="small">
+                                            <p class="mb-2"><strong>🧪 在 Console 中試試看：</strong></p>
+                                            <div class="bg-info bg-opacity-10 p-2 rounded">
+                                                <pre class="mb-0 small text-dark"><code>// 試著在 Console 執行這些程式碼：
+
+// 1. 先試試未宣告的變數
+console.log(unknownVariable);
+// 結果：❌ ReferenceError: unknownVariable is not defined</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-success" role="alert">
+                                <h6 class="alert-heading"><i class="fa-solid fa-laptop-code me-2"></i>Console 實戰練習：宣告 vs 未宣告</h6>
+                                <p class="mb-2">在 Console 中執行以下程式碼，觀察不同情況的結果：</p>
+                                <div class="bg-white border rounded p-3">
+                                    <pre class="text-dark mb-0"><code>// ❌ 情況1：使用未宣告的變數（會出錯）
+console.log(myName);    
+// 結果：ReferenceError: myName is not defined
+
+// ✅ 情況2：先宣告再使用（正確）
+let myName;
+console.log(myName);    
+// 結果：undefined（已宣告但未賦值）
+
+// ✅ 情況3：宣告並賦值（完整）
+let fullName = '小明';
+console.log(fullName);  
+// 結果："小明"（已宣告且已賦值）
+
+// 🔄 情況4：重新賦值（動態特性）
+fullName = '小華';
+console.log(fullName);  
+// 結果："小華"（值已更新）
+
+// 📊 情況5：檢查型別
+console.log(typeof fullName);  
+// 結果："string"</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-danger" role="alert">
+                                <h6 class="alert-heading"><i class="fa-solid fa-bug me-2"></i>常見錯誤除錯實踐</h6>
+                                <p class="mb-2">用 Console 體驗這些常見的變數錯誤：</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="bg-white border rounded p-2">
+                                            <h6 class="text-danger small">❌ 錯誤示範</h6>
+                                            <pre class="small text-dark mb-0"><code>// 1. 拼字錯誤
+let userName = '小明';
+console.log(usrName);  // ❌ ReferenceError
+
+// 2. 大小寫錯誤  
+let myAge = 25;
+console.log(MyAge);    // ❌ ReferenceError
+
+// 3. 使用保留字
+let class = 'A班';     // ❌ SyntaxError</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bg-white border rounded p-2">
+                                            <h6 class="text-success small">✅ 正確做法</h6>
+                                            <pre class="small text-dark mb-0"><code>// 1. 拼字正確
+let userName = '小明';
+console.log(userName); // ✅ "小明" 
+
+// 2. 大小寫一致
+let myAge = 25;
+console.log(myAge);    // ✅ 25
+
+// 3. 避免保留字
+let className = 'A班';
+console.log(className); // ✅ "A班"</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3 p-3 bg-warning bg-opacity-10 rounded">
+                                <h6 class="text-warning mb-2"><i class="fa-solid fa-lightbulb me-2"></i>動手練習建議</h6>
+                                <p class="mb-2">請在 Console 中<strong>親自試試</strong>上面的每一個範例，這是理解變數宣告重要性的最佳方式！</p>
+                                <p class="mb-0 small text-muted">💡 <strong>學習技巧：</strong>每當遇到錯誤時，仔細閱讀錯誤訊息，它會告訴你問題出在哪裡。</p>
                             </div>
                         </div>
                         
