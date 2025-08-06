@@ -1994,169 +1994,48 @@ console.log(typeof box); // "boolean"</code></pre>
                             <!-- 型別的重要差異 -->
                             <div class="border rounded p-3 bg-light mb-3">
                                 <h6 class="text-warning mb-2"><i class="fa-solid fa-balance-scale me-2"></i>基本型別 vs 參考型別的差異</h6>
-                                <p class="small text-muted mb-3">用圖書館借書系統來理解：基本型別像「影印書」，參考型別像「借書證」</p>
-                                
-                                <!-- 統一的圖書館比喻 -->
-                                <div class="border rounded p-3 bg-warning bg-opacity-10 mb-3">
-                                    <h6 class="text-warning mb-2"><i class="fa-solid fa-book me-2"></i>📚 圖書館借書系統統一比喻</h6>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="border rounded p-2 bg-white">
-                                                <strong class="text-primary">� 基本型別 = 影印書</strong>
-                                                <div class="small mt-2">
-                                                    <p class="mb-1">就像在圖書館影印整本書：</p>
-                                                    <ul class="mb-1">
-                                                        <li>你拿到書的完整副本</li>
-                                                        <li>可以在副本上做筆記</li>
-                                                        <li>不會影響原書</li>
-                                                        <li>每個人都有獨立的書</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="border rounded p-2 bg-white">
-                                                <strong class="text-info">🎫 參考型別 = 借書證</strong>
-                                                <div class="small mt-2">
-                                                    <p class="mb-1">就像拿到借書證（位置資訊）：</p>
-                                                    <ul class="mb-1">
-                                                        <li>你拿到書的位置資訊</li>
-                                                        <li>所有人去同一書架拿書</li>
-                                                        <li>任何人做筆記都會影響別人</li>
-                                                        <li>書只有一本，但借書證可以很多張</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="small text-muted mb-3">最重要的差異：基本型別存「值」，參考型別存「位置」</p>
                                 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <div class="border rounded p-3 bg-primary bg-opacity-10">
-                                            <h6 class="text-primary mb-2"><i class="fa-solid fa-copy me-2"></i>基本型別（值型別）</h6>
-                                            <p class="small mb-2"><strong>📄 影印書概念：</strong>拿到完整副本</p>
-                                            <pre class="small text-dark mb-2"><code>let bookA = "JavaScript入門";     // 影印書A
-let bookB = bookA;                // 影印書B
-bookA = "JavaScript進階";         // 書A改標題
-console.log(bookB);               // "JavaScript入門" (書B沒變)</code></pre>
+                                            <h6 class="text-primary mb-2"><i class="fa-solid fa-copy me-2"></i>基本型別（存值）</h6>
+                                            <pre class="small text-dark mb-2"><code>let bookA = "JavaScript入門";     
+let bookB = bookA;                // 複製內容
+bookA = "JavaScript進階";         
+console.log(bookB);               // "JavaScript入門" (B沒變)</code></pre>
                                             <div class="small">
-                                                <strong>📚 圖書館情境：</strong>
+                                                <strong>特性：</strong>
                                                 <ul class="mb-0">
-                                                    <li>你和朋友各自影印一本書</li>
-                                                    <li>你在書上做筆記，朋友看不到</li>
-                                                    <li>每個人都有<span class="text-primary">獨立的書</span></li>
+                                                    <li>複製時複製「內容」</li>
+                                                    <li>各自獨立，互不影響</li>
+                                                    <li>包括：number, string, boolean, null, undefined</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="border rounded p-3 bg-info bg-opacity-10">
-                                            <h6 class="text-info mb-2"><i class="fa-solid fa-id-card me-2"></i>參考型別（Reference Type）</h6>
-                                            <p class="small mb-2"><strong>🎫 借書證概念：</strong>拿到位置資訊</p>
-                                            <pre class="small text-dark mb-2"><code>let card1 = {book: "JavaScript入門"}; // 借書證1
-let card2 = card1;                    // 借書證2
-card1.book = "JavaScript進階";        // 改變書架上的書
-console.log(card2.book);              // "JavaScript進階" (同一本書!)</code></pre>
+                                            <h6 class="text-info mb-2"><i class="fa-solid fa-link me-2"></i>參考型別（存位置）</h6>
+                                            <pre class="small text-dark mb-2"><code>let card1 = {book: "JavaScript入門"}; 
+let card2 = card1;                    // 複製位置
+card1.book = "JavaScript進階";        
+console.log(card2.book);              // "JavaScript進階" (共用!)</code></pre>
                                             <div class="small">
-                                                <strong>📚 圖書館情境：</strong>
+                                                <strong>特性：</strong>
                                                 <ul class="mb-0">
-                                                    <li>你和朋友拿到同一個書架位置</li>
-                                                    <li>任何人做筆記，大家都看得到</li>
-                                                    <li>操作的是<span class="text-info">同一本書</span></li>
+                                                    <li>複製時複製「位置」</li>
+                                                    <li>指向同一個資料，會互相影響</li>
+                                                    <li>包括：object, array, function</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <!-- 圖書館情境詳細說明 -->
-                                <div class="border rounded p-3 bg-success bg-opacity-10 mb-3">
-                                    <h6 class="text-success mb-2"><i class="fa-solid fa-users me-2"></i>📚 圖書館情境模擬</h6>
-                                    
-                                    <div class="border rounded p-3 bg-light mb-3">
-                                        <h6 class="text-dark mb-2"><i class="fa-solid fa-scenario me-2"></i>🎯 情境：你和朋友都想要《JavaScript 入門》</h6>
-                                        
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <div class="border rounded p-2 bg-white">
-                                                    <strong class="text-primary">📄 方案一：影印書（基本型別）</strong>
-                                                    <div class="small mt-2">
-                                                        <p class="mb-1">圖書館幫你們各印一本完整的書：</p>
-                                                        <ul class="mb-2">
-                                                            <li>你在第10頁寫筆記 ➜ 只有你的書有筆記</li>
-                                                            <li>朋友在第15頁畫重點 ➜ 只有朋友的書有重點</li>
-                                                            <li>你們各自擁有獨立的書</li>
-                                                        </ul>
-                                                        <pre class="small text-dark"><code>let yourBook = "JavaScript入門";
-let friendBook = yourBook;    // 各自影印
-yourBook += " + 我的筆記";    // 你加筆記
-console.log(friendBook);     // "JavaScript入門" (朋友的書沒變)</code></pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="border rounded p-2 bg-white">
-                                                    <strong class="text-info">🎫 方案二：借書證（參考型別）</strong>
-                                                    <div class="small mt-2">
-                                                        <p class="mb-1">圖書館給你們借書證「A架第3層第5本」：</p>
-                                                        <ul class="mb-2">
-                                                            <li>你去A架拿書，在第10頁寫筆記</li>
-                                                            <li>朋友後來也去A架拿書 ➜ 看到你的筆記！</li>
-                                                            <li>因為你們操作的是同一本書</li>
-                                                        </ul>
-                                                        <pre class="small text-dark"><code>let yourCard = {book: "JavaScript入門", notes: []};
-let friendCard = yourCard;    // 共用借書證
-yourCard.notes.push("我的筆記");  // 你加筆記
-console.log(friendCard.notes);   // ["我的筆記"] (朋友也看得到!)</code></pre>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mt-3 p-2 bg-info bg-opacity-10 rounded">
-                                            <p class="small mb-1"><strong>🔍 關鍵差異：</strong></p>
-                                            <ul class="small mb-0">
-                                                <li><strong>影印書（基本型別）：</strong>獨立副本，互不影響，佔用更多空間</li>
-                                                <li><strong>借書證（參考型別）：</strong>共用資源，互相影響，節省空間</li>
-                                                <li><strong>記憶體概念：</strong>影印書需要複製整本書，借書證只是一張小紙條</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="border rounded p-3 bg-warning bg-opacity-10">
-                                        <h6 class="text-warning mb-2"><i class="fa-solid fa-lightbulb me-2"></i>💡 圖書館管理員的智慧</h6>
-                                        <p class="small mb-2">為什麼圖書館要用借書證而不是影印書？</p>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="small">
-                                                    <strong class="text-success">✅ 借書證的優點：</strong>
-                                                    <ul class="mb-1">
-                                                        <li>節省空間（不用印很多本）</li>
-                                                        <li>更新方便（只需更新一本書）</li>
-                                                        <li>資源共享（大家看的是最新版）</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="small">
-                                                    <strong class="text-warning">⚠️ 借書證的缺點：</strong>
-                                                    <ul class="mb-1">
-                                                        <li>容易互相影響（筆記會被看到）</li>
-                                                        <li>需要小心操作（避免弄壞書）</li>
-                                                        <li>比較複雜（需要記住位置）</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-3 p-2 bg-warning bg-opacity-10 rounded">
-                                    <small class="text-warning">
-                                        <i class="fa-solid fa-book me-1"></i>
-                                        <strong>圖書館重點：</strong>參考型別的變數存的是「借書證」(位置資訊)，不是「書本內容」本身！
-                                    </small>
+                                <div class="alert alert-warning mb-0">
+                                    <small><strong><i class="fa-solid fa-exclamation-triangle me-1"></i>重要：</strong>
+                                    參考型別的變數存的是「記憶體位置」，不是內容本身！</small>
                                 </div>
                             </div>
                             
