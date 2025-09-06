@@ -1275,6 +1275,753 @@ public async Task&lt;IActionResult&gt; Create(UserModel model)
                         </ul>
                     </div>
                 </div>
+
+                <div id="aspnet-intro-http" class="mb-4">
+                    <h4 class="text-dark">1.3 Web Forms 如何處理 HTTP 請求</h4>
+                    
+                    <div class="alert alert-primary border-start border-4 border-primary">
+                        <h5 class="alert-heading"><i class="fa-solid fa-exchange-alt me-2"></i>Web Forms 的 HTTP 請求處理機制</h5>
+                        <p class="mb-0">ASP.NET Web Forms 提供了一套完整的機制來處理 HTTP 請求，將複雜的 HTTP 協議抽象化為事件驅動的程式設計模型。</p>
+                    </div>
+
+                    <h5 class="text-primary mt-4 mb-3"><i class="fa-solid fa-flow-chart me-2"></i>HTTP 請求的生命週期</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="card-title mb-0"><i class="fa-solid fa-route me-2"></i>完整的請求處理流程</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="bg-light p-3 rounded">
+                                        <div class="row text-center">
+                                            <div class="col-md-2">
+                                                <div class="bg-primary text-white p-2 rounded mb-2">
+                                                    <i class="fa-solid fa-globe fa-2x"></i>
+                                                </div>
+                                                <strong>1. 瀏覽器</strong>
+                                                <p class="small">發送 HTTP 請求</p>
+                                            </div>
+                                            <div class="col-md-1 d-flex align-items-center justify-content-center">
+                                                <i class="fa-solid fa-arrow-right fa-2x text-primary"></i>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="bg-success text-white p-2 rounded mb-2">
+                                                    <i class="fa-solid fa-server fa-2x"></i>
+                                                </div>
+                                                <strong>2. IIS</strong>
+                                                <p class="small">接收並路由請求</p>
+                                            </div>
+                                            <div class="col-md-1 d-flex align-items-center justify-content-center">
+                                                <i class="fa-solid fa-arrow-right fa-2x text-success"></i>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="bg-warning text-dark p-2 rounded mb-2">
+                                                    <i class="fa-solid fa-cogs fa-2x"></i>
+                                                </div>
+                                                <strong>3. ASP.NET Runtime</strong>
+                                                <p class="small">編譯和執行頁面</p>
+                                            </div>
+                                            <div class="col-md-1 d-flex align-items-center justify-content-center">
+                                                <i class="fa-solid fa-arrow-right fa-2x text-warning"></i>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="bg-danger text-white p-2 rounded mb-2">
+                                                    <i class="fa-solid fa-file-code fa-2x"></i>
+                                                </div>
+                                                <strong>4. .aspx 頁面</strong>
+                                                <p class="small">執行頁面邏輯</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="text-primary mt-4 mb-3"><i class="fa-solid fa-list-ol me-2"></i>詳細處理步驟</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="card-title mb-0">步驟 1-2：請求接收與路由</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ol class="small mb-0">
+                                        <li><strong>瀏覽器發送請求</strong>
+                                            <ul class="small mt-1">
+                                                <li>使用者在瀏覽器輸入 URL 或點擊連結</li>
+                                                <li>瀏覽器建立 HTTP 請求並發送到伺服器</li>
+                                                <li>包含請求方法（GET/POST）、URL、標頭等</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>IIS 接收請求</strong>
+                                            <ul class="small mt-1">
+                                                <li>IIS 根據 URL 判斷要處理的應用程式</li>
+                                                <li>檢查檔案副檔名（.aspx）</li>
+                                                <li>將請求轉交給 ASP.NET Runtime</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="card-title mb-0">步驟 3-4：編譯與執行</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ol class="small mb-0" start="3">
+                                        <li><strong>ASP.NET Runtime 處理</strong>
+                                            <ul class="small mt-1">
+                                                <li>檢查頁面是否已編譯</li>
+                                                <li>如未編譯，將 .aspx 轉換為 C# 類別</li>
+                                                <li>編譯成 .NET 組件並載入到記憶體</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>頁面執行與回應</strong>
+                                            <ul class="small mt-1">
+                                                <li>建立頁面實例並執行頁面生命週期</li>
+                                                <li>處理控制項事件和程式邏輯</li>
+                                                <li>產生 HTML 並傳回給瀏覽器</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="text-primary mt-4 mb-3"><i class="fa-solid fa-globe me-2"></i>與傳統 HTML 表單的比較</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="card-title mb-0">Web Forms 的優勢</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small mb-0">
+                                        <li><strong>事件驅動：</strong>可處理伺服器端事件</li>
+                                        <li><strong>狀態管理：</strong>自動保持控制項狀態</li>
+                                        <li><strong>豐富控制項：</strong>內建驗證、資料繫結等功能</li>
+                                        <li><strong>開發效率：</strong>類似桌面應用程式開發</li>
+                                        <li><strong>抽象化：</strong>隱藏 HTTP 協議的複雜性</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="card-title mb-0">傳統 HTML 表單</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small mb-0">
+                                        <li><strong>簡單直接：</strong>直接使用 HTTP GET/POST</li>
+                                        <li><strong>輕量級：</strong>沒有額外的 ViewState 開銷</li>
+                                        <li><strong>完全控制：</strong>開發者控制所有 HTML 輸出</li>
+                                        <li><strong>RESTful：</strong>容易實作 REST API 風格</li>
+                                        <li><strong>前端友善：</strong>容易與 JavaScript 框架整合</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success mt-4">
+                        <h6 class="alert-heading"><i class="fa-solid fa-key me-2"></i>Web Forms HTTP 處理重點整理</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="small mb-2"><strong>核心概念：</strong></p>
+                                <ul class="small mb-0">
+                                    <li>Web Forms 將 HTTP 協議包裝成事件驅動模型</li>
+                                    <li>透過 ViewState 在無狀態協議上實現狀態管理</li>
+                                    <li>PostBack 機制處理伺服器端事件</li>
+                                    <li>Page Life Cycle 提供完整的請求處理流程</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="small mb-2"><strong>開發要點：</strong></p>
+                                <ul class="small mb-0">
+                                    <li>理解 IsPostBack 屬性的重要性</li>
+                                    <li>適當使用 Page_Load 和控制項事件</li>
+                                    <li>注意 ViewState 對效能的影響</li>
+                                    <li>善用 HTTP 請求物件取得客戶端資訊</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </section>
+
+                <section id="aspnet-env" class="py-3">
+                    <h2 class="text-success fw-bold border-bottom pb-2 mb-3"><span class="badge bg-success me-2">2</span>開發環境安裝與設定</h2>
+                    
+                    <div id="aspnet-env-vs" class="mb-4">
+                        <h4 class="text-dark">2.1 安裝 Visual Studio</h4>
+                        
+                        <div class="alert alert-success border-start border-4 border-success">
+                            <h5 class="alert-heading"><i class="fa-solid fa-download me-2"></i>開發環境準備</h5>
+                            <p class="mb-0">ASP.NET Web Forms 開發需要安裝 Visual Studio 和相關的開發工具。我們將逐步引導您完成整個安裝過程。</p>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-laptop-code me-2"></i>Visual Studio 版本選擇</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card mb-3 border-primary">
+                                    <div class="card-header bg-primary text-white text-center">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-gift me-2"></i>Community</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text small text-center"><strong>免費版本</strong></p>
+                                        <ul class="small mb-3">
+                                            <li>功能完整的 IDE</li>
+                                            <li>支援 Web Forms 開發</li>
+                                            <li>內建偵錯工具</li>
+                                            <li>IntelliSense 程式碼提示</li>
+                                            <li>Git 版本控制</li>
+                                        </ul>
+                                        <p class="card-text small"><strong>適合：</strong>個人開發者、學生、小型團隊</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card mb-3 border-warning">
+                                    <div class="card-header bg-warning text-dark text-center">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-briefcase me-2"></i>Professional</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text small text-center"><strong>付費版本</strong></p>
+                                        <ul class="small mb-3">
+                                            <li>包含 Community 所有功能</li>
+                                            <li>進階偵錯和診斷工具</li>
+                                            <li>程式碼分析工具</li>
+                                            <li>測試工具</li>
+                                            <li>Azure DevOps 整合</li>
+                                        </ul>
+                                        <p class="card-text small"><strong>適合：</strong>專業開發者、中型企業</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card mb-3 border-danger">
+                                    <div class="card-header bg-danger text-white text-center">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-building me-2"></i>Enterprise</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text small text-center"><strong>企業版本</strong></p>
+                                        <ul class="small mb-3">
+                                            <li>包含 Professional 所有功能</li>
+                                            <li>進階架構和建模工具</li>
+                                            <li>Live Unit Testing</li>
+                                            <li>IntelliTrace</li>
+                                            <li>程式碼覆蓋率分析</li>
+                                        </ul>
+                                        <p class="card-text small"><strong>適合：</strong>大型企業、複雜專案</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <h6 class="alert-heading"><i class="fa-solid fa-lightbulb me-2"></i>建議</h6>
+                            <p class="mb-0">對於學習 ASP.NET Web Forms，<strong>Visual Studio Community</strong> 已經足夠使用，功能完整且完全免費。</p>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-cog me-2"></i>系統需求</h5>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-success text-white">
+                                <h6 class="card-title mb-0"><i class="fa-solid fa-desktop me-2"></i>Visual Studio 2022 系統需求</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-success mb-2">最低需求</h6>
+                                        <ul class="small mb-3">
+                                            <li><strong>作業系統：</strong>Windows 10 1909 版或更新版本</li>
+                                            <li><strong>處理器：</strong>1.8 GHz 或更快的 64 位元處理器</li>
+                                            <li><strong>記憶體：</strong>4 GB RAM</li>
+                                            <li><strong>硬碟空間：</strong>最少 850 MB</li>
+                                            <li><strong>顯示器：</strong>1366 x 768 解析度</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-success mb-2">建議配置</h6>
+                                        <ul class="small mb-3">
+                                            <li><strong>作業系統：</strong>Windows 11 或 Windows 10 21H2</li>
+                                            <li><strong>處理器：</strong>四核心 2.6 GHz 或更快</li>
+                                            <li><strong>記憶體：</strong>16 GB RAM 或更多</li>
+                                            <li><strong>硬碟空間：</strong>至少 50 GB 可用空間</li>
+                                            <li><strong>顯示器：</strong>1920 x 1080 或更高解析度</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-download me-2"></i>下載與安裝步驟</h5>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-info text-white">
+                                <h6 class="card-title mb-0"><i class="fa-solid fa-step-forward me-2"></i>詳細安裝流程</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info mb-3">步驟 1-3：下載與啟動安裝</h6>
+                                        <ol class="small mb-4">
+                                            <li><strong>前往官方網站</strong>
+                                                <ul class="small mt-1">
+                                                    <li>開啟瀏覽器訪問 <a href="https://visualstudio.microsoft.com/" target="_blank" class="text-decoration-none">visualstudio.microsoft.com</a></li>
+                                                    <li>點擊「下載 Visual Studio」</li>
+                                                    <li>選擇「Community 2022」（免費版）</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>下載安裝程式</strong>
+                                                <ul class="small mt-1">
+                                                    <li>檔案名稱：vs_community.exe</li>
+                                                    <li>檔案大小：約 3-4 MB（啟動器）</li>
+                                                    <li>儲存到容易找到的位置</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>執行安裝程式</strong>
+                                                <ul class="small mt-1">
+                                                    <li>以系統管理員身分執行</li>
+                                                    <li>允許程式進行變更</li>
+                                                    <li>等待 Visual Studio Installer 啟動</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <h6 class="text-info mb-3">步驟 4-6：選擇工作負載</h6>
+                                        <ol class="small mb-4" start="4">
+                                            <li><strong>選擇工作負載</strong>
+                                                <ul class="small mt-1">
+                                                    <li>勾選「ASP.NET 和 Web 開發」</li>
+                                                    <li>可選擇「.NET 桌面開發」（建議）</li>
+                                                    <li>確認安裝位置有足夠空間</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>個別元件（可選）</strong>
+                                                <ul class="small mt-1">
+                                                    <li>Git for Windows</li>
+                                                    <li>SQL Server Express LocalDB</li>
+                                                    <li>IIS Express</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>開始安裝</strong>
+                                                <ul class="small mt-1">
+                                                    <li>點擊「安裝」按鈕</li>
+                                                    <li>等待下載和安裝完成</li>
+                                                    <li>過程可能需要 30-60 分鐘</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-light p-3 rounded">
+                                    <h6 class="mb-2"><i class="fa-solid fa-tools me-2"></i>推薦的工作負載配置</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="small mb-2"><strong>✅ 必要項目：</strong></p>
+                                            <ul class="small mb-0">
+                                                <li>ASP.NET 和 Web 開發</li>
+                                                <li>.NET Framework 4.8 開發工具</li>
+                                                <li>IIS Express</li>
+                                                <li>SQL Server Express LocalDB</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="small mb-2"><strong>🔶 建議項目：</strong></p>
+                                            <ul class="small mb-0">
+                                                <li>.NET 桌面開發</li>
+                                                <li>Git for Windows</li>
+                                                <li>GitHub Extension for Visual Studio</li>
+                                                <li>Web 效能和負載測試工具</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-check-circle me-2"></i>安裝後驗證</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-play me-2"></i>首次啟動</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ol class="small mb-0">
+                                            <li>啟動 Visual Studio 2022</li>
+                                            <li>選擇開發設定（建議選擇「一般」）</li>
+                                            <li>登入 Microsoft 帳戶（可略過）</li>
+                                            <li>選擇佈景主題（深色/淺色）</li>
+                                            <li>點擊「啟動 Visual Studio」</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header bg-success text-white">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-vial me-2"></i>功能測試</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ol class="small mb-0">
+                                            <li>檢查「檔案」→「新增」→「專案」選單</li>
+                                            <li>確認可看到「ASP.NET Web 應用程式」範本</li>
+                                            <li>檢查「工具」→「選項」設定頁面</li>
+                                            <li>確認「檢視」→「伺服器總管」可開啟</li>
+                                            <li>測試 IntelliSense 程式碼提示功能</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            <h6 class="alert-heading"><i class="fa-solid fa-exclamation-triangle me-2"></i>常見安裝問題</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="small mb-2"><strong>問題與解決方案：</strong></p>
+                                    <ul class="small mb-0">
+                                        <li><strong>安裝失敗：</strong>檢查網路連線，清理暫存檔案</li>
+                                        <li><strong>空間不足：</strong>清理磁碟空間，選擇其他安裝位置</li>
+                                        <li><strong>權限問題：</strong>以系統管理員身分執行</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="small mb-2"><strong>實用指令：</strong></p>
+                                    <ul class="small mb-0">
+                                        <li><strong>清理安裝：</strong>使用 Visual Studio Installer 修復</li>
+                                        <li><strong>離線安裝：</strong>下載完整安裝套件</li>
+                                        <li><strong>更新檢查：</strong>定期透過 Installer 更新</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="aspnet-env-project" class="mb-4">
+                        <h4 class="text-dark">2.2 建立第一個 Web Forms 專案</h4>
+                        
+                        <div class="alert alert-success border-start border-4 border-success">
+                            <h5 class="alert-heading"><i class="fa-solid fa-rocket me-2"></i>建立您的第一個專案</h5>
+                            <p class="mb-0">現在我們將使用 Visual Studio 建立第一個 ASP.NET Web Forms 專案，並了解專案的基本結構和執行方式。</p>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-plus-circle me-2"></i>建立新專案步驟</h5>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-primary text-white">
+                                <h6 class="card-title mb-0"><i class="fa-solid fa-step-forward me-2"></i>詳細建立流程</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary mb-3">步驟 1-3：專案建立</h6>
+                                        <ol class="small mb-4">
+                                            <li><strong>開啟 Visual Studio</strong>
+                                                <ul class="small mt-1">
+                                                    <li>啟動 Visual Studio 2022</li>
+                                                    <li>點擊「建立新專案」</li>
+                                                    <li>或使用快速鍵 Ctrl+Shift+N</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>選擇專案範本</strong>
+                                                <ul class="small mt-1">
+                                                    <li>搜尋「ASP.NET Web」</li>
+                                                    <li>選擇「ASP.NET Web 應用程式 (.NET Framework)」</li>
+                                                    <li>確認語言為「C#」</li>
+                                                    <li>點擊「下一步」</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>設定專案資訊</strong>
+                                                <ul class="small mt-1">
+                                                    <li>專案名稱：MyFirstWebApp</li>
+                                                    <li>位置：選擇適合的資料夾</li>
+                                                    <li>方案名稱：MyFirstWebApp</li>
+                                                    <li>點擊「建立」</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary mb-3">步驟 4-6：範本選擇</h6>
+                                        <ol class="small mb-4" start="4">
+                                            <li><strong>選擇 Web Forms 範本</strong>
+                                                <ul class="small mt-1">
+                                                    <li>選擇「Web Forms」範本</li>
+                                                    <li>不要選擇「Empty」或「MVC」</li>
+                                                    <li>確認 .NET Framework 版本（建議 4.8）</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>進階設定</strong>
+                                                <ul class="small mt-1">
+                                                    <li>驗證：無驗證（暫時）</li>
+                                                    <li>HTTPS 設定：勾選（建議）</li>
+                                                    <li>Docker 支援：不勾選</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>完成建立</strong>
+                                                <ul class="small mt-1">
+                                                    <li>點擊「建立」按鈕</li>
+                                                    <li>等待專案建立完成</li>
+                                                    <li>Visual Studio 自動開啟專案</li>
+                                                </ul>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-folder-open me-2"></i>專案結構初探</h5>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-info text-white">
+                                <h6 class="card-title mb-0"><i class="fa-solid fa-sitemap me-2"></i>預設專案結構</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="bg-light p-3 rounded mb-3">
+                                    <pre class="mb-0 small"><code>📁 MyFirstWebApp
+├─ 📁 App_Data                    <span class="text-muted">// 應用程式資料檔案</span>
+├─ 📁 App_Start                   <span class="text-muted">// 啟動設定檔案</span>
+│   ├─ 📄 BundleConfig.cs         <span class="text-muted">// CSS/JS 打包設定</span>
+│   ├─ 📄 FilterConfig.cs         <span class="text-muted">// 全域篩選器設定</span>
+│   └─ 📄 RouteConfig.cs          <span class="text-muted">// 路由設定</span>
+├─ 📁 Content                     <span class="text-muted">// 靜態資源</span>
+│   ├─ 📄 bootstrap.css           <span class="text-muted">// Bootstrap 樣式框架</span>
+│   └─ 📄 Site.css                <span class="text-muted">// 網站自訂樣式</span>
+├─ 📁 Scripts                     <span class="text-muted">// JavaScript 檔案</span>
+│   ├─ 📄 bootstrap.js            <span class="text-muted">// Bootstrap JavaScript</span>
+│   ├─ 📄 jquery-3.4.1.js         <span class="text-muted">// jQuery 函式庫</span>
+│   └─ 📄 modernizr-2.8.3.js      <span class="text-muted">// 瀏覽器功能檢測</span>
+├─ 📝 About.aspx                  <span class="text-muted">// 關於我們頁面</span>
+├─ 📝 Contact.aspx                <span class="text-muted">// 聯絡我們頁面</span>
+├─ 📝 Default.aspx                <span class="text-muted">// 網站首頁</span>
+├─ 📝 Global.asax                 <span class="text-muted">// 全域應用程式檔案</span>
+├─ 📝 Site.Master                 <span class="text-muted">// 主版頁面</span>
+├─ 📝 ViewSwitcher.ascx           <span class="text-muted">// 檢視切換控制項</span>
+└─ 📝 Web.config                  <span class="text-muted">// 組態設定檔</span></code></pre>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-info mb-2">重要檔案說明</h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Default.aspx：</strong>網站的預設首頁</li>
+                                            <li><strong>Site.Master：</strong>定義統一的版面配置</li>
+                                            <li><strong>Web.config：</strong>應用程式組態設定</li>
+                                            <li><strong>Global.asax：</strong>全域事件處理</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-info mb-2">資源資料夾</h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Content：</strong>CSS 樣式檔案</li>
+                                            <li><strong>Scripts：</strong>JavaScript 檔案</li>
+                                            <li><strong>App_Data：</strong>資料庫和資料檔案</li>
+                                            <li><strong>App_Start：</strong>應用程式啟動設定</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-play me-2"></i>執行與測試專案</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header bg-success text-white">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-rocket me-2"></i>啟動偵錯</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="small mb-2"><strong>執行方式：</strong></p>
+                                        <ul class="small mb-3">
+                                            <li>按 F5 鍵（偵錯模式）</li>
+                                            <li>按 Ctrl+F5（不偵錯執行）</li>
+                                            <li>點擊工具列的「▶ IIS Express」按鈕</li>
+                                            <li>選單：偵錯 → 開始偵錯</li>
+                                        </ul>
+                                        <p class="small mb-0"><strong>建議：</strong>初學者使用 F5 進行偵錯執行</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-globe me-2"></i>瀏覽器測試</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="small mb-2"><strong>預期結果：</strong></p>
+                                        <ul class="small mb-3">
+                                            <li>瀏覽器自動開啟</li>
+                                            <li>顯示預設的 Web Forms 首頁</li>
+                                            <li>可看到 Bootstrap 樣式的導航列</li>
+                                            <li>包含首頁、關於、聯絡等連結</li>
+                                        </ul>
+                                        <p class="small mb-0"><strong>URL 格式：</strong>https://localhost:44xxx/</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-edit me-2"></i>第一次修改</h5>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-primary text-white">
+                                <h6 class="card-title mb-0"><i class="fa-solid fa-code me-2"></i>修改首頁內容</h6>
+                            </div>
+                            <div class="card-body">
+                                <p class="small mb-3">讓我們來修改 Default.aspx 首頁，加入自己的內容：</p>
+                                
+                                <h6 class="mb-2">1. 開啟 Default.aspx</h6>
+                                <div class="bg-light p-3 rounded mb-3">
+                                    <p class="small mb-2">在方案總管中雙擊 Default.aspx，將會看到類似以下的程式碼：</p>
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-0 small"><code>&lt;asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"&gt;
+    &lt;div class="jumbotron"&gt;
+        &lt;h1&gt;ASP.NET&lt;/h1&gt;
+        &lt;p class="lead"&gt;ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.&lt;/p&gt;
+        &lt;p&gt;&lt;a href="http://www.asp.net" class="btn btn-primary btn-lg"&gt;Learn more &raquo;&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/asp:Content&gt;</code></pre>
+                                    </div>
+                                </div>
+                                
+                                <h6 class="mb-2">2. 修改為自訂內容</h6>
+                                <div class="bg-light p-3 rounded mb-3">
+                                    <p class="small mb-2">將內容修改為：</p>
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-0 small"><code>&lt;asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"&gt;
+    &lt;div class="jumbotron"&gt;
+        &lt;h1&gt;歡迎來到我的第一個 Web Forms 網站！&lt;/h1&gt;
+        &lt;p class="lead"&gt;這是我使用 ASP.NET Web Forms 建立的第一個網站。&lt;/p&gt;
+        &lt;p&gt;今天是：&lt;asp:Label ID="lblDate" runat="server"&gt;&lt;/asp:Label&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;asp:Button ID="btnHello" runat="server" Text="點我打招呼" CssClass="btn btn-primary btn-lg" OnClick="btnHello_Click" /&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;asp:Label ID="lblMessage" runat="server" CssClass="text-success h4"&gt;&lt;/asp:Label&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/asp:Content&gt;</code></pre>
+                                    </div>
+                                </div>
+
+                                <h6 class="mb-2">3. 加入程式邏輯</h6>
+                                <div class="bg-light p-3 rounded mb-3">
+                                    <p class="small mb-2">開啟 Default.aspx.cs（按 F7 或右鍵選擇「檢視程式碼」），在 Page_Load 方法中加入：</p>
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-0 small"><code>protected void Page_Load(object sender, EventArgs e)
+{
+    if (!IsPostBack)
+    {
+        lblDate.Text = DateTime.Now.ToString("yyyy年MM月dd日 HH:mm:ss");
+    }
+}
+
+protected void btnHello_Click(object sender, EventArgs e)
+{
+    lblMessage.Text = "哈囉！歡迎學習 ASP.NET Web Forms！";
+}</code></pre>
+                                    </div>
+                                </div>
+
+                                <h6 class="mb-2">4. 測試修改結果</h6>
+                                <ul class="small mb-0">
+                                    <li>按 Ctrl+S 儲存檔案</li>
+                                    <li>按 F5 執行專案</li>
+                                    <li>觀察頁面顯示目前時間</li>
+                                    <li>點擊按鈕測試互動功能</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-tools me-2"></i>開發工具介紹</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header bg-info text-white">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-window-maximize me-2"></i>重要視窗</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="small mb-0">
+                                            <li><strong>方案總管：</strong>管理專案檔案結構</li>
+                                            <li><strong>屬性視窗：</strong>設定控制項屬性</li>
+                                            <li><strong>工具箱：</strong>拖放控制項到頁面</li>
+                                            <li><strong>錯誤清單：</strong>顯示編譯錯誤和警告</li>
+                                            <li><strong>輸出視窗：</strong>顯示建置和偵錯資訊</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h6 class="card-title mb-0"><i class="fa-solid fa-keyboard me-2"></i>實用快速鍵</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="small mb-0">
+                                            <li><strong>F5：</strong>開始偵錯</li>
+                                            <li><strong>Ctrl+F5：</strong>執行但不偵錯</li>
+                                            <li><strong>F7：</strong>檢視程式碼</li>
+                                            <li><strong>Shift+F7：</strong>檢視設計工具</li>
+                                            <li><strong>Ctrl+K+C：</strong>註解程式碼</li>
+                                            <li><strong>Ctrl+K+U：</strong>取消註解</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-4">
+                            <h6 class="alert-heading"><i class="fa-solid fa-check-circle me-2"></i>完成第一個專案！</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="small mb-2"><strong>您已經學會：</strong></p>
+                                    <ul class="small mb-0">
+                                        <li>安裝 Visual Studio 開發環境</li>
+                                        <li>建立新的 Web Forms 專案</li>
+                                        <li>了解基本的專案結構</li>
+                                        <li>修改頁面內容和程式邏輯</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="small mb-2"><strong>下一步學習：</strong></p>
+                                    <ul class="small mb-0">
+                                        <li>深入了解專案結構和檔案用途</li>
+                                        <li>學習更多伺服器控制項</li>
+                                        <li>掌握頁面生命週期</li>
+                                        <li>實作資料繫結功能</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <div id="aspnet-structure" class="py-3">
                 <h2 class="text-info fw-bold border-bottom pb-2 mb-3"><span class="badge bg-info me-2">3</span>專案結構與檔案說明</h2>
                 
