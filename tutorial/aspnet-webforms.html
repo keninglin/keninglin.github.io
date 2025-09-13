@@ -246,9 +246,9 @@
                                 </h5>
                                 <ul class="list-unstyled small ps-3 sub-items">
                                     <li class="mb-1"><a href="#aspnet-structure-overview" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-info text-info border me-2" style="min-width: 32px;">3.1</span>專案架構概覽</a></li>
-                                    <li class="mb-1"><a href="#aspnet-structure-special" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-info text-info border me-2" style="min-width: 32px;">3.2</span>專案節點說明</a></li>
+                                    <li class="mb-1"><a href="#aspnet-structure-core-files" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-info text-info border me-2" style="min-width: 32px;">3.2</span>重要檔案詳解</a></li>
                                     <li class="mb-1"><a href="#aspnet-structure-folders" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-info text-info border me-2" style="min-width: 32px;">3.3</span>核心資料夾解析</a></li>
-                                    <li class="mb-1"><a href="#aspnet-structure-core-files" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-info text-info border me-2" style="min-width: 32px;">3.4</span>重要檔案詳解</a></li>
+                                    <li class="mb-1"><a href="#aspnet-structure-special" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-info text-info border me-2" style="min-width: 32px;">3.4</span>專案節點說明</a></li>
                                 </ul>
                             </div>
                             <!-- Section 4 -->
@@ -2065,25 +2065,998 @@ protected void btnHello_Click(object sender, EventArgs e)
                     </div>
                 </div>
 
-                <div id="aspnet-structure-special" class="mb-4">
-                    <h4 class="text-dark">3.2 專案節點說明</h4>
+                <div id="aspnet-structure-core-files" class="mb-4">
+                    <h4 class="text-dark">3.2 重要檔案詳解</h4>
                     
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <h5 class="alert-heading"><i class="fa-solid fa-file-code me-2"></i>核心檔案深度解析</h5>
+                        <p class="mb-0">我們將深入解析 ASP.NET Web Forms 專案中的三個核心檔案：Global.asax、Default.aspx 和 Site.Master，詳細說明每個檔案的結構、用途和程式碼內容。</p>
+                    </div>
+
+                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-globe me-2"></i>Global.asax - 全域應用程式檔案</h5>
+                    <div class="card mb-4">
+                        <div class="card-header bg-danger text-white">
+                            <h6 class="card-title mb-0"><i class="fa-solid fa-server me-2"></i>Global.asax 檔案解析</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>檔案作用：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>應用程式全域事件處理</li>
+                                        <li>應用程式生命週期管理</li>
+                                        <li>全域變數初始化</li>
+                                        <li>路由和 Bundle 註冊</li>
+                                        <li>全域錯誤處理</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>關聯檔案：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>Global.asax.cs - 程式邏輯</li>
+                                        <li>App_Start/*.cs - 啟動設定檔案</li>
+                                        <li>RouteConfig.cs - 路由設定</li>
+                                        <li>BundleConfig.cs - 資源打包設定</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-play me-2"></i>Application_Start 方法解析</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>void Application_Start(object sender, EventArgs e)
+{
+    // 應用程式啟動時執行的程式碼
+    // 這個方法在整個應用程式生命週期中只執行一次
+    
+    // 註冊路由設定 - 讓網址更友善
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    
+    // 註冊 Bundle 設定 - CSS/JS 檔案打包優化
+    BundleConfig.RegisterBundles(BundleTable.Bundles);
+    
+    // 可以在這裡初始化全域變數
+    Application["StartTime"] = DateTime.Now;
+    Application["VisitorCount"] = 0;
+}</code></pre>
+                                </div>
+                                <p class="small text-muted mt-2"><strong>說明：</strong>Application_Start 是應用程式啟動時的入口點，用於初始化全域設定和資源。</p>
+                            </div>
+
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-route me-2"></i>RouteConfig.RegisterRoutes 方法詳解</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>public static void RegisterRoutes(RouteCollection routes)
+{
+    // 建立友善 URL 設定物件
+    var settings = new FriendlyUrlSettings();
+    
+    // 設定自動重新導向模式為永久重新導向 (301)
+    // 這有助於 SEO，告訴搜尋引擎這是永久性的 URL 變更
+    settings.AutoRedirectMode = RedirectMode.Permanent;
+    
+    // 也可以手動定義路由規則
+    // 需要放在 EnableFriendlyUrls 之前
+    // routes.MapPageRoute("ProductDetails", 
+    //                    "products/{id}", 
+    //                    "~/ProductDetails.aspx");
+    
+    // 啟用友善 URL 功能
+    // 將傳統的 .aspx 網址轉換為更簡潔的格式
+    // 例如：/Default.aspx → /Default 或 /
+    routes.EnableFriendlyUrls(settings);
+    
+}</code></pre>
+                                </div>
+                                
+                                <div class="alert alert-info mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-code me-1"></i>MapPageRoute 詳細說明</h6>
+                                    <div class="small">
+                                        <p><strong>語法結構：</strong></p>
+                                        <div class="code-container mb-2">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0"><code>routes.MapPageRoute(
+    "路由名稱",           // 唯一識別名稱
+    "URL模式",           // 友善URL格式
+    "實際頁面路徑"        // 對應的.aspx檔案
+);</code></pre>
+                                        </div>
+                                        
+                                        <p><strong>實際運用範例：</strong></p>
+                                        <div class="code-container mb-2">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0"><code>// 產品詳細頁面路由
+routes.MapPageRoute("ProductDetails", 
+                   "products/{id}", 
+                   "~/Pages/ProductDetails.aspx");
+
+// 使用者個人資料頁面
+routes.MapPageRoute("UserProfile", 
+                   "user/{username}", 
+                   "~/Account/Profile.aspx");
+
+// 分類瀏覽頁面
+routes.MapPageRoute("CategoryView", 
+                   "category/{categoryName}/page/{pageNumber}", 
+                   "~/Products/Category.aspx");</code></pre>
+                                        </div>
+                                        
+                                        <p><strong>參數使用方式：</strong></p>
+                                        <ul class="mb-2">
+                                            <li><code>{id}</code> - 在 Page_Load 中透過 <code>Page.RouteData.Values["id"]</code> 取得</li>
+                                            <li><code>{username}</code> - 透過 <code>Page.RouteData.Values["username"]</code> 存取</li>
+                                            <li>支援可選參數：<code>{categoryName?}</code></li>
+                                            <li>支援預設值：在 RouteValueDictionary 中設定</li>
+                                        </ul>
+                                        
+                                        <p><strong>在頁面中取得路由參數：</strong></p>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0"><code>protected void Page_Load(object sender, EventArgs e)
+{
+    // 取得路由參數
+    string productId = Page.RouteData.Values["id"] as string;
+    
+    if (!string.IsNullOrEmpty(productId))
+    {
+        // 使用 productId 載入產品資料
+        LoadProductDetails(productId);
+    }
+}</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="alert alert-success mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-lightbulb me-1"></i>友善 URL 的好處</h6>
+                                    <ul class="small mb-0">
+                                        <li><strong>SEO 優化：</strong>搜尋引擎更容易理解網址結構</li>
+                                        <li><strong>使用者友善：</strong>網址更簡潔易讀，容易記憶</li>
+                                        <li><strong>專業形象：</strong>隱藏技術實作細節（.aspx）</li>
+                                        <li><strong>向後相容：</strong>舊的 .aspx 網址仍然可以正常運作</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-light p-3 rounded">
+                                <h6 class="mb-2"><i class="fa-solid fa-package me-2"></i>BundleConfig.RegisterBundles 方法詳解</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>public static void RegisterBundles(BundleCollection bundles)
+{
+    // 註冊 jQuery Script Manager 對應
+    RegisterJQueryScriptManager();
+
+    // Web Forms 核心 JavaScript Bundle
+    // 包含 Web Forms 基本功能所需的 JavaScript 檔案
+    bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
+                    "~/Scripts/WebForms/WebForms.js",          // 基本 Web Forms 功能
+                    "~/Scripts/WebForms/WebUIValidation.js",   // 客戶端驗證
+                    "~/Scripts/WebForms/MenuStandards.js",     // 選單控制項
+                    "~/Scripts/WebForms/Focus.js",             // 焦點管理
+                    "~/Scripts/WebForms/GridView.js",          // GridView 控制項
+                    "~/Scripts/WebForms/DetailsView.js",       // DetailsView 控制項
+                    "~/Scripts/WebForms/TreeView.js",          // TreeView 控制項
+                    "~/Scripts/WebForms/WebParts.js"));        // Web Parts 功能
+
+    // Microsoft AJAX JavaScript Bundle
+    // 順序很重要！這些檔案有明確的相依性
+    bundles.Add(new ScriptBundle("~/bundles/MsAjaxJs").Include(
+            "~/Scripts/WebForms/MsAjax/MicrosoftAjax.js",                // AJAX 核心框架
+            "~/Scripts/WebForms/MsAjax/MicrosoftAjaxApplicationServices.js", // 應用程式服務
+            "~/Scripts/WebForms/MsAjax/MicrosoftAjaxTimer.js",           // Timer 控制項
+            "~/Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js"));      // Web Forms AJAX
+
+    // Modernizr Bundle - 瀏覽器功能檢測
+    bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                    "~/Scripts/modernizr-*"));
+}</code></pre>
+                                </div>
+                                
+                                <div class="alert alert-success mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-info-circle me-1"></i>Bundle 使用說明</h6>
+                                    <div class="small">
+                                        <p><strong>1. WebFormsJs Bundle 預設使用檔案：</strong></p>
+                                        <ul class="mb-2">
+                                            <li><strong>Site.Master：</strong>在主版頁面中透過 ScriptManager 自動載入</li>
+                                            <li><strong>具有伺服器控制項的頁面：</strong>包含 GridView、DetailsView、TreeView 等控制項的頁面</li>
+                                            <li><strong>使用驗證控制項的頁面：</strong>RequiredFieldValidator、RegularExpressionValidator 等</li>
+                                        </ul>
+                                        
+                                        <p><strong>2. MsAjaxJs Bundle 預設使用檔案：</strong></p>
+                                        <ul class="mb-2">
+                                            <li><strong>使用 UpdatePanel 的頁面：</strong>部分頁面更新功能</li>
+                                            <li><strong>使用 Timer 控制項的頁面：</strong>定時更新功能</li>
+                                            <li><strong>AJAX 啟用的頁面：</strong>包含 ScriptManager 且 EnablePageMethods="true"</li>
+                                        </ul>
+                                        
+                                        <p><strong>在 Site.Master 中的使用方式：</strong></p>
+                                        <div class="code-container mb-2">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0"><code>&lt;asp:ScriptManager runat="server"&gt;
+    &lt;Scripts&gt;
+        &lt;asp:ScriptReference Name="MsAjaxBundle" /&gt;
+        &lt;asp:ScriptReference Name="WebFormsJs" /&gt;
+    &lt;/Scripts&gt;
+&lt;/asp:ScriptManager&gt;</code></pre>
+                                        </div>
+                                        
+                                        <p><strong>手動載入 Bundle 的方式：</strong></p>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0"><code>&lt;%-- 在頁面或主版頁面中 --%&gt;
+&lt;%: Scripts.Render("~/bundles/WebFormsJs") %&gt;
+&lt;%: Scripts.Render("~/bundles/MsAjaxJs") %&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-warning mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-exclamation-triangle me-1"></i>載入順序重要性</h6>
+                                    <div class="small">
+                                        <p><strong>正確的載入順序：</strong></p>
+                                        <ol class="mb-2">
+                                            <li><strong>MicrosoftAjax.js</strong> - 必須最先載入，提供 AJAX 基礎架構</li>
+                                            <li><strong>MicrosoftAjaxApplicationServices.js</strong> - 應用程式服務支援</li>
+                                            <li><strong>MicrosoftAjaxTimer.js</strong> - Timer 控制項支援</li>
+                                            <li><strong>MicrosoftAjaxWebForms.js</strong> - Web Forms AJAX 整合</li>
+                                        </ol>
+                                        <p class="mb-0"><strong>注意：</strong>順序錯誤會導致 JavaScript 錯誤和功能失效！</p>
+                                    </div>
+                                </div>
+
+// jQuery Script Manager 註冊方法
+public static void RegisterJQueryScriptManager()
+{
+    // 定義 jQuery 的不同版本路徑
+    ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
+        new ScriptResourceDefinition
+        {
+            Path = "~/scripts/jquery-3.7.0.min.js",           // 正式版（壓縮）
+            DebugPath = "~/scripts/jquery-3.7.0.js",          // 偵錯版（未壓縮）
+            CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js",
+            CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"
+        });
+}</code></pre>
+                                </div>
+                                <div class="alert alert-warning mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-exclamation-triangle me-1"></i>Bundle 重要概念</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="small mb-1"><strong>檔案合併：</strong></p>
+                                            <ul class="small mb-2">
+                                                <li>減少 HTTP 請求次數</li>
+                                                <li>提升頁面載入速度</li>
+                                                <li>自動處理檔案相依性</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="small mb-1"><strong>自動優化：</strong></p>
+                                            <ul class="small mb-2">
+                                                <li>Release 模式自動壓縮</li>
+                                                <li>Debug 模式保持原檔案</li>
+                                                <li>CDN 支援（網路優化）</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-primary mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-code-compare me-1"></i>BundleConfig.cs vs Bundle.config 詳細比較</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="bg-success text-white p-2 rounded mb-2">
+                                                <h6 class="small mb-2"><strong>BundleConfig.cs (程式化設定)</strong></h6>
+                                                <div class="code-container">
+                                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                                    <pre class="mb-1 text-white" style="font-size: 10px;"><code>// C# 程式碼
+bundles.Add(new ScriptBundle("~/bundles/jquery")
+    .Include("~/Scripts/jquery-{version}.js"));
+    
+// 條件判斷
+if (HttpContext.Current.IsDebuggingEnabled)
+{
+    bundles.Add(new ScriptBundle("~/bundles/debug")
+        .Include("~/Scripts/debug.js"));
+}</code></pre>
+                                                </div>
+                                                <ul class="small mb-0 mt-1">
+                                                    <li>✅ 支援複雜邏輯和條件判斷</li>
+                                                    <li>✅ 可動態建立 Bundle</li>
+                                                    <li>✅ 強型別檢查</li>
+                                                    <li>❌ 需要重新編譯</li>
+                                                    <li>❌ 程式碼較複雜</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="bg-warning text-dark p-2 rounded mb-2">
+                                                <h6 class="small mb-2"><strong>Bundle.config (宣告式設定)</strong></h6>
+                                                <div class="code-container">
+                                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                                    <pre class="mb-1" style="font-size: 10px;"><code>&lt;!-- XML 設定 --&gt;
+&lt;bundles&gt;
+  &lt;scriptBundle path="~/bundles/jquery"&gt;
+    &lt;include path="~/Scripts/jquery-*.js" /&gt;
+  &lt;/scriptBundle&gt;
+  
+  &lt;styleBundle path="~/Content/css"&gt;
+    &lt;include path="~/Content/*.css" /&gt;
+  &lt;/styleBundle&gt;
+&lt;/bundles&gt;</code></pre>
+                                                </div>
+                                                <ul class="small mb-0 mt-1">
+                                                    <li>✅ 設定檔案方式，不需重編譯</li>
+                                                    <li>✅ 語法簡單易懂</li>
+                                                    <li>✅ 支援萬用字元 (*)</li>
+                                                    <li>❌ 功能較有限</li>
+                                                    <li>❌ 不支援複雜邏輯</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-light p-2 rounded">
+                                        <p class="small mb-1"><strong><i class="fa-solid fa-lightbulb me-1"></i>選擇建議：</strong></p>
+                                        <ul class="small mb-0">
+                                            <li><strong>簡單專案：</strong>使用 Bundle.config，設定簡單且彈性</li>
+                                            <li><strong>複雜專案：</strong>使用 BundleConfig.cs，支援動態邏輯和條件判斷</li>
+                                            <li><strong>混合使用：</strong>可以同時使用兩種方式，BundleConfig.cs 優先權較高</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-file-code me-2"></i>Default.aspx - 預設首頁</h5>
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="card-title mb-0"><i class="fa-solid fa-home me-2"></i>Default.aspx 檔案解析</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>檔案作用：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>網站的預設首頁</li>
+                                        <li>定義頁面內容結構</li>
+                                        <li>使用主版頁面進行版面配置</li>
+                                        <li>包含響應式設計元素</li>
+                                        <li>展示網站主要功能</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>關聯檔案：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>Default.aspx.cs - 程式邏輯</li>
+                                        <li>Default.aspx.designer.cs - 設計器產生</li>
+                                        <li>Site.Master - 主版頁面</li>
+                                        <li>Content/Site.css - 樣式表</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-code me-2"></i>頁面指示詞 (Page Directive)</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>&lt;%@ Page Title="Home Page"           // 設定頁面標題
+         Language="C#"                  // 指定程式語言為 C#
+         MasterPageFile="~/Site.Master" // 指定使用的主版頁面
+         AutoEventWireup="true"         // 自動連結事件處理常式
+         CodeBehind="Default.aspx.cs"   // 指定程式碼後置檔案
+         Inherits="WebApplication3._Default" %&gt;  // 指定繼承的類別</code></pre>
+                                </div>
+                                <p class="small text-muted mt-2"><strong>說明：</strong>Page 指示詞定義了頁面的基本屬性和行為設定。</p>
+                            </div>
+
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-layout-template me-2"></i>內容區域 (Content Areas)</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>&lt;asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"&gt;
+
+    &lt;main&gt;
+        &lt;!-- 主要標題區域 --&gt;
+        &lt;section class="row" aria-labelledby="aspnetTitle"&gt;
+            &lt;h1 id="aspnetTitle"&gt;ASP.NET&lt;/h1&gt;
+            &lt;p class="lead"&gt;ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.&lt;/p&gt;
+            &lt;p&gt;&lt;a href="http://www.asp.net" class="btn btn-primary btn-md"&gt;Learn more &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;!-- 三欄式功能介紹區域 --&gt;
+        &lt;div class="row"&gt;
+            &lt;!-- 第一欄：開始使用 --&gt;
+            &lt;section class="col-md-4" aria-labelledby="gettingStartedTitle"&gt;
+                &lt;h2 id="gettingStartedTitle"&gt;Getting started&lt;/h2&gt;
+                &lt;p&gt;ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model. A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.&lt;/p&gt;
+                &lt;p&gt;&lt;a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948"&gt;Learn more &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+            &lt;/section&gt;
+            
+            &lt;!-- 第二欄：程式庫管理 --&gt;
+            &lt;section class="col-md-4" aria-labelledby="librariesTitle"&gt;
+                &lt;h2 id="librariesTitle"&gt;Get more libraries&lt;/h2&gt;
+                &lt;p&gt;NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.&lt;/p&gt;
+                &lt;p&gt;&lt;a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949"&gt;Learn more &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+            &lt;/section&gt;
+            
+            &lt;!-- 第三欄：網站託管 --&gt;
+            &lt;section class="col-md-4" aria-labelledby="hostingTitle"&gt;
+                &lt;h2 id="hostingTitle"&gt;Web Hosting&lt;/h2&gt;
+                &lt;p&gt;You can easily find a web hosting company that offers the right mix of features and price for your applications.&lt;/p&gt;
+                &lt;p&gt;&lt;a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950"&gt;Learn more &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+            &lt;/section&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+&lt;/asp:Content&gt;</code></pre>
+                                </div>
+                                <div class="alert alert-success mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-star me-1"></i>設計重點分析</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="small mb-1"><strong>響應式設計：</strong></p>
+                                            <ul class="small mb-2">
+                                                <li>使用 Bootstrap 的 col-md-4 類別</li>
+                                                <li>支援不同螢幕尺寸自動調整</li>
+                                                <li>行動裝置優先的設計理念</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="small mb-1"><strong>無障礙設計：</strong></p>
+                                            <ul class="small mb-2">
+                                                <li>使用 aria-labelledby 增強語意</li>
+                                                <li>適當的 HTML5 語意標籤</li>
+                                                <li>清楚的標題階層結構</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-layout-template me-2"></i>Site.Master - 主版頁面</h5>
+                    <div class="card mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="card-title mb-0"><i class="fa-solid fa-th-large me-2"></i>Site.Master 檔案解析</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>檔案作用：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>定義網站統一版面配置</li>
+                                        <li>提供共用的導航選單</li>
+                                        <li>管理全域 CSS/JavaScript 引用</li>
+                                        <li>設定網站標題和 meta 標籤</li>
+                                        <li>建立響應式網站結構</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>關聯檔案：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>Site.Master.cs - 程式邏輯</li>
+                                        <li>Site.Master.designer.cs - 設計器產生</li>
+                                        <li>Content/Site.css - 樣式表</li>
+                                        <li>Scripts/ - JavaScript 檔案</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-code me-2"></i>Master 指示詞與 HTML 結構</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>&lt;%@ Master Language="C#"                    // 指定為主版頁面，使用 C#
+           AutoEventWireup="true"               // 自動事件連結
+           CodeBehind="Site.master.cs"          // 程式碼後置檔案
+           Inherits="WebApplication3.SiteMaster" %&gt;  // 繼承的類別
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="zh"&gt;  &lt;!-- 設定語言為中文，有助於 SEO 和無障礙功能 --&gt;
+&lt;head runat="server"&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    
+    &lt;!-- 動態標題：結合頁面標題與應用程式名稱 --&gt;
+    &lt;title&gt;&lt;%: Page.Title %&gt; - 我的 ASP.NET 應用程式&lt;/title&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-cogs me-2"></i>JavaScript 和 CSS 資源管理</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>    &lt;!-- Modernizr：瀏覽器功能檢測，必須放在 head 中 --&gt;
+    &lt;asp:PlaceHolder runat="server"&gt;
+        &lt;%: Scripts.Render("~/bundles/modernizr") %&gt;
+    &lt;/asp:PlaceHolder&gt;
+
+    &lt;!-- CSS Bundle：自動載入和最佳化 CSS 檔案 --&gt;
+    &lt;webopt:bundlereference runat="server" path="~/Content/css" /&gt;
+    
+    &lt;!-- 網站圖示 --&gt;
+    &lt;link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /&gt;
+&lt;/head&gt;</code></pre>
+                                </div>
+                                <p class="small text-muted mt-2"><strong>說明：</strong>資源載入順序很重要：Modernizr 在 head 中，其他 JS 在 body 底部。</p>
+                            </div>
+
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-cog me-2"></i>ScriptManager 設定</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>&lt;form runat="server"&gt;
+    &lt;!-- ScriptManager：管理所有 JavaScript 資源和 AJAX 功能 --&gt;
+    &lt;asp:ScriptManager runat="server"&gt;
+        &lt;Scripts&gt;
+            &lt;!-- Framework 核心腳本 --&gt;
+            &lt;asp:ScriptReference Name="MsAjaxBundle" /&gt;        &lt;!-- Microsoft AJAX 框架 --&gt;
+            &lt;asp:ScriptReference Name="jquery" /&gt;             &lt;!-- jQuery 函式庫 --&gt;
+            
+            &lt;!-- Web Forms 專用腳本 --&gt;
+            &lt;asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" /&gt;
+            &lt;asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" /&gt;
+            &lt;asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" /&gt;
+            &lt;asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" /&gt;
+            &lt;asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" /&gt;
+            &lt;asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" /&gt;
+            &lt;asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" /&gt;
+            &lt;asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" /&gt;
+            &lt;asp:ScriptReference Name="WebFormsBundle" /&gt;     &lt;!-- 自訂 Web Forms Bundle --&gt;
+        &lt;/Scripts&gt;
+    &lt;/asp:ScriptManager&gt;</code></pre>
+                                </div>
+                                <div class="alert alert-info mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-lightbulb me-1"></i>ScriptManager 的重要性</h6>
+                                    <p class="small mb-1"><strong>ScriptManager 是 Web Forms AJAX 功能的核心：</strong></p>
+                                    <ul class="small mb-0">
+                                        <li>管理 UpdatePanel、Timer 等 AJAX 控制項</li>
+                                        <li>處理異步 PostBack 和部分頁面更新</li>
+                                        <li>提供客戶端 JavaScript 函式庫</li>
+                                        <li>統一管理所有 JavaScript 資源載入</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-bars me-2"></i>響應式導航選單</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>    &lt;!-- Bootstrap 響應式導航列 --&gt;
+    &lt;nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark"&gt;
+        &lt;div class="container"&gt;
+            &lt;!-- 網站標誌/品牌名稱 --&gt;
+            &lt;a class="navbar-brand" runat="server" href="~/"&gt;應用程式名稱&lt;/a&gt;
+            
+            &lt;!-- 行動裝置選單切換按鈕 --&gt;
+            &lt;button type="button" class="navbar-toggler" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target=".navbar-collapse" 
+                    title="切換導覽" 
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation"&gt;
+                &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            
+            &lt;!-- 可收合的導航選單 --&gt;
+            &lt;div class="collapse navbar-collapse d-sm-inline-flex justify-content-between"&gt;
+                &lt;ul class="navbar-nav flex-grow-1"&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" runat="server" href="~/"&gt;首頁&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" runat="server" href="~/About"&gt;關於&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" runat="server" href="~/Contact"&gt;連絡人&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="bg-light p-3 rounded">
+                                <h6 class="mb-2"><i class="fa-solid fa-layout me-2"></i>主要內容區域與頁尾</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0 small"><code>    &lt;!-- 主要內容容器 --&gt;
+    &lt;div class="container body-content"&gt;
+        &lt;!-- 內容佔位符：子頁面內容插入點 --&gt;
+        &lt;asp:ContentPlaceHolder ID="MainContent" runat="server"&gt;
+        &lt;/asp:ContentPlaceHolder&gt;
+        
+        &lt;hr /&gt;
+        
+        &lt;!-- 網站頁尾 --&gt;
+        &lt;footer&gt;
+            &lt;p&gt;&amp;copy; &lt;%: DateTime.Now.Year %&gt; - 我的 ASP.NET 應用程式&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- 在頁面底部載入 Bootstrap JavaScript --&gt;
+&lt;asp:PlaceHolder runat="server"&gt;
+    &lt;%: Scripts.Render("~/Scripts/bootstrap.js") %&gt;
+&lt;/asp:PlaceHolder&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                </div>
+                                <div class="alert alert-success mt-2">
+                                    <h6 class="alert-heading small"><i class="fa-solid fa-star me-1"></i>版面配置最佳實踐</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="small mb-1"><strong>效能優化：</strong></p>
+                                            <ul class="small mb-2">
+                                                <li>JavaScript 放在頁面底部</li>
+                                                <li>CSS 放在頁面頂部</li>
+                                                <li>使用 Bundle 減少 HTTP 請求</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="small mb-1"><strong>使用者體驗：</strong></p>
+                                            <ul class="small mb-2">
+                                                <li>響應式設計適應各種裝置</li>
+                                                <li>一致的導航和版面配置</li>
+                                                <li>清楚的內容結構分離</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success mt-4">
+                        <h6 class="alert-heading"><i class="fa-solid fa-check-circle me-2"></i>重要檔案整合運作</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="small mb-2"><strong>應用程式啟動流程：</strong></p>
+                                <ol class="small mb-0">
+                                    <li><strong>Global.asax</strong> Application_Start 初始化</li>
+                                    <li>註冊路由和 Bundle 設定</li>
+                                    <li><strong>Site.Master</strong> 載入共用版面</li>
+                                    <li><strong>Default.aspx</strong> 插入特定內容</li>
+                                    <li>組合成完整的 HTML 回應</li>
+                                </ol>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="small mb-2"><strong>開發重點：</strong></p>
+                                <ul class="small mb-0">
+                                    <li>理解每個檔案的職責分工</li>
+                                    <li>善用 Bundle 和路由優化效能</li>
+                                    <li>保持主版頁面的一致性</li>
+                                    <li>適當使用 ContentPlaceHolder</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-cogs me-2"></i>Web.config - 應用程式組態檔</h5>
+                    <div class="card mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h6 class="card-title mb-0"><i class="fa-solid fa-wrench me-2"></i>Web.config 檔案解析</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>檔案作用：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>應用程式組態設定</li>
+                                        <li>資料庫連線字串管理</li>
+                                        <li>系統設定與安全性規則</li>
+                                        <li>IIS 伺服器行為控制</li>
+                                        <li>錯誤處理與偵錯設定</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text small"><strong>重要特性：</strong></p>
+                                    <ul class="small mb-3">
+                                        <li>XML 格式的組態檔案</li>
+                                        <li>階層式組態繼承</li>
+                                        <li>支援加密敏感資料</li>
+                                        <li>執行階段自動重新載入</li>
+                                        <li>開發/正式環境區分設定</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-dark mb-3">
+                                <h6 class="alert-heading"><i class="fa-solid fa-bolt me-2"></i>Web.config 最常用設定快速參考</h6>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <h6 class="small"><i class="fa-solid fa-1 me-1"></i>連線字串</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-1" style="font-size: 11px;"><code>&lt;connectionStrings&gt;
+  &lt;add name="MyDB" 
+    connectionString="..." /&gt;
+&lt;/connectionStrings&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="small"><i class="fa-solid fa-2 me-1"></i>偵錯模式</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-1" style="font-size: 11px;"><code>&lt;compilation 
+  debug="true" 
+  targetFramework="4.8" /&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="small"><i class="fa-solid fa-3 me-1"></i>錯誤頁面</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-1" style="font-size: 11px;"><code>&lt;customErrors 
+  mode="RemoteOnly" 
+  defaultRedirect="~/Error.aspx" /&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-4">
+                                        <h6 class="small"><i class="fa-solid fa-4 me-1"></i>應用程式設定</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-1" style="font-size: 11px;"><code>&lt;appSettings&gt;
+  &lt;add key="Setting1" value="..." /&gt;
+&lt;/appSettings&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="small"><i class="fa-solid fa-5 me-1"></i>檔案上傳限制</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-1" style="font-size: 11px;"><code>&lt;httpRuntime 
+  maxRequestLength="51200" 
+  executionTimeout="300" /&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="small"><i class="fa-solid fa-6 me-1"></i>Session 設定</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-1" style="font-size: 11px;"><code>&lt;sessionState 
+  mode="InProc" 
+  timeout="20" /&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="small mb-0 mt-2"><i class="fa-solid fa-info-circle me-1"></i><strong>提示：</strong>這些是 90% 的專案都會用到的基本設定，建議優先掌握！</p>
+                            </div>
+
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-6">
+                                    <div class="alert alert-success">
+                                        <h6 class="alert-heading small"><i class="fa-solid fa-rocket me-1"></i>開發階段常用設定</h6>
+                                        <div class="code-container mb-2">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0 small"><code>&lt;!-- 開發環境推薦設定 --&gt;
+&lt;compilation debug="true" /&gt;
+&lt;customErrors mode="Off" /&gt;
+&lt;sessionState timeout="20" /&gt;
+&lt;httpRuntime maxRequestLength="51200" /&gt;</code></pre>
+                                        </div>
+                                        <ul class="small mb-0">
+                                            <li><strong>debug="true"</strong> - 啟用詳細錯誤訊息</li>
+                                            <li><strong>customErrors="Off"</strong> - 顯示完整錯誤資訊</li>
+                                            <li><strong>較長的 timeout</strong> - 方便偵錯</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="alert alert-warning">
+                                        <h6 class="alert-heading small"><i class="fa-solid fa-server me-1"></i>正式環境必要設定</h6>
+                                        <div class="code-container mb-2">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0 small"><code>&lt;!-- 正式環境安全設定 --&gt;
+&lt;compilation debug="false" /&gt;
+&lt;customErrors mode="RemoteOnly" /&gt;
+&lt;httpRuntime enableVersionHeader="false" /&gt;
+&lt;trust level="Full" /&gt;</code></pre>
+                                        </div>
+                                        <ul class="small mb-0">
+                                            <li><strong>debug="false"</strong> - 提升效能，隱藏錯誤詳情</li>
+                                            <li><strong>customErrors="RemoteOnly"</strong> - 對外顯示友善錯誤</li>
+                                            <li><strong>enableVersionHeader="false"</strong> - 隱藏版本資訊</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="alert alert-info">
+                                        <h6 class="alert-heading small"><i class="fa-solid fa-database me-1"></i>資料庫連線字串常用格式</h6>
+                                        <div class="code-container">
+                                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                            <pre class="mb-0 small"><code>&lt;connectionStrings&gt;
+  &lt;!-- SQL Server LocalDB (開發常用) --&gt;
+  &lt;add name="DefaultConnection" 
+       connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MyApp.mdf;Initial Catalog=MyApp;Integrated Security=True" 
+       providerName="System.Data.SqlClient" /&gt;
+  
+  &lt;!-- SQL Server (正式環境) --&gt;
+  &lt;add name="ProductionDB" 
+       connectionString="Server=myserver;Database=MyAppDB;User Id=myuser;Password=mypassword;" 
+       providerName="System.Data.SqlClient" /&gt;
+  
+  &lt;!-- SQL Server Express --&gt;
+  &lt;add name="ExpressDB" 
+       connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=MyAppDB;Integrated Security=True" 
+       providerName="System.Data.SqlClient" /&gt;
+&lt;/connectionStrings&gt;</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="bg-info text-white p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-globe me-2"></i>CORS (跨來源資源共用) 設定詳解</h6>
+                                <div class="small">
+                                    <p><strong>什麼是 CORS？</strong></p>
+                                    <p>CORS (Cross-Origin Resource Sharing) 是一種安全機制，允許網頁從不同網域載入資源，解決瀏覽器的同源政策限制。</p>
+                                    
+                                    <p><strong>常見 CORS 設定選項：</strong></p>
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-2 text-black"><code>&lt;!-- 1. 允許所有來源（開發環境） --&gt;
+&lt;add name="Access-Control-Allow-Origin" value="*" /&gt;
+
+&lt;!-- 2. 允許特定網域（正式環境推薦） --&gt;
+&lt;add name="Access-Control-Allow-Origin" value="https://mydomain.com" /&gt;
+
+&lt;!-- 3. 允許多個特定網域 --&gt;
+&lt;add name="Access-Control-Allow-Origin" value="https://app1.com, https://app2.com" /&gt;
+
+&lt;!-- 4. 允許的 HTTP 方法 --&gt;
+&lt;add name="Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE, OPTIONS" /&gt;
+
+&lt;!-- 5. 允許的請求標頭 --&gt;
+&lt;add name="Access-Control-Allow-Headers" value="Content-Type, Authorization, X-Requested-With, X-Custom-Header" /&gt;
+
+&lt;!-- 6. 預檢請求快取時間（秒） --&gt;
+&lt;add name="Access-Control-Max-Age" value="3600" /&gt;
+
+&lt;!-- 7. 允許傳送 Cookie 和憑證 --&gt;
+&lt;add name="Access-Control-Allow-Credentials" value="true" /&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-warning mb-3">
+                                <h6 class="alert-heading small"><i class="fa-solid fa-shield-alt me-1"></i>CORS 安全性考量</h6>
+                                <div class="small">
+                                    <p><strong>正式環境 CORS 設定建議：</strong></p>
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-2"><code>&lt;!-- 正式環境安全設定範例 --&gt;
+&lt;customHeaders&gt;
+  &lt;!-- 只允許信任的網域 --&gt;
+  &lt;add name="Access-Control-Allow-Origin" value="https://myapp.com" /&gt;
+  
+  &lt;!-- 限制允許的 HTTP 方法 --&gt;
+  &lt;add name="Access-Control-Allow-Methods" value="GET, POST" /&gt;
+  
+  &lt;!-- 限制允許的標頭 --&gt;
+  &lt;add name="Access-Control-Allow-Headers" value="Content-Type, Authorization" /&gt;
+  
+  &lt;!-- 不允許傳送憑證（除非必要） --&gt;
+  &lt;add name="Access-Control-Allow-Credentials" value="false" /&gt;
+  
+  &lt;!-- 設定合理的預檢快取時間 --&gt;
+  &lt;add name="Access-Control-Max-Age" value="1800" /&gt; &lt;!-- 30分鐘 --&gt;
+&lt;/customHeaders&gt;</code></pre>
+                                    </div>
+                                    <ul class="mb-0">
+                                        <li><strong>避免使用 "*"：</strong>正式環境應指定具體網域</li>
+                                        <li><strong>最小權限原則：</strong>只開放必要的方法和標頭</li>
+                                        <li><strong>定期檢查：</strong>確認 CORS 設定符合當前需求</li>
+                                        <li><strong>記錄監控：</strong>追蹤跨來源請求的使用情況</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-success text-white p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-code me-2"></i>程式化 CORS 設定（推薦方式）</h6>
+                                <div class="small">
+                                    <p>除了在 Web.config 設定外，也可以在 Global.asax 中程式化處理 CORS：</p>
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-0 text-black"><code>// 在 Global.asax.cs 中添加
+protected void Application_BeginRequest(object sender, EventArgs e)
+{
+    // 處理預檢請求 (OPTIONS)
+    if (Request.HttpMethod == "OPTIONS")
+    {
+        Response.AddHeader("Access-Control-Allow-Origin", GetAllowedOrigin());
+        Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        Response.AddHeader("Access-Control-Max-Age", "3600");
+        Response.StatusCode = 200;
+        Response.End();
+    }
+    else
+    {
+        // 一般請求添加 CORS 標頭
+        Response.AddHeader("Access-Control-Allow-Origin", GetAllowedOrigin());
+    }
+}
+
+private string GetAllowedOrigin()
+{
+    string origin = Request.Headers["Origin"];
+    
+    // 定義允許的網域清單
+    string[] allowedOrigins = {
+        "https://app1.com",
+        "https://app2.com",
+        "http://localhost:3000"  // 開發環境
+    };
+    
+    // 檢查是否為允許的來源
+    if (allowedOrigins.Contains(origin))
+    {
+        return origin;
+    }
+    
+    return "https://myapp.com"; // 預設允許的網域
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                                        <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-file-alt me-2"></i>其他重要檔案</h5>
                     <div class="row">
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-link me-2"></i>Connected Services</h6>
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="card-title mb-0"><i class="fa-solid fa-link me-2"></i>Bundle.config</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text small"><strong>功能：</strong>管理與第三方服務的連接</p>
-                                    <p class="card-text small"><strong>常見服務：</strong></p>
+                                    <p class="card-text small"><strong>用途：</strong>資源打包與最佳化設定</p>
+                                    <p class="card-text small"><strong>功能：</strong></p>
                                     <ul class="small mb-2">
-                                        <li>Azure 雲端服務</li>
-                                        <li>Application Insights 監控</li>
-                                        <li>SQL Server 資料庫</li>
-                                        <li>Web API 服務</li>
+                                        <li>CSS/JS 檔案合併</li>
+                                        <li>檔案壓縮</li>
+                                        <li>減少 HTTP 請求</li>
+                                        <li>提升載入效能</li>
                                     </ul>
-                                    <p class="card-text small text-muted"><strong>操作：</strong>右鍵點擊可新增服務連線</p>
+                                    <div class="bg-light p-2 rounded mb-2">
+                                        <pre class="mb-0" style="font-size: 10px;"><code>&lt;bundles&gt;
+  &lt;styleBundle path="~/Content/css"&gt;
+    &lt;include path="~/Content/bootstrap.css" /&gt;
+    &lt;include path="~/Content/site.css" /&gt;
+  &lt;/styleBundle&gt;
+&lt;/bundles&gt;</code></pre>
+                                    </div>
+                                    
+                                    <div class="alert alert-info p-2">
+                                        <h6 class="small mb-2"><i class="fa-solid fa-code me-1"></i>Bundle.config vs BundleConfig.cs 差異</h6>
+                                        <div class="small">
+                                            <p class="mb-1"><strong class="text-primary">Bundle.config (XML檔案)：</strong></p>
+                                            <ul class="small mb-2" style="margin-left: 15px;">
+                                                <li>宣告式設定，使用 XML 語法</li>
+                                                <li>設定檔案方式，不需重新編譯</li>
+                                                <li>簡單的 include/exclude 設定</li>
+                                                <li>適合靜態資源打包</li>
+                                            </ul>
+                                            
+                                            <p class="mb-1"><strong class="text-success">BundleConfig.cs (C#檔案)：</strong></p>
+                                            <ul class="small mb-0" style="margin-left: 15px;">
+                                                <li>程式化設定，使用 C# 語法</li>
+                                                <li>程式碼方式，需重新編譯</li>
+                                                <li>支援複雜的邏輯和條件判斷</li>
+                                                <li>可動態建立 Bundle 設定</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2091,59 +3064,62 @@ protected void btnHello_Click(object sender, EventArgs e)
                         <div class="col-md-6">
                             <div class="card mb-3">
                                 <div class="card-header bg-secondary text-white">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-cog me-2"></i>Properties</h6>
+                                    <h6 class="card-title mb-0"><i class="fa-solid fa-box me-2"></i>packages.config</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text small"><strong>功能：</strong>專案屬性和組件資訊</p>
-                                    <p class="card-text small"><strong>包含檔案：</strong></p>
+                                    <p class="card-text small"><strong>用途：</strong>NuGet 套件管理檔案</p>
+                                    <p class="card-text small"><strong>記錄內容：</strong></p>
                                     <ul class="small mb-2">
-                                        <li>AssemblyInfo.cs - 組件資訊</li>
-                                        <li>專案設定檔案</li>
-                                        <li>版本資訊</li>
-                                        <li>建置設定</li>
+                                        <li>已安裝的套件名稱</li>
+                                        <li>套件版本號</li>
+                                        <li>目標 Framework 版本</li>
+                                        <li>套件相依性</li>
                                     </ul>
-                                    <p class="card-text small text-muted"><strong>用途：</strong>定義專案基本資訊</p>
+                                    <p class="card-text small"><strong>注意：</strong>不要手動編輯此檔案</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row">                                       
                         <div class="col-md-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-book me-2"></i>參考 (References)</h6>
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="card-title mb-0"><i class="fa-solid fa-mobile-alt me-2"></i>ViewSwitcher.ascx</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text small"><strong>功能：</strong>管理專案使用的程式庫</p>
-                                    <p class="card-text small"><strong>參考類型：</strong></p>
+                                    <p class="card-text small"><strong>用途：</strong>使用者控制項</p>
+                                    <p class="card-text small"><strong>功能：</strong></p>
                                     <ul class="small mb-2">
-                                        <li>.NET Framework 參考</li>
-                                        <li>System.Web - Web 相關功能</li>
-                                        <li>System.Data - 資料存取</li>
-                                        <li>第三方 DLL 檔案</li>
-                                        <li>NuGet 套件參考</li>
+                                        <li>桌面版/行動版切換</li>
+                                        <li>響應式設計輔助</li>
+                                        <li>使用者體驗優化</li>
+                                        <li>可重複使用元件</li>
                                     </ul>
-                                    <p class="card-text small text-muted"><strong>管理：</strong>可新增、移除程式庫參考</p>
+                                    <p class="card-text small"><strong>檔案：</strong></p>
+                                    <ul class="small mb-0">
+                                        <li>ViewSwitcher.ascx - 介面</li>
+                                        <li>ViewSwitcher.ascx.cs - 邏輯</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-box me-2"></i>NuGet 套件 (隱藏)</h6>
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="card-title mb-0"><i class="fa-solid fa-image me-2"></i>favicon.ico</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text small"><strong>功能：</strong>透過 packages.config 管理</p>
-                                    <p class="card-text small"><strong>常見套件：</strong></p>
+                                    <p class="card-text small"><strong>用途：</strong>網站圖示檔案</p>
+                                    <p class="card-text small"><strong>顯示位置：</strong></p>
                                     <ul class="small mb-2">
-                                        <li>Bootstrap - UI 框架</li>
-                                        <li>jQuery - JavaScript 函式庫</li>
-                                        <li>Modernizr - 瀏覽器功能檢測</li>
-                                        <li>Entity Framework - ORM</li>
+                                        <li>瀏覽器分頁標籤</li>
+                                        <li>書籤列</li>
+                                        <li>桌面捷徑</li>
+                                        <li>搜尋引擎結果</li>
                                     </ul>
-                                    <p class="card-text small text-muted"><strong>查看：</strong>套件管理員主控台或 UI</p>
+                                    <p class="card-text small"><strong>建議：</strong>使用 16x16 或 32x32 像素的 .ico 檔案</p>
                                 </div>
                             </div>
                         </div>
@@ -2348,404 +3324,6 @@ protected void btnHello_Click(object sender, EventArgs e)
                     </div>
                 </div>
 
-                <div id="aspnet-structure-core-files" class="mb-4">
-                    <h4 class="text-dark">3.4 重要檔案詳解</h4>
-                    
-                    <div class="alert alert-warning border-start border-4 border-warning">
-                        <h5 class="alert-heading"><i class="fa-solid fa-file-code me-2"></i>核心檔案深度解析</h5>
-                        <p class="mb-0">接下來我們將詳細說明每個重要檔案的作用、結構和使用方法，幫助您深入理解 ASP.NET Web Forms 專案中各檔案的職責。</p>
-                    </div>
-
-                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-file-code me-2"></i>Default.aspx - 預設首頁</h5>
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="card-title mb-0"><i class="fa-solid fa-home me-2"></i>Default.aspx 詳細說明</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>檔案作用：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>網站的預設首頁</li>
-                                        <li>訪客第一個看到的頁面</li>
-                                        <li>包含 HTML 和 ASP.NET 控制項</li>
-                                        <li>定義頁面的視覺呈現</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>關聯檔案：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>Default.aspx.cs - 程式邏輯</li>
-                                        <li>Default.aspx.designer.cs - 設計器產生</li>
-                                        <li>Site.Master - 主版頁面 (如使用)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bg-light p-3 rounded">
-                                <h6 class="mb-2">Default.aspx 基本結構：</h6>
-                                <div class="code-container">
-                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
-                                    <pre class="mb-0 small"><code>&lt;%@ Page Title="首頁" Language="C#" MasterPageFile="~/Site.Master" 
-         AutoEventWireup="true" CodeBehind="Default.aspx.cs" 
-         Inherits="WebApplication1.Default" %&gt;
-
-&lt;asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server"&gt;
-    我的網站 - 首頁
-&lt;/asp:Content&gt;
-
-&lt;asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server"&gt;
-    &lt;style&gt;
-        .welcome { color: #007bff; }
-    &lt;/style&gt;
-&lt;/asp:Content&gt;
-
-&lt;asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server"&gt;
-    &lt;h1 class="welcome"&gt;歡迎來到我的網站&lt;/h1&gt;
-    &lt;p&gt;這是使用 Master Page 的內容頁面。&lt;/p&gt;
-&lt;/asp:Content&gt;</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-globe me-2"></i>Global.asax - 全域應用程式檔案</h5>
-                    <div class="card mb-4">
-                        <div class="card-header bg-danger text-white">
-                            <h6 class="card-title mb-0"><i class="fa-solid fa-server me-2"></i>Global.asax 詳細說明</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>主要功能：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>應用程式全域事件處理</li>
-                                        <li>應用程式生命週期管理</li>
-                                        <li>Session 管理</li>
-                                        <li>錯誤處理</li>
-                                        <li>路由設定</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>重要事件：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>Application_Start - 應用程式啟動</li>
-                                        <li>Session_Start - 新 Session 開始</li>
-                                        <li>Application_Error - 錯誤發生</li>
-                                        <li>Session_End - Session 結束</li>
-                                        <li>Application_End - 應用程式結束</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bg-light p-3 rounded">
-                                <h6 class="mb-2">Global.asax.cs 完整範例：</h6>
-                                <div class="code-container">
-                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
-                                    <pre class="mb-0 small"><code>public class Global : System.Web.HttpApplication
-{
-    protected void Application_Start()
-    {
-        // 應用程式啟動時執行一次
-        // 註冊路由、Bundle、Filter 等
-        RouteConfig.RegisterRoutes(RouteTable.Routes);
-        BundleConfig.RegisterBundles(BundleTable.Bundles);
-        
-        // 初始化全域變數
-        Application["StartTime"] = DateTime.Now;
-        Application["VisitorCount"] = 0;
-    }
-
-    protected void Session_Start()
-    {
-        // 每個新使用者 Session 開始時執行
-        int count = (int)Application["VisitorCount"];
-        Application["VisitorCount"] = count + 1;
-        
-        // 設定 Session 預設值
-        Session["UserPreferences"] = new UserPreferences();
-    }
-
-    protected void Application_Error()
-    {
-        // 發生未處理例外時執行
-        Exception ex = Server.GetLastError();
-        
-        // 記錄錯誤
-        System.Diagnostics.Debug.WriteLine($"錯誤: {ex.Message}");
-        
-        // 清除錯誤並導向錯誤頁面
-        Server.ClearError();
-        Response.Redirect("~/ErrorPage.aspx");
-    }
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-cog me-2"></i>Web.config - 組態設定檔</h5>
-                    <div class="card mb-4">
-                        <div class="card-header bg-warning text-dark">
-                            <h6 class="card-title mb-0"><i class="fa-solid fa-tools me-2"></i>Web.config 詳細說明</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>設定項目：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>資料庫連線字串</li>
-                                        <li>應用程式設定值</li>
-                                        <li>驗證與授權</li>
-                                        <li>HTTP 模組與處理器</li>
-                                        <li>錯誤頁面設定</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>安全注意：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>敏感資訊需加密</li>
-                                        <li>不能直接透過瀏覽器存取</li>
-                                        <li>修改後會重啟應用程式</li>
-                                        <li>語法錯誤會導致網站無法執行</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bg-light p-3 rounded">
-                                <h6 class="mb-2">Web.config 完整結構範例：</h6>
-                                <div class="code-container">
-                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
-                                    <pre class="mb-0 small"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;configuration&gt;
-  &lt;!-- 連線字串設定 --&gt;
-  &lt;connectionStrings&gt;
-    &lt;add name="DefaultConnection" 
-         connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True" 
-         providerName="System.Data.SqlClient" /&gt;
-  &lt;/connectionStrings&gt;
-
-  &lt;!-- 應用程式設定 --&gt;
-  &lt;appSettings&gt;
-    &lt;add key="SiteName" value="我的 Web Forms 網站" /&gt;
-    &lt;add key="AdminEmail" value="admin@example.com" /&gt;
-    &lt;add key="EnableDebugMode" value="true" /&gt;
-  &lt;/appSettings&gt;
-
-  &lt;!-- 系統網頁設定 --&gt;
-  &lt;system.web&gt;
-    &lt;!-- 編譯設定 --&gt;
-    &lt;compilation debug="true" targetFramework="4.8" /&gt;
-    &lt;httpRuntime targetFramework="4.8" maxRequestLength="4096" /&gt;
-    
-    &lt;!-- 驗證設定 --&gt;
-    &lt;authentication mode="Forms"&gt;
-      &lt;forms loginUrl="~/Login.aspx" timeout="30" /&gt;
-    &lt;/authentication&gt;
-    
-    &lt;!-- 自訂錯誤頁面 --&gt;
-    &lt;customErrors mode="On" defaultRedirect="~/ErrorPage.aspx"&gt;
-      &lt;error statusCode="404" redirect="~/NotFound.aspx" /&gt;
-    &lt;/customErrors&gt;
-    
-    &lt;!-- Session 設定 --&gt;
-    &lt;sessionState mode="InProc" timeout="20" /&gt;
-  &lt;/system.web&gt;
-&lt;/configuration&gt;</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-layout-template me-2"></i>Site.Master - 主版頁面</h5>
-                    <div class="card mb-4">
-                        <div class="card-header bg-success text-white">
-                            <h6 class="card-title mb-0"><i class="fa-solid fa-th-large me-2"></i>Site.Master 詳細說明</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>主要功能：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>定義網站統一版面</li>
-                                        <li>包含共用的導航列</li>
-                                        <li>提供內容佔位符</li>
-                                        <li>引用共用的 CSS/JS</li>
-                                        <li>設定網站標題和 meta 標籤</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text small"><strong>相關檔案：</strong></p>
-                                    <ul class="small mb-3">
-                                        <li>Site.Master.cs - 主版頁面邏輯</li>
-                                        <li>Site.Master.designer.cs - 設計器產生</li>
-                                        <li>Site.Mobile.Master - 行動版主版頁面</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bg-light p-3 rounded">
-                                <h6 class="mb-2">Site.Master 基本結構：</h6>
-                                <div class="code-container">
-                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
-                                    <pre class="mb-0 small"><code>&lt;%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head runat="server"&gt;
-    &lt;meta charset="utf-8" /&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
-    &lt;title&gt;&lt;%: Page.Title %&gt; - 我的 ASP.NET 應用程式&lt;/title&gt;
-    
-    &lt;!-- Bootstrap CSS --&gt;
-    &lt;%: Styles.Render("~/Content/css") %&gt;
-    &lt;link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" /&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;form id="form1" runat="server"&gt;
-        &lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark"&gt;
-            &lt;div class="container"&gt;
-                &lt;a class="navbar-brand" href="~/"&gt;我的網站&lt;/a&gt;
-                &lt;ul class="navbar-nav"&gt;
-                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="~/"&gt;首頁&lt;/a&gt;&lt;/li&gt;
-                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="~/About"&gt;關於&lt;/a&gt;&lt;/li&gt;
-                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="~/Contact"&gt;聯絡&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/nav&gt;
-        
-        &lt;main class="container mt-4"&gt;
-            &lt;asp:ContentPlaceHolder ID="MainContent" runat="server"&gt;
-            &lt;/asp:ContentPlaceHolder&gt;
-        &lt;/main&gt;
-        
-        &lt;footer class="bg-dark text-light mt-5 py-3"&gt;
-            &lt;!-- 頁尾內容 --&gt;
-        &lt;/footer&gt;
-    &lt;/form&gt;
-    
-    &lt;!-- JavaScript --&gt;
-    &lt;%: Scripts.Render("~/bundles/jquery") %&gt;
-    &lt;%: Scripts.Render("~/bundles/bootstrap") %&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h5 class="text-info mt-4 mb-3"><i class="fa-solid fa-file-alt me-2"></i>其他重要檔案</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-image me-2"></i>favicon.ico</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text small"><strong>用途：</strong>網站圖示檔案</p>
-                                    <p class="card-text small"><strong>顯示位置：</strong></p>
-                                    <ul class="small mb-2">
-                                        <li>瀏覽器分頁標籤</li>
-                                        <li>書籤列</li>
-                                        <li>桌面捷徑</li>
-                                        <li>搜尋引擎結果</li>
-                                    </ul>
-                                    <p class="card-text small"><strong>建議：</strong>使用 16x16 或 32x32 像素的 .ico 檔案</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header bg-secondary text-white">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-box me-2"></i>packages.config</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text small"><strong>用途：</strong>NuGet 套件管理檔案</p>
-                                    <p class="card-text small"><strong>記錄內容：</strong></p>
-                                    <ul class="small mb-2">
-                                        <li>已安裝的套件名稱</li>
-                                        <li>套件版本號</li>
-                                        <li>目標 Framework 版本</li>
-                                        <li>套件相依性</li>
-                                    </ul>
-                                    <p class="card-text small"><strong>注意：</strong>不要手動編輯此檔案</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-link me-2"></i>Bundle.config</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text small"><strong>用途：</strong>資源打包與最佳化設定</p>
-                                    <p class="card-text small"><strong>功能：</strong></p>
-                                    <ul class="small mb-2">
-                                        <li>CSS/JS 檔案合併</li>
-                                        <li>檔案壓縮</li>
-                                        <li>減少 HTTP 請求</li>
-                                        <li>提升載入效能</li>
-                                    </ul>
-                                    <div class="bg-light p-2 rounded">
-                                        <pre class="mb-0" style="font-size: 10px;"><code>&lt;bundles&gt;
-  &lt;styleBundle path="~/Content/css"&gt;
-    &lt;include path="~/Content/bootstrap.css" /&gt;
-    &lt;include path="~/Content/site.css" /&gt;
-  &lt;/styleBundle&gt;
-&lt;/bundles&gt;</code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="card-title mb-0"><i class="fa-solid fa-mobile-alt me-2"></i>ViewSwitcher.ascx</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text small"><strong>用途：</strong>使用者控制項</p>
-                                    <p class="card-text small"><strong>功能：</strong></p>
-                                    <ul class="small mb-2">
-                                        <li>桌面版/行動版切換</li>
-                                        <li>響應式設計輔助</li>
-                                        <li>使用者體驗優化</li>
-                                        <li>可重複使用元件</li>
-                                    </ul>
-                                    <p class="card-text small"><strong>檔案：</strong></p>
-                                    <ul class="small mb-0">
-                                        <li>ViewSwitcher.ascx - 介面</li>
-                                        <li>ViewSwitcher.ascx.cs - 邏輯</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="alert alert-success mt-4">
-                        <h6 class="alert-heading"><i class="fa-solid fa-lightbulb me-2"></i>開發重點提醒</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="small mb-2"><strong>必須了解的檔案：</strong></p>
-                                <ul class="small mb-0">
-                                    <li>🔴 Web.config - 系統設定</li>
-                                    <li>🔴 Global.asax - 全域事件</li>
-                                    <li>🟡 .aspx 檔案 - 頁面介面</li>
-                                    <li>🟡 .aspx.cs - 頁面邏輯</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="small mb-2"><strong>開發注意事項：</strong></p>
-                                <ul class="small mb-0">
-                                    <li>修改 Web.config 會重啟應用程式</li>
-                                    <li>App_Data 資料夾內容受保護</li>
-                                    <li>主版頁面影響所有子頁面</li>
-                                    <li>Bundle 設定影響載入效能</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
             
             <section id="aspnet-ui" class="py-3">
@@ -4346,6 +4924,70 @@ __doPostBack('UpdatePanel1', '');</code></pre>
     <!-- Bootstrap 5.3.0 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // 顯示複製成功狀態
+        function showCopySuccess(button) {
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fa-solid fa-check me-1"></i>已複製';
+            button.classList.add('success');
+            
+            // 2秒後恢復原狀
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.classList.remove('success');
+            }, 2000);
+        }
+        
+        // 備用複製方法（對於不支援 Clipboard API 的瀏覽器）
+        function fallbackCopy(text, button) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess(button);
+                } else {
+                    console.error('備用複製方法失敗');
+                }
+            } catch (err) {
+                console.error('備用複製方法錯誤: ', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // copyCode 函數：處理複製按鈕的點擊事件
+        function copyCode(button) {
+            // 找到相鄰的 pre 元素
+            const container = button.parentElement;
+            const pre = container.querySelector('pre');
+            const code = pre.querySelector('code');
+            
+            if (!code) return;
+            
+            // 取得程式碼內容
+            const codeText = code.textContent || code.innerText;
+            
+            // 使用 Clipboard API 複製文字
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(codeText).then(function() {
+                    showCopySuccess(button);
+                }).catch(function(err) {
+                    console.error('複製失敗: ', err);
+                    fallbackCopy(codeText, button);
+                });
+            } else {
+                // 使用備用方法
+                fallbackCopy(codeText, button);
+            }
+        }
+
         // 當頁面載入完成後執行
         document.addEventListener('DOMContentLoaded', function() {
             // 為所有的 pre > code 元素添加複製按鈕
@@ -4411,44 +5053,6 @@ __doPostBack('UpdatePanel1', '');</code></pre>
             }
         });
         
-        // 顯示複製成功狀態
-        function showCopySuccess(button) {
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fa-solid fa-check me-1"></i>已複製';
-            button.classList.add('success');
-            
-            // 2秒後恢復原狀
-            setTimeout(function() {
-                button.innerHTML = originalText;
-                button.classList.remove('success');
-            }, 2000);
-        }
-        
-        // 備用複製方法（對於不支援 Clipboard API 的瀏覽器）
-        function fallbackCopy(text, button) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            textArea.style.top = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            
-            try {
-                const successful = document.execCommand('copy');
-                if (successful) {
-                    showCopySuccess(button);
-                } else {
-                    console.error('備用複製方法失敗');
-                }
-            } catch (err) {
-                console.error('備用複製方法錯誤: ', err);
-            }
-            
-            document.body.removeChild(textArea);
-        }
-
         // 返回頂部按鈕功能
         const backToTopBtn = document.getElementById('backToTopBtn');
 
