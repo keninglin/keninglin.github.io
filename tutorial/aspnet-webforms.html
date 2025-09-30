@@ -262,30 +262,43 @@
                                     <li class="mb-1"><a href="#aspnet-ui-controls" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-warning text-warning border me-2" style="min-width: 32px;">4.2</span>常用伺服器控制項</a></li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <!-- Section 5 -->
+                            <div class="mb-3">
+                                <h5 class="text-success mb-2 fw-bold">
+                                    <a href="#aspnet-api" class="text-decoration-none text-success">
+                                        <span class="badge bg-success me-2">5</span><i class="fa-solid fa-code me-2"></i>實作 API 與檔案處理
+                                    </a>
+                                </h5>
+                                <ul class="list-unstyled small ps-3 sub-items">
+                                    <li class="mb-1"><a href="#aspnet-api-overview" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-success text-success border me-2" style="min-width: 32px;">5.1</span>建立 RESTful API 端點</a></li>
+                                    <li class="mb-1"><a href="#aspnet-file-upload" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-success text-success border me-2" style="min-width: 32px;">5.2</span>檔案上傳處理</a></li>
+                                    <li class="mb-1"><a href="#aspnet-json-processing" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-success text-success border me-2" style="min-width: 32px;">5.3</span>JSON 資料處理與儲存</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">                         
+                            <!-- Section 6 -->
                             <div class="mb-3">
                                 <h5 class="text-danger mb-2 fw-bold">
                                     <a href="#aspnet-logic" class="text-decoration-none text-danger">
-                                        <span class="badge bg-danger me-2">5</span><i class="fa-solid fa-cogs me-2"></i>事件處理與程式邏輯
+                                        <span class="badge bg-danger me-2">6</span><i class="fa-solid fa-cogs me-2"></i>事件處理與程式邏輯
                                     </a>
                                 </h5>
                                 <ul class="list-unstyled small ps-3 sub-items">
-                                    <li class="mb-1"><a href="#aspnet-logic-lifecycle" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-danger text-danger border me-2" style="min-width: 32px;">5.1</span>Page Life Cycle</a></li>
-                                    <li class="mb-1"><a href="#aspnet-logic-events" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-danger text-danger border me-2" style="min-width: 32px;">5.2</span>控制項事件</a></li>
+                                    <li class="mb-1"><a href="#aspnet-logic-lifecycle" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-danger text-danger border me-2" style="min-width: 32px;">6.1</span>Page Life Cycle</a></li>
+                                    <li class="mb-1"><a href="#aspnet-logic-events" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-danger text-danger border me-2" style="min-width: 32px;">6.2</span>控制項事件</a></li>
                                 </ul>
                             </div>
-                            <!-- Section 6 -->
+                            <!-- Section 7 -->
                             <div class="mb-3">
                                 <h5 class="text-primary mb-2 fw-bold">
                                     <a href="#aspnet-data" class="text-decoration-none text-primary">
-                                        <span class="badge bg-primary me-2">6</span><i class="fa-solid fa-database me-2"></i>資料繫結與資料庫操作
+                                        <span class="badge bg-primary me-2">7</span><i class="fa-solid fa-database me-2"></i>資料繫結與資料庫操作
                                     </a>
                                 </h5>
                                 <ul class="list-unstyled small ps-3 sub-items">
-                                    <li class="mb-1"><a href="#aspnet-data-binding" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-primary text-primary border me-2" style="min-width: 32px;">6.1</span>使用 SqlDataSource、GridView</a></li>
-                                    <li class="mb-1"><a href="#aspnet-data-connection" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-primary text-primary border me-2" style="min-width: 32px;">6.2</span>資料庫連線設定</a></li>
+                                    <li class="mb-1"><a href="#aspnet-data-binding" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-primary text-primary border me-2" style="min-width: 32px;">7.1</span>使用 SqlDataSource、GridView</a></li>
+                                    <li class="mb-1"><a href="#aspnet-data-connection" class="text-decoration-none d-flex align-items-center"><span class="badge bg-outline-primary text-primary border me-2" style="min-width: 32px;">7.2</span>資料庫連線設定</a></li>
                                 </ul>
                             </div>
                             <!-- Section 7 -->
@@ -2350,7 +2363,7 @@ public static void RegisterJQueryScriptManager()
                                                 <h6 class="small mb-2"><strong>BundleConfig.cs (程式化設定)</strong></h6>
                                                 <div class="code-container">
                                                     <button class="copy-btn" onclick="copyCode(this)">複製</button>
-                                                    <pre class="mb-1 text-white" style="font-size: 10px;"><code>// C# 程式碼
+                                                    <pre class="mb-1 text-black" style="font-size: 10px;"><code>// C# 程式碼
 bundles.Add(new ScriptBundle("~/bundles/jquery")
     .Include("~/Scripts/jquery-{version}.js"));
     
@@ -3818,8 +3831,453 @@ private string GetAllowedOrigin()
                 </div>
             </section>
 
+            <section id="aspnet-api" class="py-3">
+                <h2 class="text-success fw-bold border-bottom pb-2 mb-3"><span class="badge bg-success me-2">5</span>實作 API 與檔案處理</h2>
+                
+                <div id="aspnet-api-overview" class="mb-4">
+                    <h4 class="text-dark">5.1 建立 RESTful API 端點</h4>
+                    
+                    <div class="alert alert-success border-start border-4 border-success">
+                        <h5 class="alert-heading"><i class="fa-solid fa-code me-2"></i>API 實作概念</h5>
+                        <p class="mb-0">在 ASP.NET Web Forms 中，可以透過建立 ASPX 頁面來實作 API 端點，處理 HTTP 請求並回傳 JSON 資料。這個範例展示了完整的 CRUD 操作實作。</p>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-globe me-2"></i>API 頁面基本架構</h5>
+                    
+                    <div class="bg-light p-3 rounded mb-3">
+                        <h6 class="mb-2"><i class="fa-solid fa-file-code me-2"></i>Page_Load 事件處理</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>protected void Page_Load(object sender, EventArgs e)
+{
+    // 清除預設的 HTML 輸出
+    Response.Clear();
+    Response.ContentType = "application/json";
+    
+    // 設定 CORS 標頭（跨域請求支援）
+    Response.Headers.Add("Access-Control-Allow-Origin", "*");
+    Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+
+    // 取得路由參數和 HTTP 方法
+    string url = Page.RouteData.Values["url"] as string;
+    string method = Request.HttpMethod;
+
+    // 根據 URL 和方法路由到不同處理程序
+    if (url == "article")
+    {
+        HandleArticleRequests(method);
+    }
+    else
+    {
+        Response.StatusCode = 404;
+        Response.Write("{\"error\":\"找不到指定的API端點\"}");
+    }
+
+    Response.End();
+}</code></pre>
+                        </div>
+                        <div class="alert alert-info mt-2">
+                            <h6 class="alert-heading small"><i class="fa-solid fa-lightbulb me-1"></i>關鍵技巧</h6>
+                            <ul class="small mb-0">
+                                <li><strong>Response.Clear()</strong> - 清除預設 HTML 輸出</li>
+                                <li><strong>ContentType</strong> - 設定回應類型為 JSON</li>
+                                <li><strong>CORS 標頭</strong> - 允許跨域 AJAX 請求</li>
+                                <li><strong>路由參數</strong> - 透過 RouteData.Values 取得動態參數</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-download me-2"></i>處理 GET 請求（讀取資料）</h5>
+                    
+                    <div class="bg-light p-3 rounded mb-3">
+                        <h6 class="mb-2"><i class="fa-solid fa-database me-2"></i>從 JSON 檔案讀取資料</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>private void HandleGetArticles()
+{
+    try
+    {
+        // 使用 Server.MapPath 取得實體檔案路徑
+        string jsonPath = Server.MapPath("~/App_Data/article.json");
+        
+        if (File.Exists(jsonPath))
+        {
+            // 使用 UTF8 編碼讀取檔案，避免中文亂碼
+            string json = File.ReadAllText(jsonPath, Encoding.UTF8);
+            Response.Write(json);
+        }
+        else
+        {
+            // 檔案不存在時回傳空陣列，避免前端錯誤
+            Response.Write("[]");
+        }
+    }
+    catch (Exception ex)
+    {
+        // 設定錯誤狀態碼並回傳錯誤訊息
+        Response.StatusCode = 500;
+        Response.Write($"{{\"error\":\"讀取文章失敗: {ex.Message}\"}}");
+    }
+}</code></pre>
+                        </div>
+                        <div class="alert alert-success mt-2">
+                            <h6 class="alert-heading small"><i class="fa-solid fa-check me-1"></i>最佳實踐</h6>
+                            <ul class="small mb-0">
+                                <li><strong>檔案存在檢查</strong> - 避免 FileNotFoundException</li>
+                                <li><strong>UTF8 編碼</strong> - 確保中文字元正確顯示</li>
+                                <li><strong>異常處理</strong> - 回傳適當的 HTTP 狀態碼</li>
+                                <li><strong>預設值</strong> - 提供合理的預設回應</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-upload me-2"></i>處理 POST 請求（新增資料）</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-form me-1"></i>表單資料處理</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0" style="font-size: 11px;"><code>private void HandleFormPostArticle()
+{
+    try
+    {
+        // 從表單取得資料並去除空白
+        string title = Request.Form["title"]?.Trim();
+        string content = Request.Form["content"]?.Trim();
+        string date = Request.Form["date"]?.Trim();
+        
+        // 驗證必填欄位
+        if (string.IsNullOrWhiteSpace(title) ||
+            string.IsNullOrWhiteSpace(content) ||
+            string.IsNullOrWhiteSpace(date))
+        {
+            // 表單提交失敗時重新導向
+            string redirectUrl = "~/edit.html?error=" + 
+                HttpUtility.UrlEncode("標題、內容和日期為必填欄位");
+            Response.Redirect(redirectUrl, false);
+            return;
+        }
+
+        // 處理檔案上傳
+        string finalImagePath = "";
+        if (Request.Files.Count > 0)
+        {
+            HttpPostedFile uploadedFile = Request.Files["imageFile"];
+            if (uploadedFile?.ContentLength > 0)
+            {
+                finalImagePath = HandleFileUpload(uploadedFile);
+            }
+        }
+
+        // 建立文章物件
+        var newArticle = new
+        {
+            id = Guid.NewGuid().ToString(),
+            title = title,
+            content = content,
+            date = date,
+            image = finalImagePath,
+            createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        SaveArticle(newArticle);
+        
+        // 成功後重新導向
+        Response.Redirect("~/edit.html?success=文章新增成功", false);
+    }
+    catch (Exception ex)
+    {
+        Response.Redirect($"~/edit.html?error={ex.Message}", false);
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="bg-light p-3 rounded mb-3">
+                                <h6 class="mb-2"><i class="fa-solid fa-code-branch me-1"></i>JSON 資料處理</h6>
+                                <div class="code-container">
+                                    <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                    <pre class="mb-0" style="font-size: 11px;"><code>private void HandleJsonPostArticle()
+{
+    try
+    {
+        // 讀取 POST 請求的 JSON 內容
+        string jsonData;
+        using (var reader = new StreamReader(
+            Request.InputStream, Encoding.UTF8))
+        {
+            jsonData = reader.ReadToEnd();
+        }
+
+        if (string.IsNullOrWhiteSpace(jsonData))
+        {
+            Response.StatusCode = 400;
+            Response.Write("{\"error\":\"請求內容不能為空\"}");
+            return;
+        }
+
+        // 使用 Newtonsoft.Json 解析資料
+        var articleData = JsonConvert.DeserializeObject&lt;dynamic&gt;(jsonData);
+        
+        // 驗證必填欄位
+        if (string.IsNullOrWhiteSpace(articleData?.title?.ToString()))
+        {
+            Response.StatusCode = 400;
+            Response.Write("{\"error\":\"標題為必填欄位\"}");
+            return;
+        }
+
+        // 建立文章物件
+        var newArticle = new
+        {
+            id = Guid.NewGuid().ToString(),
+            title = articleData.title.ToString(),
+            content = articleData.content.ToString(),
+            date = articleData.date.ToString(),
+            createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        SaveArticle(newArticle);
+
+        // 回傳 JSON 回應
+        Response.StatusCode = 201; // Created
+        Response.Write($"{{\"success\":true,\"articleId\":\"{newArticle.id}\"}}");
+    }
+    catch (JsonException)
+    {
+        Response.StatusCode = 400;
+        Response.Write("{\"error\":\"JSON格式錯誤\"}");
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <h6 class="alert-heading small"><i class="fa-solid fa-code me-1"></i>內容類型判斷技巧</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>// 根據 Content-Type 決定處理方式
+string contentType = Request.ContentType ?? "";
+
+if (contentType.Contains("application/x-www-form-urlencoded") || 
+    contentType.Contains("multipart/form-data"))
+{
+    // 處理 HTML 表單提交
+    HandleFormPostArticle();
+}
+else
+{
+    // 處理 JSON 提交
+    HandleJsonPostArticle();
+}</code></pre>
+                        </div>
+                        <p class="small mb-0 mt-2"><strong>說明：</strong>同一個 API 端點可以同時支援表單提交和 JSON 提交，提高 API 的彈性。</p>
+                    </div>
+                </div>
+
+                <div id="aspnet-file-upload" class="mb-4">
+                    <h4 class="text-dark">5.2 檔案上傳處理</h4>
+                    
+                    <div class="bg-light p-3 rounded mb-3">
+                        <h6 class="mb-2"><i class="fa-solid fa-shield-alt me-2"></i>安全的檔案上傳實作</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>private string HandleFileUpload(HttpPostedFile uploadedFile)
+{
+    // 1. 檢查檔案類型（白名單方式）
+    string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+    string fileExtension = Path.GetExtension(uploadedFile.FileName).ToLower();
+    
+    if (!allowedExtensions.Contains(fileExtension))
+    {
+        throw new Exception("不支援的檔案類型。請上傳 JPG, PNG, GIF 或 BMP 格式的圖片。");
+    }
+
+    // 2. 檢查檔案大小限制
+    int maxFileSize = 5 * 1024 * 1024; // 5MB
+    if (uploadedFile.ContentLength > maxFileSize)
+    {
+        throw new Exception("檔案大小不能超過 5MB。");
+    }
+
+    // 3. 確保上傳目錄存在
+    string uploadDir = Server.MapPath("~/uploads/images/");
+    if (!Directory.Exists(uploadDir))
+    {
+        Directory.CreateDirectory(uploadDir);
+    }
+
+    // 4. 生成安全的唯一檔名
+    string guidPart = Guid.NewGuid().ToString("N").Substring(0, 8);
+    string fileName = $"{DateTime.Now:yyyyMMdd_HHmmss}_{guidPart}{fileExtension}";
+    string filePath = Path.Combine(uploadDir, fileName);
+
+    // 5. 儲存檔案
+    uploadedFile.SaveAs(filePath);
+
+    // 6. 回傳網頁可存取的相對路徑
+    return $"uploads/images/{fileName}";
+}</code></pre>
+                        </div>
+                        <div class="alert alert-danger mt-2">
+                            <h6 class="alert-heading small"><i class="fa-solid fa-exclamation-triangle me-1"></i>檔案上傳安全要點</h6>
+                            <ul class="small mb-0">
+                                <li><strong>檔案類型驗證</strong> - 使用白名單，避免上傳可執行檔案</li>
+                                <li><strong>檔案大小限制</strong> - 防止大檔案攻擊</li>
+                                <li><strong>檔名重新命名</strong> - 避免檔名衝突和路徑穿越攻擊</li>
+                                <li><strong>目錄權限控制</strong> - 上傳目錄不應有執行權限</li>
+                                <li><strong>病毒掃描</strong> - 正式環境建議加入防毒檢查</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-cog me-2"></i>Web.config 檔案上傳設定</h5>
+                    
+                    <div class="bg-light p-3 rounded">
+                        <h6 class="mb-2">增加檔案上傳限制設定：</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>&lt;system.web&gt;
+  &lt;!-- 設定最大檔案上傳大小 (單位: KB) --&gt;
+  &lt;httpRuntime maxRequestLength="51200" executionTimeout="300" /&gt;
+&lt;/system.web&gt;
+
+&lt;system.webServer&gt;
+  &lt;security&gt;
+    &lt;requestFiltering&gt;
+      &lt;!-- IIS 層級的檔案大小限制 (單位: bytes) --&gt;
+      &lt;requestLimits maxAllowedContentLength="52428800" /&gt;
+    &lt;/requestFiltering&gt;
+  &lt;/security&gt;
+&lt;/system.webServer&gt;</code></pre>
+                        </div>
+                        <p class="small text-muted mt-2"><strong>說明：</strong>需要同時設定 ASP.NET 和 IIS 的檔案大小限制，兩者取較小值。</p>
+                    </div>
+                </div>
+
+                <div id="aspnet-json-processing" class="mb-4">
+                    <h4 class="text-dark">5.3 JSON 資料處理與儲存</h4>
+                    
+                    <div class="bg-light p-3 rounded mb-3">
+                        <h6 class="mb-2"><i class="fa-solid fa-save me-2"></i>JSON 檔案讀寫操作</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>private void SaveArticle(object newArticle)
+{
+    // 取得 JSON 檔案路徑
+    string jsonPath = Server.MapPath("~/App_Data/article.json");
+    List&lt;object&gt; articles = new List&lt;object&gt;();
+
+    // 讀取現有資料
+    if (File.Exists(jsonPath))
+    {
+        try
+        {
+            string existingJson = File.ReadAllText(jsonPath, Encoding.UTF8);
+            if (!string.IsNullOrWhiteSpace(existingJson))
+            {
+                articles = JsonConvert.DeserializeObject&lt;List&lt;object&gt;&gt;(existingJson) ?? new List&lt;object&gt;();
+            }
+        }
+        catch
+        {
+            // JSON 格式錯誤時建立新列表
+            articles = new List&lt;object&gt;();
+        }
+    }
+
+    // 新文章插入到列表開頭（最新的在前面）
+    articles.Insert(0, newArticle);
+
+    // 確保目錄存在
+    string appDataPath = Server.MapPath("~/App_Data/");
+    if (!Directory.Exists(appDataPath))
+    {
+        Directory.CreateDirectory(appDataPath);
+    }
+
+    // 儲存回 JSON 檔案（使用縮排格式便於閱讀）
+    string updatedJson = JsonConvert.SerializeObject(articles, Formatting.Indented);
+    File.WriteAllText(jsonPath, updatedJson, Encoding.UTF8);
+}</code></pre>
+                        </div>
+                        <div class="alert alert-info mt-2">
+                            <h6 class="alert-heading small"><i class="fa-solid fa-lightbulb me-1"></i>JSON 處理技巧</h6>
+                            <ul class="small mb-0">
+                                <li><strong>錯誤處理</strong> - JSON 格式錯誤時不影響程式運行</li>
+                                <li><strong>編碼一致性</strong> - 統一使用 UTF-8 避免亂碼</li>
+                                <li><strong>格式化輸出</strong> - Formatting.Indented 讓檔案易於閱讀</li>
+                                <li><strong>空值處理</strong> - 使用 null 條件運算子避免例外</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-tags me-2"></i>陣列資料處理範例</h5>
+                    
+                    <div class="bg-light p-3 rounded">
+                        <h6 class="mb-2">字串轉陣列的常用方法：</h6>
+                        <div class="code-container">
+                            <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                            <pre class="mb-0 small"><code>// 處理標籤字串，轉換為字串陣列
+string tagsString = Request.Form["tags"]?.Trim();
+string[] tagsArray = new string[0]; // 預設空陣列
+
+if (!string.IsNullOrWhiteSpace(tagsString))
+{
+    tagsArray = tagsString.Split(',')           // 用逗號分割
+        .Select(tag => tag.Trim())              // 去除每個標籤的空白
+        .Where(tag => !string.IsNullOrEmpty(tag)) // 過濾空字串
+        .ToArray();                             // 轉為陣列
+}
+
+// 在匿名物件中使用
+var article = new
+{
+    id = Guid.NewGuid().ToString(),
+    title = title,
+    tags = tagsArray,  // 陣列會自動序列化為 JSON 陣列
+    createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+};</code></pre>
+                        </div>
+                        <p class="small text-muted mt-2"><strong>提示：</strong>使用 LINQ 方法鏈可以讓資料處理更簡潔且可讀性更高。</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-success mt-4">
+                    <h6 class="alert-heading"><i class="fa-solid fa-graduation-cap me-2"></i>本章重點總結</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="small mb-1"><strong>API 開發要點：</strong></p>
+                            <ul class="small mb-2">
+                                <li>正確設定 Content-Type 和 CORS</li>
+                                <li>根據 HTTP 方法路由請求</li>
+                                <li>適當的錯誤處理和狀態碼</li>
+                                <li>支援多種資料格式輸入</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="small mb-1"><strong>安全性考量：</strong></p>
+                            <ul class="small mb-2">
+                                <li>檔案上傳類型和大小驗證</li>
+                                <li>輸入資料驗證和清理</li>
+                                <li>使用安全的檔名生成</li>
+                                <li>適當的錯誤訊息處理</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="small mb-0"><i class="fa-solid fa-star me-1"></i><strong>最佳實踐：</strong>這個範例展示了在 Web Forms 中實作現代化 API 的完整流程，包含資料驗證、檔案處理、錯誤處理等實務技巧。</p>
+                </div>
+            </section>
+
             <section id="aspnet-data" class="py-3">
-                <h2 class="text-primary fw-bold border-bottom pb-2 mb-3"><span class="badge bg-primary me-2">6</span>資料繫結與資料庫操作</h2>
+                <h2 class="text-primary fw-bold border-bottom pb-2 mb-3"><span class="badge bg-primary me-2">7</span>資料繫結與資料庫操作</h2>
                 <div id="aspnet-data-binding" class="mb-4">
                     <h4 class="text-dark">6.1 使用 SqlDataSource、GridView 顯示資料</h4>
                     
