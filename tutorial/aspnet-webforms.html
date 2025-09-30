@@ -4250,6 +4250,293 @@ var article = new
                     </div>
                 </div>
 
+                <div id="aspnet-api-summary" class="mb-4">
+                    <h4 class="text-dark">5.4 函數與用法總覽</h4>
+                    
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <h5 class="alert-heading"><i class="fa-solid fa-list me-2"></i>本章涵蓋的重要函數與技巧</h5>
+                        <p class="mb-0">以下表格整理了本章範例中使用的所有重要函數、方法和程式設計技巧，方便查閱和學習。</p>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-table me-2"></i>核心函數與方法總覽</h5>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th style="width: 20%;">分類</th>
+                                    <th style="width: 25%;">函數/方法</th>
+                                    <th style="width: 35%;">說明</th>
+                                    <th style="width: 20%;">使用範例</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- HTTP 處理相關 -->
+                                <tr class="table-warning">
+                                    <td rowspan="6"><strong>HTTP 處理</strong></td>
+                                    <td><code>Response.Clear()</code></td>
+                                    <td>清除預設 HTML 輸出，準備回傳自訂內容</td>
+                                    <td>API 端點必用</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Response.ContentType</code></td>
+                                    <td>設定回應內容類型</td>
+                                    <td><code>"application/json"</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Response.Headers.Add()</code></td>
+                                    <td>添加 HTTP 標頭（如 CORS）</td>
+                                    <td>跨域請求支援</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Request.HttpMethod</code></td>
+                                    <td>取得 HTTP 請求方法</td>
+                                    <td>GET, POST, OPTIONS</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Request.ContentType</code></td>
+                                    <td>檢查請求內容類型</td>
+                                    <td>區分表單或 JSON</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Response.StatusCode</code></td>
+                                    <td>設定 HTTP 狀態碼</td>
+                                    <td>200, 400, 404, 500</td>
+                                </tr>
+                                
+                                <!-- 路由與參數 -->
+                                <tr class="table-info">
+                                    <td rowspan="3"><strong>路由與參數</strong></td>
+                                    <td><code>Page.RouteData.Values</code></td>
+                                    <td>取得路由參數值</td>
+                                    <td><code>Values["url"]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Request.Form[]</code></td>
+                                    <td>取得表單提交的資料</td>
+                                    <td><code>Request.Form["title"]</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Request.InputStream</code></td>
+                                    <td>讀取 POST 請求的原始內容</td>
+                                    <td>JSON 資料解析</td>
+                                </tr>
+                                
+                                <!-- 檔案處理 -->
+                                <tr class="table-success">
+                                    <td rowspan="7"><strong>檔案處理</strong></td>
+                                    <td><code>Server.MapPath()</code></td>
+                                    <td>將虛擬路徑轉為實體路徑</td>
+                                    <td><code>~/App_Data/</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>File.Exists()</code></td>
+                                    <td>檢查檔案是否存在</td>
+                                    <td>避免 FileNotFoundException</td>
+                                </tr>
+                                <tr>
+                                    <td><code>File.ReadAllText()</code></td>
+                                    <td>讀取整個文字檔案</td>
+                                    <td>指定 UTF8 編碼</td>
+                                </tr>
+                                <tr>
+                                    <td><code>File.WriteAllText()</code></td>
+                                    <td>寫入文字到檔案</td>
+                                    <td>儲存 JSON 資料</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Directory.Exists()</code></td>
+                                    <td>檢查目錄是否存在</td>
+                                    <td>建立上傳目錄前檢查</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Directory.CreateDirectory()</code></td>
+                                    <td>建立目錄（包含父目錄）</td>
+                                    <td>自動建立上傳資料夾</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Path.GetExtension()</code></td>
+                                    <td>取得檔案副檔名</td>
+                                    <td>檔案類型驗證</td>
+                                </tr>
+                                
+                                <!-- JSON 處理 -->
+                                <tr class="table-primary">
+                                    <td rowspan="3"><strong>JSON 處理</strong></td>
+                                    <td><code>JsonConvert.SerializeObject()</code></td>
+                                    <td>物件序列化為 JSON 字串</td>
+                                    <td>Newtonsoft.Json 套件</td>
+                                </tr>
+                                <tr>
+                                    <td><code>JsonConvert.DeserializeObject()</code></td>
+                                    <td>JSON 字串反序列化為物件</td>
+                                    <td>支援 dynamic 類型</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Formatting.Indented</code></td>
+                                    <td>格式化 JSON 輸出</td>
+                                    <td>便於閱讀和偵錯</td>
+                                </tr>
+                                
+                                <!-- 字串處理 -->
+                                <tr class="table-secondary">
+                                    <td rowspan="5"><strong>字串處理</strong></td>
+                                    <td><code>string.IsNullOrWhiteSpace()</code></td>
+                                    <td>檢查字串是否為空或空白</td>
+                                    <td>輸入驗證必用</td>
+                                </tr>
+                                <tr>
+                                    <td><code>string.Trim()</code></td>
+                                    <td>移除字串前後空白</td>
+                                    <td>清理使用者輸入</td>
+                                </tr>
+                                <tr>
+                                    <td><code>string.Split()</code></td>
+                                    <td>分割字串為陣列</td>
+                                    <td>處理標籤列表</td>
+                                </tr>
+                                <tr>
+                                    <td><code>HttpUtility.UrlEncode()</code></td>
+                                    <td>URL 編碼字串</td>
+                                    <td>安全傳遞參數</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Guid.NewGuid()</code></td>
+                                    <td>產生唯一識別碼</td>
+                                    <td>檔名和 ID 生成</td>
+                                </tr>
+                                
+                                <!-- LINQ 方法 -->
+                                <tr class="table-warning">
+                                    <td rowspan="4"><strong>LINQ 方法</strong></td>
+                                    <td><code>.Select()</code></td>
+                                    <td>投影轉換每個元素</td>
+                                    <td>資料格式轉換</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.Where()</code></td>
+                                    <td>篩選符合條件的元素</td>
+                                    <td>過濾空字串</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.ToArray()</code></td>
+                                    <td>轉換為陣列</td>
+                                    <td>終止 LINQ 查詢</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.Contains()</code></td>
+                                    <td>檢查集合是否包含元素</td>
+                                    <td>檔案類型白名單檢查</td>
+                                </tr>
+                                
+                                <!-- 日期時間 -->
+                                <tr class="table-info">
+                                    <td rowspan="2"><strong>日期時間</strong></td>
+                                    <td><code>DateTime.Now</code></td>
+                                    <td>取得目前日期時間</td>
+                                    <td>記錄建立時間</td>
+                                </tr>
+                                <tr>
+                                    <td><code>DateTime.ToString()</code></td>
+                                    <td>格式化日期時間為字串</td>
+                                    <td><code>"yyyy-MM-dd HH:mm:ss"</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="text-success mt-4 mb-3"><i class="fa-solid fa-code me-2"></i>重要程式設計模式</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="fa-solid fa-pattern me-1"></i>匿名物件使用</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-2 small"><code>var newArticle = new
+{
+    id = Guid.NewGuid().ToString(),
+    title = title,
+    content = content,
+    tags = tagsArray,
+    createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+};</code></pre>
+                                    </div>
+                                    <p class="small mb-0"><strong>優點：</strong>無需定義類別即可建立結構化資料，適合 JSON 序列化。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="fa-solid fa-chain me-1"></i>LINQ 方法鏈</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-2 small"><code>tagsArray = tagsString.Split(',')
+    .Select(tag => tag.Trim())
+    .Where(tag => !string.IsNullOrEmpty(tag))
+    .ToArray();</code></pre>
+                                    </div>
+                                    <p class="small mb-0"><strong>優點：</strong>鏈式呼叫讓程式碼更簡潔、可讀性更高。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="fa-solid fa-shield me-1"></i>安全檔名生成</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-2 small"><code>string guidPart = Guid.NewGuid().ToString("N").Substring(0, 8);
+string fileName = $"{DateTime.Now:yyyyMMdd_HHmmss}_{guidPart}{fileExtension}";
+// 結果：20241001_143022_a1b2c3d4.jpg</code></pre>
+                                    </div>
+                                    <p class="small mb-0"><strong>優點：</strong>時間戳 + GUID 確保檔名唯一性和安全性。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="fa-solid fa-bug me-1"></i>異常處理模式</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="code-container">
+                                        <button class="copy-btn" onclick="copyCode(this)">複製</button>
+                                        <pre class="mb-2 small"><code>try
+{
+    // 主要邏輯
+}
+catch (JsonException)
+{
+    Response.StatusCode = 400;
+    Response.Write("{\"error\":\"JSON格式錯誤\"}");
+}
+catch (Exception ex)
+{
+    Response.StatusCode = 500;
+    Response.Write($"{{\"error\":\"{ex.Message}\"}}");
+}</code></pre>
+                                    </div>
+                                    <p class="small mb-0"><strong>優點：</strong>分層異常處理，不同錯誤回傳適當狀態碼。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="alert alert-success mt-4">
                     <h6 class="alert-heading"><i class="fa-solid fa-graduation-cap me-2"></i>本章重點總結</h6>
                     <div class="row">
